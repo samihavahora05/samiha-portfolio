@@ -369,7 +369,7 @@
   }
 
   /* ----------------------------------------------------
-     7. INTERACTIVE CONTACT FORM SUBMIT SIMULATION
+     7. CONTACT FORM EMAIL DISPATCHER
   ---------------------------------------------------- */
   function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -381,27 +381,49 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      const name = document.getElementById('form-name')?.value || 'Friend';
+      const name = document.getElementById('form-name')?.value || '';
+      const email = document.getElementById('form-email')?.value || '';
+      const subject = document.getElementById('form-subject')?.value || 'Portfolio Contact';
+      const message = document.getElementById('form-message')?.value || '';
+
       const originalText = submitBtn.innerHTML;
-
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Sending Message...</span>';
+      submitBtn.innerHTML = '<span>Preparing Email...</span>';
 
+      // Build complete formatted email body with all visitor info
+      const fullSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject}`);
+      const fullBody = encodeURIComponent(
+        `Hello Samiha,\n\n` +
+        `You received a new message from your portfolio website:\n\n` +
+        `----------------------------------------\n` +
+        `Name: ${name}\n` +
+        `Email: ${email}\n` +
+        `Subject: ${subject}\n` +
+        `----------------------------------------\n\n` +
+        `Message:\n${message}\n\n` +
+        `----------------------------------------`
+      );
+
+      // Trigger direct mailto delivery to samihavahora71@gmail.com
+      const mailtoUrl = `mailto:samihavahora71@gmail.com?subject=${fullSubject}&body=${fullBody}`;
+      
       setTimeout(() => {
-        form.reset();
+        window.location.href = mailtoUrl;
+
         submitBtn.disabled = false;
         submitBtn.innerHTML = originalText;
+        form.reset();
 
         if (formToast) {
-          formToast.textContent = `Thank you, ${name}! Your message has been prepared. You can also reach me directly at samihavahora71@gmail.com.`;
+          formToast.textContent = `Opening your email client to send your message to samihavahora71@gmail.com!`;
           formToast.className = 'form-feedback-toast success';
           formToast.style.display = 'block';
 
           setTimeout(() => {
             formToast.style.display = 'none';
-          }, 6000);
+          }, 8000);
         }
-      }, 1000);
+      }, 500);
     });
   }
 
