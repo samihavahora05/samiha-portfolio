@@ -102,93 +102,27 @@ ul {
 }
 
 /* ==========================================================================
-   Three.js 3D WebGL Aurora Background Layer
+   Clean Ambient Lighting (Static & Subtle)
    ========================================================================== */
 
-#webgl-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.95;
-  transition: opacity 1s ease;
-}
-
-/* Ambient Radial Mesh Lighting */
 .aurora-ambient-bg {
   position: fixed;
   inset: 0;
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 85% 20%, rgba(6, 182, 212, 0.05), transparent),
+    radial-gradient(ellipse 50% 30% at 15% 60%, rgba(244, 63, 94, 0.04), transparent);
 }
 
 .aurora-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.38;
-  animation: floatOrb 18s ease-in-out infinite alternate;
-}
-
-.orb-indigo {
-  width: 650px;
-  height: 650px;
-  background: radial-gradient(circle, #6366f1 0%, rgba(99, 102, 241, 0) 70%);
-  top: -150px;
-  left: 10%;
-  animation-duration: 16s;
-}
-
-.orb-cyan {
-  width: 550px;
-  height: 550px;
-  background: radial-gradient(circle, #06b6d4 0%, rgba(6, 182, 212, 0) 70%);
-  top: 30%;
-  right: -100px;
-  animation-duration: 20s;
-  animation-delay: -5s;
-}
-
-.orb-rose {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, #f43f5e 0%, rgba(244, 63, 94, 0) 70%);
-  bottom: 10%;
-  left: 5%;
-  animation-duration: 22s;
-  animation-delay: -10s;
-}
-
-.orb-violet {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #a855f7 0%, rgba(168, 85, 247, 0) 70%);
-  top: 60%;
-  right: 20%;
-  animation-duration: 24s;
-  animation-delay: -8s;
+  display: none;
 }
 
 .grid-subtle-overlay {
-  position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
-  opacity: 0.6;
-}
-
-@keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(60px, 40px) scale(1.08); }
-  100% { transform: translate(-40px, 80px) scale(0.95); }
+  display: none;
 }
 
 /* ==========================================================================
