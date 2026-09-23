@@ -3,146 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samiha Vahora — Full Stack Developer &amp; Software Engineer</title>
-  <meta name="description" content="Portfolio of Samiha Vahora — Full Stack Developer & Software Engineer building scalable web systems (React, Laravel), mobile apps (Flutter, Kotlin) and edge AI/ML (YOLOv8, TensorFlow Lite)." />
+  <title>Samiha Vahora — Full Stack &amp; AI/ML Engineer</title>
+  <meta name="description" content="Portfolio of Samiha Vahora — Full Stack Developer & AI/ML Engineer specializing in React, Next.js, Node.js, Laravel, Flutter, and edge computer vision." />
 
   <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Three.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-<body>
+<body class="light-theme">
 
-  <!-- 3D Bioluminescent Quantum Swarm Canvas Layer -->
+  <!-- 3D WebGL Aurora Fluid Swarm Canvas Background -->
   <div id="webgl-container"></div>
 
-  <!-- Ambient Backdrop Lighting -->
-  <div class="ambient-lighting">
-    <div class="ambient-glow-core"></div>
+  <!-- Dynamic Aurora Ambient Mesh Lighting -->
+  <div class="aurora-ambient-bg" aria-hidden="true">
+    <div class="aurora-orb orb-indigo"></div>
+    <div class="aurora-orb orb-cyan"></div>
+    <div class="aurora-orb orb-rose"></div>
+    <div class="aurora-orb orb-violet"></div>
+    <div class="grid-subtle-overlay"></div>
   </div>
 
-  <!-- Floating Glass Navbar (Matching Reference) -->
-  <header class="ref-navbar" id="navbar">
-    <a class="nav-user-brand" href="#hero">
-      <div class="user-avatar-badge">S</div>
-      <div class="user-meta-names">
-        <span class="brand-name">Samiha Vahora</span>
-        <span class="brand-role"><span class="green-dot"></span>Full-Stack Developer</span>
-      </div>
-    </a>
-
-    <ul class="nav-center-menu">
-      <li>
-        <a class="nav-link-btn active" href="#hero">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-link-btn" href="#about">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <span>About</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-link-btn" href="#education">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
-            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
-          </svg>
-          <span>Education</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-link-btn" href="#work">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-          <span>Projects</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-link-btn" href="#stack">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-          <span>Skills</span>
-        </a>
-      </li>
-      <li>
-        <a class="nav-link-btn" href="#contact">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="22" y1="2" x2="11" y2="13"></line>
-            <polygon points="22 2 15 22 11 13 2 9 22 2"></polyline>
-          </svg>
-          <span>Contact</span>
-        </a>
-      </li>
-    </ul>
-
-    <div class="nav-right-actions">
-      <a class="btn-nav-resume" href="resume.pdf" download="Samiha-Vahora-Resume.pdf" title="Download Resume (PDF)">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        <span>Resume</span>
+  <!-- Floating Crystalline Glass Navbar -->
+  <header class="glass-navbar" id="navbar">
+    <div class="nav-inner-container">
+      <a class="nav-brand-group" href="#hero" aria-label="Samiha Vahora Home">
+        <div class="brand-avatar-badge">
+          <span>SV</span>
+          <div class="avatar-pulse-ring"></div>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-title">Samiha Vahora</span>
+          <span class="brand-subtitle"><span class="live-dot"></span>Full-Stack &amp; AI</span>
+        </div>
       </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Main Navigation">
+        <ul class="nav-pill-list">
+          <li>
+            <a class="nav-link active" href="#hero">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              <span>Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#experience">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              <span>Experience</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#projects">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#skills">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              <span>Skills</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#education">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+              <span>Education</span>
+            </a>
+          </li>
+          <li>
+            <a class="nav-link" href="#contact">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <span>Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions-group">
+        <a class="btn-resume-glow" href="resume.pdf" download="Samiha-Vahora-Resume.pdf" title="Download Resume PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Resume</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Page Content Container -->
-  <main class="page-wrapper">
+  <!-- Main Content Layout -->
+  <main class="page-container">
 
-    <!-- ==================== HERO SECTION (REFERENCE MATCH) ==================== -->
-    <header class="ref-hero-section" id="hero">
-      <div class="hero-3col-grid">
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-grid">
         
-        <!-- Left Column: Identity & Actions -->
-        <div class="hero-left-intro">
-          <div class="pill-availability">
-            <span class="avail-dot"></span>
-            <span>Available for internships &amp; entry-level roles</span>
+        <!-- Left: Hero Headline & CTA -->
+        <div class="hero-copy-column">
+          <div class="badge-status-pill">
+            <span class="status-indicator-dot"></span>
+            <span>Available for SDE Roles &amp; Internships</span>
+            <span class="sparkle-icon">✦</span>
           </div>
 
-          <h1 class="hero-h1-title">
-            Hi, I'm <span class="name-highlight">Samiha Vahora</span>
+          <h1 class="hero-title">
+            Crafting Scalable <span class="gradient-text-flow">Full-Stack</span> Systems &amp; <span class="gradient-text-accent">AI</span> Products.
           </h1>
 
-          <div class="hero-role-h2">
-            Software Engineer
-          </div>
-
-          <p class="hero-summary-copy">
-            Final-year B.Tech Computer Science student specializing in Full Stack Web Development &amp; AI/ML. Hands-on experience shipping production software at BLUEBOXX DA Pvt Ltd and building AI-powered platforms.
+          <p class="hero-subtitle">
+            Hi, I'm <strong class="name-bold">Samiha Vahora</strong> — a Final-Year Computer Science Engineer specializing in Full Stack Web Development and AI/ML Engineering. Experienced in shipping production applications at <strong class="text-highlight">BLUEBOXX DA</strong> and building real-time edge AI platforms.
           </p>
 
-          <div class="hero-buttons-row">
-            <a class="btn-white-pill" href="#work">
-              <span>View Projects</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <div class="hero-cta-group">
+            <a class="btn-primary-aurora" href="#projects">
+              <span>Explore Projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
 
-            <a class="btn-ghost-pill" href="resume.pdf" download="Samiha-Vahora-Resume.pdf">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a class="btn-secondary-glass" href="resume.pdf" download="Samiha-Vahora-Resume.pdf">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -151,594 +140,841 @@
             </a>
           </div>
 
-          <div class="hero-social-icons-row">
-            <a class="social-circle-btn" href="https://github.com/samihavahora05" target="_blank" rel="noopener" aria-label="GitHub Profile">
+          <!-- Social Links & Quick Contact -->
+          <div class="hero-social-row">
+            <a class="social-icon-btn" href="https://github.com/samihavahora05" target="_blank" rel="noopener" aria-label="GitHub Profile">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
               </svg>
             </a>
-
-            <a class="social-circle-btn" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+            <a class="social-icon-btn" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </a>
-
-            <a class="social-circle-btn" href="mailto:samihavahora71@gmail.com" aria-label="Email Samiha">
+            <button class="social-icon-btn copy-email-btn" id="copy-email-btn" aria-label="Copy Email" data-email="samihavahora71@gmail.com">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-            </a>
+              <span class="copy-tooltip">Click to Copy</span>
+            </button>
+            <div class="location-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Vadodara, India</span>
+            </div>
+          </div>
+
+          <!-- Live Metrics Strip -->
+          <div class="hero-stats-deck">
+            <div class="hero-stat-card">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Production &amp; AI Builds</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-number">8.43</div>
+              <div class="stat-label">B.Tech CGPA</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="stat-number">8×</div>
+              <div class="stat-label">Google Skill Badges</div>
+            </div>
           </div>
         </div>
 
-        <!-- Center Column: 3D Swarm Area Spacer (Swarm renders in WebGL canvas here) -->
-        <div class="hero-center-swarm-spacer"></div>
+        <!-- Right: Interactive 3D Holographic Code Card -->
+        <div class="hero-visual-column">
+          <div class="tilt-card-wrapper" id="hero-code-card">
+            <div class="code-console-card">
+              <div class="console-top-bar">
+                <div class="traffic-lights">
+                  <span class="light red"></span>
+                  <span class="light yellow"></span>
+                  <span class="light green"></span>
+                </div>
+                <!-- Interactive Tab Switcher -->
+                <div class="console-tabs-nav">
+                  <button class="console-tab active" data-tab="insurmatch">InsurMatch.ts</button>
+                  <button class="console-tab" data-tab="ai-scanner">YOLOv8Scanner.kt</button>
+                  <button class="console-tab" data-tab="hrms">HRMS_Service.php</button>
+                </div>
+                <div class="console-badge-lang">TypeScript</div>
+              </div>
 
-        <!-- Right Column: Floating 3D Code Card (Exact Reference Match) -->
-        <div class="hero-right-code-card">
-          <div class="card-corner-accent top-right"></div>
-          <div class="card-corner-accent bottom-left"></div>
+              <!-- Tab 1: InsurMatch.ts -->
+              <div class="console-body active" id="tab-insurmatch">
+                <pre class="code-block"><code><span class="c-comment">// InsurMatch — AI Matchmaking with pgvector</span>
+<span class="c-keyword">import</span> { <span class="c-def">createClient</span> } <span class="c-keyword">from</span> <span class="c-str">'@supabase/supabase-js'</span>;
+<span class="c-keyword">import</span> { <span class="c-def">generateEmbedding</span> } <span class="c-keyword">from</span> <span class="c-str">'@/lib/ai'</span>;
 
-          <div><span class="syn-kw">const</span> developer = {</div>
-          <div style="padding-left: 18px;">
-            <div><span class="syn-prop">name:</span> <span class="syn-str">'Samiha Vahora'</span>,</div>
-            <div><span class="syn-prop">focus:</span> [</div>
-            <div style="padding-left: 18px;">
-              <span class="syn-str">'Full-stack systems'</span>,<br />
-              <span class="syn-str">'On-device AI pipelines'</span>,<br />
-              <span class="syn-str">'Cross-platform mobile apps'</span>,<br />
-              <span class="syn-str">'Scalable APIs &amp; databases'</span>
+<span class="c-keyword">export async function</span> <span class="c-func">matchInsuranceAgents</span>(<span class="c-var">userQuery</span>: <span class="c-type">string</span>) {
+  <span class="c-keyword">const</span> <span class="c-var">queryVector</span> = <span class="c-keyword">await</span> <span class="c-func">generateEmbedding</span>(<span class="c-var">userQuery</span>);
+  
+  <span class="c-keyword">const</span> { <span class="c-var">data</span>: <span class="c-var">agents</span>, <span class="c-var">error</span> } = <span class="c-keyword">await</span> <span class="c-var">supabase</span>
+    .<span class="c-func">rpc</span>(<span class="c-str">'match_agent_profiles'</span>, {
+      <span class="c-prop">query_embedding</span>: <span class="c-var">queryVector</span>,
+      <span class="c-prop">similarity_threshold</span>: <span class="c-num">0.78</span>,
+      <span class="c-prop">match_count</span>: <span class="c-num">5</span>
+    });
+
+  <span class="c-keyword">return</span> <span class="c-var">agents</span> ?? <span class="c-func">fallbackKeywordMatch</span>(<span class="c-var">userQuery</span>);
+}</code></pre>
+              </div>
+
+              <!-- Tab 2: YOLOv8Scanner.kt -->
+              <div class="console-body" id="tab-ai-scanner">
+                <pre class="code-block"><code><span class="c-comment">// On-Device AI Product Scanner (Kotlin + TFLite)</span>
+<span class="c-keyword">class</span> <span class="c-def">YOLOv8Detector</span>(<span class="c-keyword">private val</span> <span class="c-var">context</span>: Context) {
+  <span class="c-keyword">private var</span> <span class="c-var">interpreter</span>: Interpreter? = <span class="c-keyword">null</span>
+
+  <span class="c-keyword">fun</span> <span class="c-func">detectFrame</span>(<span class="c-var">bitmap</span>: Bitmap): List&lt;Detection&gt; {
+    <span class="c-keyword">val</span> <span class="c-var">inputTensor</span> = ImageProcessor.process(<span class="c-var">bitmap</span>)
+    <span class="c-keyword">val</span> <span class="c-var">outputLocations</span> = Array(1) { Array(84) { FloatArray(8400) } }
+    
+    <span class="c-var">interpreter</span>?.<span class="c-func">run</span>(<span class="c-var">inputTensor</span>.buffer, <span class="c-var">outputLocations</span>)
+    <span class="c-keyword">return</span> <span class="c-func">nonMaxSuppression</span>(<span class="c-var">outputLocations</span>, threshold = <span class="c-num">0.65f</span>)
+  }
+}</code></pre>
+              </div>
+
+              <!-- Tab 3: HRMS_Service.php -->
+              <div class="console-body" id="tab-hrms">
+                <pre class="code-block"><code><span class="c-comment">// Production HR Management System (BLUEBOXX DA)</span>
+<span class="c-keyword">class</span> <span class="c-def">HRMSService</span> {
+  <span class="c-keyword">public function</span> <span class="c-func">dispatchOrgMetrics</span>(<span class="c-var">$adminId</span>) {
+    <span class="c-var">$metrics</span> = Cache::<span class="c-func">remember</span>(<span class="c-str">'org_kpi'</span>, <span class="c-num">3600</span>, <span class="c-keyword">function</span>() {
+      <span class="c-keyword">return</span> Department::<span class="c-func">with</span>([<span class="c-str">'employees'</span>, <span class="c-str">'tasks'</span>])
+        -&gt;<span class="c-func">where</span>(<span class="c-str">'status'</span>, <span class="c-str">'active'</span>)
+        -&gt;<span class="c-func">get</span>();
+    });
+    <span class="c-keyword">return</span> <span class="c-func">response</span>()-&gt;<span class="c-func">json</span>([<span class="c-str">'status'</span> =&gt; <span class="c-str">'ok'</span>, <span class="c-str">'data'</span> =&gt; <span class="c-var">$metrics</span>]);
+  }
+}</code></pre>
+              </div>
+
+              <div class="console-footer-status">
+                <div class="status-left">
+                  <span class="dot-green"></span>
+                  <span>Compiled &amp; Ready • 60 FPS Swarm Active</span>
+                </div>
+                <div class="status-right">UTF-8</div>
+              </div>
             </div>
-            <div>],</div>
-            <div><span class="syn-prop">stack:</span> [</div>
-            <div style="padding-left: 18px;">
-              <span class="syn-str">'React.js / Laravel'</span>,<br />
-              <span class="syn-str">'Flutter / Kotlin'</span>,<br />
-              <span class="syn-str">'Node.js &amp; Express'</span>,<br />
-              <span class="syn-str">'YOLOv8 / TensorFlow Lite'</span>,<br />
-              <span class="syn-str">'MySQL / Firebase'</span>
+
+            <!-- Floating Micro Accent Badges -->
+            <div class="floating-accent-badge top-left-float">
+              <span class="badge-icon">⚡</span>
+              <span>pgvector Cosine Search</span>
             </div>
-            <div>],</div>
-            <div><span class="syn-prop">principle:</span> <span class="syn-val">'Build reliable systems that turn complex ideas into production-ready software.'</span></div>
+            <div class="floating-accent-badge bottom-right-float">
+              <span class="badge-icon">🤖</span>
+              <span>YOLOv8 Edge AI</span>
+            </div>
           </div>
-          <div>};</div>
         </div>
 
       </div>
-    </header>
+    </section>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section id="about">
-      <div class="sec-head-luxury">
-        <span class="sec-badge-num">01</span>
-        <h2 class="sec-title-luxury">About <span>Me</span></h2>
-        <div class="sec-rule-luxury"></div>
+    <!-- ==================== EXPERIENCE SECTION (SPOTLIGHT) ==================== -->
+    <section class="section-container" id="experience">
+      <div class="section-header-modern">
+        <div class="section-tag-pill">
+          <span>01</span>
+          <span class="divider">/</span>
+          <span>WORK EXPERIENCE</span>
+        </div>
+        <h2 class="section-heading">
+          Industry <span class="gradient-text-flow">Experience</span> &amp; Impact
+        </h2>
+        <p class="section-subtext">Building, scaling, and maintaining production applications for enterprise users.</p>
       </div>
 
-      <div class="about-grid-lux">
-        <div class="lux-card about-profile-lux">
-          <div class="avatar-large-circle">SV</div>
-          <h3 class="about-name-h3">Samiha Vahora</h3>
-          <p class="about-role-p">Full Stack &amp; Mobile Engineer</p>
+      <div class="experience-card-featured">
+        <div class="exp-card-header">
+          <div class="exp-company-block">
+            <div class="company-logo-avatar">
+              <span>BX</span>
+            </div>
+            <div class="company-text-meta">
+              <h3 class="exp-role-title">Full Stack Web Development Intern</h3>
+              <div class="company-name-location">
+                <span class="c-name">BLUEBOXX DA Pvt Ltd</span>
+                <span class="c-dot">•</span>
+                <span class="c-type">Internship</span>
+                <span class="c-dot">•</span>
+                <span class="c-live-badge"><span class="pulse-emerald"></span>Production Active</span>
+              </div>
+            </div>
+          </div>
+          <div class="exp-period-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Current / Ongoing</span>
+          </div>
+        </div>
 
-          <div class="about-specs-list">
-            <div class="about-spec-row">
-              <span class="k">Discipline</span>
-              <span class="v">Full Stack + AI/ML</span>
+        <div class="exp-deliverables-grid">
+          <div class="deliverable-item">
+            <div class="item-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
-            <div class="about-spec-row">
-              <span class="k">Based In</span>
-              <span class="v">Vadodara, Gujarat</span>
+            <div class="item-content">
+              <div class="item-title-row">
+                <h4>HR Management System (HRMS)</h4>
+                <a class="badge-link" href="https://hrms.blueboxx.in" target="_blank" rel="noopener">hrms.blueboxx.in ↗</a>
+              </div>
+              <p>Built the company's HRMS end-to-end as a fully working production app with 4 role-based dashboards (Admin, HR, Manager, Employee), org metrics, audit trail, leave/task workflows, and live push notifications.</p>
             </div>
-            <div class="about-spec-row">
-              <span class="k">Status</span>
-              <span class="v">Final-Year B.Tech</span>
+          </div>
+
+          <div class="deliverable-item">
+            <div class="item-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             </div>
-            <div class="about-spec-row">
-              <span class="k">Contact</span>
-              <span class="v">samihavahora71@gmail.com</span>
+            <div class="item-content">
+              <div class="item-title-row">
+                <h4>Official Company Website</h4>
+                <span class="badge-ownership">Core Owner</span>
+              </div>
+              <p>Independently developed BLUEBOXX DA's official web presence from scratch (both frontend UI &amp; backend services), continuously driving updates and performance optimizations as the primary maintainer.</p>
+            </div>
+          </div>
+
+          <div class="deliverable-item">
+            <div class="item-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </div>
+            <div class="item-content">
+              <div class="item-title-row">
+                <h4>IT Training Platform</h4>
+                <span class="badge-skill">Full Frontend</span>
+              </div>
+              <p>Engineered comprehensive frontend interfaces for student courses, internships, job boards, and 1-on-1 mentorship portals with fluid animations and responsive component architecture.</p>
+            </div>
+          </div>
+
+          <div class="deliverable-item">
+            <div class="item-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <div class="item-content">
+              <div class="item-title-row">
+                <h4>US Market Outreach &amp; White-Label</h4>
+                <span class="badge-collab">Cross-Team</span>
+              </div>
+              <p>Collaborated closely with engineering and growth teams to prepare white-label deliverables and tailored client solutions for international US market expansion.</p>
             </div>
           </div>
         </div>
 
-        <div class="lux-card about-content-lux">
-          <div class="about-statement">
-            "Engineering robust software from <span>concept</span> to <span>production deployment</span>."
-          </div>
-          <p class="about-para">
-            I am a final-year B.Tech Computer Science student specializing in building high-performance web applications, cross-platform mobile apps, and integrating edge AI solutions.
-          </p>
-          <p class="about-para">
-            My development experience spans creating secure multi-tier e-commerce architectures in Laravel with Razorpay payment integrations, building intuitive Flutter apps with live GPS and weather APIs, and running lightweight YOLOv8 Nano models on Android devices via TensorFlow Lite without requiring network connectivity.
-          </p>
-
-          <div class="about-stat-strip">
-            <div class="stat-box-lux">
-              <div class="num">4+</div>
-              <div class="lbl">Shipped Builds</div>
-            </div>
-            <div class="stat-box-lux">
-              <div class="num">8.43</div>
-              <div class="lbl">B.Tech CGPA</div>
-            </div>
-            <div class="stat-box-lux">
-              <div class="num">8×</div>
-              <div class="lbl">Google Badges</div>
-            </div>
+        <div class="exp-tech-stack-row">
+          <span class="label">Technologies Used:</span>
+          <div class="tech-pill-list">
+            <span class="tech-pill">React.js</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">Express.js</span>
+            <span class="tech-pill">PHP / Laravel</span>
+            <span class="tech-pill">MySQL</span>
+            <span class="tech-pill">REST APIs</span>
+            <span class="tech-pill">Tailwind CSS</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ==================== SKILLS / STACK SECTION ==================== -->
-    <section id="stack">
-      <div class="sec-head-luxury">
-        <span class="sec-badge-num">02</span>
-        <h2 class="sec-title-luxury">Technology <span>Stack</span></h2>
-        <div class="sec-rule-luxury"></div>
+    <!-- ==================== FEATURED PROJECTS SECTION ==================== -->
+    <section class="section-container" id="projects">
+      <div class="section-header-modern">
+        <div class="section-tag-pill">
+          <span>02</span>
+          <span class="divider">/</span>
+          <span>PORTFOLIO</span>
+        </div>
+        <h2 class="section-heading">
+          Featured <span class="gradient-text-flow">Projects</span>
+        </h2>
+        <p class="section-subtext">Selected engineering projects spanning web systems, edge AI inference, and cross-platform apps.</p>
       </div>
 
-      <div class="skills-grid-lux">
-        <!-- MOD.A: Frontend -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-              </svg>
-            </div>
-            <span class="skill-mod-text">MOD.A</span>
-          </div>
-          <h3 class="skill-box-name">Frontend</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">React.js</span>
-            <span class="skill-tag-pill">JavaScript (ES6+)</span>
-            <span class="skill-tag-pill">HTML5</span>
-            <span class="skill-tag-pill">CSS3</span>
-            <span class="skill-tag-pill">Bootstrap</span>
-            <span class="skill-tag-pill">Flutter (Dart)</span>
-          </div>
-        </div>
+      <!-- Filter Controls -->
+      <div class="projects-filter-bar">
+        <button class="filter-tab-btn active" data-filter="all">All Projects (5)</button>
+        <button class="filter-tab-btn" data-filter="ai">AI / ML &amp; Computer Vision</button>
+        <button class="filter-tab-btn" data-filter="web">Full-Stack Web</button>
+        <button class="filter-tab-btn" data-filter="mobile">Mobile Apps</button>
+      </div>
 
-        <!-- MOD.B: Backend -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                <line x1="6" y1="18" x2="6.01" y2="18"></line>
-              </svg>
-            </div>
-            <span class="skill-mod-text">MOD.B</span>
-          </div>
-          <h3 class="skill-box-name">Backend</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">Node.js</span>
-            <span class="skill-tag-pill">Express.js</span>
-            <span class="skill-tag-pill">PHP</span>
-            <span class="skill-tag-pill">Laravel</span>
-            <span class="skill-tag-pill">REST APIs</span>
-            <span class="skill-tag-pill">Axios</span>
-          </div>
-        </div>
+      <div class="projects-grid" id="projects-container">
 
-        <!-- MOD.C: Data -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-              </svg>
+        <!-- PROJECT 1: InsurMatch -->
+        <article class="project-glass-card" data-category="ai web">
+          <div class="card-inner-flex">
+            <div class="card-top-meta">
+              <div class="category-tag-pill tag-ai">
+                <span class="tag-spark">✦</span>
+                <span>AI MATCHMAKING</span>
+              </div>
+              <span class="project-year">2026</span>
             </div>
-            <span class="skill-mod-text">MOD.C</span>
-          </div>
-          <h3 class="skill-box-name">Data</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">MySQL</span>
-            <span class="skill-tag-pill">SQLite</span>
-            <span class="skill-tag-pill">Firebase</span>
-          </div>
-        </div>
 
-        <!-- MOD.D: AI / ML -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
-                <path d="M12 2a10 10 0 0 1 10 10"></path>
-                <circle cx="12" cy="12" r="6"></circle>
-              </svg>
-            </div>
-            <span class="skill-mod-text">MOD.D</span>
-          </div>
-          <h3 class="skill-box-name">AI / ML</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">YOLOv8</span>
-            <span class="skill-tag-pill">TensorFlow Lite</span>
-            <span class="skill-tag-pill">Scikit-learn</span>
-            <span class="skill-tag-pill">TensorFlow</span>
-          </div>
-        </div>
+            <h3 class="project-title">InsurMatch — AI Insurance Agent Matchmaker</h3>
+            <p class="project-desc">
+              A modern full-stack platform matching clients with insurance advisors using <strong class="text-dark">pgvector cosine similarity</strong> over query embeddings. Features graceful fallback to client-side keyword matching, Supabase Auth with RLS, and Docker containerization.
+            </p>
 
-        <!-- MOD.E: Languages -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6"></polyline>
-                <polyline points="8 6 2 12 8 18"></polyline>
-              </svg>
+            <div class="project-highlights">
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Semantic vector search over multi-attribute agent profiles</span>
+              </div>
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Dual client/agent portals with consultation scheduling</span>
+              </div>
             </div>
-            <span class="skill-mod-text">MOD.E</span>
-          </div>
-          <h3 class="skill-box-name">Languages</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">JavaScript</span>
-            <span class="skill-tag-pill">Python</span>
-            <span class="skill-tag-pill">PHP</span>
-            <span class="skill-tag-pill">Kotlin</span>
-            <span class="skill-tag-pill">Java</span>
-            <span class="skill-tag-pill">Dart</span>
-          </div>
-        </div>
 
-        <!-- MOD.F: Tools -->
-        <div class="lux-card skill-box-lux">
-          <div class="skill-box-head">
-            <div class="skill-icon-wrap">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-              </svg>
+            <div class="project-tech-badges">
+              <span class="badge-item">Next.js</span>
+              <span class="badge-item">TypeScript</span>
+              <span class="badge-item">PostgreSQL (pgvector)</span>
+              <span class="badge-item">Supabase Auth</span>
+              <span class="badge-item">Docker</span>
             </div>
-            <span class="skill-mod-text">MOD.F</span>
+
+            <div class="project-card-footer">
+              <a class="btn-project-link" href="https://github.com/samihavahora05/insurmatch" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
           </div>
-          <h3 class="skill-box-name">Tools</h3>
-          <div class="skill-tags-cloud">
-            <span class="skill-tag-pill">Razorpay API</span>
-            <span class="skill-tag-pill">Jetpack Compose</span>
-            <span class="skill-tag-pill">Android Studio</span>
-            <span class="skill-tag-pill">Git</span>
-            <span class="skill-tag-pill">VS Code</span>
+        </article>
+
+        <!-- PROJECT 2: Object Detection Android App -->
+        <article class="project-glass-card" data-category="ai mobile">
+          <div class="card-inner-flex">
+            <div class="card-top-meta">
+              <div class="category-tag-pill tag-mobile">
+                <span class="tag-spark">⚡</span>
+                <span>ON-DEVICE AI</span>
+              </div>
+              <span class="project-year">2025</span>
+            </div>
+
+            <h3 class="project-title">Object Detection &amp; Food Scanner</h3>
+            <p class="project-desc">
+              Native Android app running <strong class="text-dark">YOLOv8 Nano</strong> on-device via TensorFlow Lite for instant computer vision inference without requiring an internet connection. Includes an AI product scanner reading packaged items and ingredient details.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Sub-50ms live camera bounding box inference</span>
+              </div>
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Jetpack Compose UI with model quantization pipeline</span>
+              </div>
+            </div>
+
+            <div class="project-tech-badges">
+              <span class="badge-item">Kotlin</span>
+              <span class="badge-item">YOLOv8 Nano</span>
+              <span class="badge-item">TensorFlow Lite</span>
+              <span class="badge-item">Jetpack Compose</span>
+              <span class="badge-item">CameraX</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a class="btn-project-link" href="https://github.com/samihavahora05/ObjectDetection" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
           </div>
-        </div>
+        </article>
+
+        <!-- PROJECT 3: MedTrip -->
+        <article class="project-glass-card" data-category="web">
+          <div class="card-inner-flex">
+            <div class="card-top-meta">
+              <div class="category-tag-pill tag-web">
+                <span class="tag-spark">🛒</span>
+                <span>E-COMMERCE</span>
+              </div>
+              <span class="project-year">2024</span>
+            </div>
+
+            <h3 class="project-title">MedTrip — Online Medicine Store</h3>
+            <p class="project-desc">
+              Full-featured online pharmacy platform with user authentication, prescription uploads, searchable medicine catalog, shopping cart, and Razorpay payment gateway integration for secure transaction processing.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Automated inventory tracking and order status dashboard</span>
+              </div>
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Razorpay webhooks &amp; invoice generation</span>
+              </div>
+            </div>
+
+            <div class="project-tech-badges">
+              <span class="badge-item">Laravel</span>
+              <span class="badge-item">PHP</span>
+              <span class="badge-item">MySQL</span>
+              <span class="badge-item">Razorpay API</span>
+              <span class="badge-item">Bootstrap</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a class="btn-project-link" href="https://github.com/samihavahora05/medtrip" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 4: Aura Weather -->
+        <article class="project-glass-card" data-category="mobile">
+          <div class="card-inner-flex">
+            <div class="card-top-meta">
+              <div class="category-tag-pill tag-mobile">
+                <span class="tag-spark">🌤️</span>
+                <span>CROSS-PLATFORM</span>
+              </div>
+              <span class="project-year">2024</span>
+            </div>
+
+            <h3 class="project-title">Aura Weather Application</h3>
+            <p class="project-desc">
+              Cross-platform Flutter application providing real-time meteorological forecasts via Open-Meteo API, dynamic radar weather maps with Google Maps integration, and intelligent geocoding for cities worldwide.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>GPS geolocation with 7-day hourly precipitation models</span>
+              </div>
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Smooth animated weather condition illustrations &amp; dark mode</span>
+              </div>
+            </div>
+
+            <div class="project-tech-badges">
+              <span class="badge-item">Flutter</span>
+              <span class="badge-item">Dart</span>
+              <span class="badge-item">Google Maps API</span>
+              <span class="badge-item">Open-Meteo API</span>
+              <span class="badge-item">Bloc/Provider</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a class="btn-project-link" href="https://github.com/samihavahora05/aura-weather" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 5: Expense Tracker -->
+        <article class="project-glass-card" data-category="mobile">
+          <div class="card-inner-flex">
+            <div class="card-top-meta">
+              <div class="category-tag-pill tag-web">
+                <span class="tag-spark">📊</span>
+                <span>PERSONAL FINANCE</span>
+              </div>
+              <span class="project-year">2023</span>
+            </div>
+
+            <h3 class="project-title">Smart Expense Tracker</h3>
+            <p class="project-desc">
+              Native Android application for tracking personal income and expenditure, offering rich visual analytics, categorical budgeting, and cloud sync backed by Firebase Realtime Database.
+            </p>
+
+            <div class="project-highlights">
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Interactive monthly financial breakdown charts</span>
+              </div>
+              <div class="highlight-bullet">
+                <span class="bullet-dot"></span>
+                <span>Offline caching with seamless Firebase synchronization</span>
+              </div>
+            </div>
+
+            <div class="project-tech-badges">
+              <span class="badge-item">Java</span>
+              <span class="badge-item">Android SDK</span>
+              <span class="badge-item">Firebase Realtime DB</span>
+              <span class="badge-item">MPAndroidChart</span>
+            </div>
+
+            <div class="project-card-footer">
+              <a class="btn-project-link" href="https://github.com/samihavahora05/ExpenseTracker" target="_blank" rel="noopener">
+                <span>View on GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- ==================== FEATURED WORK SECTION ==================== -->
-    <section id="work">
-      <div class="sec-head-luxury">
-        <span class="sec-badge-num">03</span>
-        <h2 class="sec-title-luxury">Featured <span>Projects</span></h2>
-        <div class="sec-rule-luxury"></div>
+    <!-- ==================== SKILLS & TECHNOLOGY MATRIX ==================== -->
+    <section class="section-container" id="skills">
+      <div class="section-header-modern">
+        <div class="section-tag-pill">
+          <span>03</span>
+          <span class="divider">/</span>
+          <span>CAPABILITIES</span>
+        </div>
+        <h2 class="section-heading">
+          Technical <span class="gradient-text-flow">Skillset</span> &amp; Tools
+        </h2>
+        <p class="section-subtext">Proficiencies across modern web frameworks, backend microservices, mobile development, and machine learning.</p>
       </div>
 
-      <div class="projects-grid-lux">
-        <!-- FIG. 01: MedTrip -->
-        <div class="lux-card project-card-lux">
-          <div>
-            <div class="proj-meta-bar">
-              <span class="proj-fig-pill">FIG. 01</span>
-              <span class="proj-cat-text">E-COMMERCE</span>
+      <div class="skills-matrix-grid">
+        
+        <!-- Skill Group 1: Frontend Development -->
+        <div class="skill-category-card">
+          <div class="card-head-row">
+            <div class="skill-icon-gradient icon-blue">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
             </div>
-            <h3 class="proj-title-text">MedTrip — Online Medicine Store</h3>
-            <p class="proj-desc-para">
-              A full-stack online medicine store built in Laravel — user authentication, a medicine catalog, shopping cart, and order management, with Razorpay handling secure end-to-end checkout.
-            </p>
-            <div class="proj-tech-badges-list">
-              <span class="proj-badge-single">Laravel</span>
-              <span class="proj-badge-single">PHP</span>
-              <span class="proj-badge-single">MySQL</span>
-              <span class="proj-badge-single">Razorpay API</span>
+            <div class="card-title-meta">
+              <h3>Frontend</h3>
+              <span>UI / UX &amp; Architecture</span>
             </div>
           </div>
-          <div class="proj-actions-bar">
-            <a class="btn-github-lux" href="https://github.com/samihavahora05/medtrip" target="_blank" rel="noopener">
-              <span>View Repository on GitHub</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill-tag">React.js</span>
+            <span class="skill-pill-tag">Next.js</span>
+            <span class="skill-pill-tag">TypeScript</span>
+            <span class="skill-pill-tag">JavaScript (ES6+)</span>
+            <span class="skill-pill-tag">HTML5 &amp; CSS3</span>
+            <span class="skill-pill-tag">Tailwind CSS</span>
+            <span class="skill-pill-tag">Bootstrap</span>
+            <span class="skill-pill-tag">Flutter (Dart)</span>
           </div>
         </div>
 
-        <!-- FIG. 02: Aura Weather -->
-        <div class="lux-card project-card-lux">
-          <div>
-            <div class="proj-meta-bar">
-              <span class="proj-fig-pill">FIG. 02</span>
-              <span class="proj-cat-text">CROSS-PLATFORM</span>
+        <!-- Skill Group 2: Backend & APIs -->
+        <div class="skill-category-card">
+          <div class="card-head-row">
+            <div class="skill-icon-gradient icon-violet">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
             </div>
-            <h3 class="proj-title-text">Aura Weather</h3>
-            <p class="proj-desc-para">
-              A cross-platform weather app with real-time GPS location, interactive Google Maps, hourly and 7-day forecasts, and dark mode — one Flutter codebase powering both Android and iOS, backed by the Open-Meteo API.
-            </p>
-            <div class="proj-tech-badges-list">
-              <span class="proj-badge-single">Flutter</span>
-              <span class="proj-badge-single">Dart</span>
-              <span class="proj-badge-single">Google Maps API</span>
-              <span class="proj-badge-single">Open-Meteo API</span>
+            <div class="card-title-meta">
+              <h3>Backend</h3>
+              <span>Server &amp; RESTful APIs</span>
             </div>
           </div>
-          <div class="proj-actions-bar">
-            <a class="btn-github-lux" href="https://github.com/samihavahora05/aura-weather" target="_blank" rel="noopener">
-              <span>View Repository on GitHub</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill-tag">Node.js</span>
+            <span class="skill-pill-tag">Express.js</span>
+            <span class="skill-pill-tag">PHP</span>
+            <span class="skill-pill-tag">Laravel</span>
+            <span class="skill-pill-tag">Supabase (Auth &amp; Edge)</span>
+            <span class="skill-pill-tag">REST APIs</span>
+            <span class="skill-pill-tag">Axios</span>
           </div>
         </div>
 
-        <!-- FIG. 03: Object Detection Android App -->
-        <div class="lux-card project-card-lux">
-          <div>
-            <div class="proj-meta-bar">
-              <span class="proj-fig-pill">FIG. 03</span>
-              <span class="proj-cat-text">ON-DEVICE AI</span>
+        <!-- Skill Group 3: Database & Storage -->
+        <div class="skill-category-card">
+          <div class="card-head-row">
+            <div class="skill-icon-gradient icon-emerald">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
             </div>
-            <h3 class="proj-title-text">Object Detection Android App</h3>
-            <p class="proj-desc-para">
-              A native Kotlin app running YOLOv8 Nano on-device via TensorFlow Lite — live-camera object detection plus an AI product scanner that reads packaged food items and returns ingredients, no internet connection required.
-            </p>
-            <div class="proj-tech-badges-list">
-              <span class="proj-badge-single">Kotlin</span>
-              <span class="proj-badge-single">YOLOv8 Nano</span>
-              <span class="proj-badge-single">TensorFlow Lite</span>
-              <span class="proj-badge-single">Jetpack Compose</span>
+            <div class="card-title-meta">
+              <h3>Database</h3>
+              <span>Relational &amp; Vector Stores</span>
             </div>
           </div>
-          <div class="proj-actions-bar">
-            <a class="btn-github-lux" href="https://github.com/samihavahora05/ObjectDetection" target="_blank" rel="noopener">
-              <span>View Repository on GitHub</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill-tag">PostgreSQL (pgvector)</span>
+            <span class="skill-pill-tag">MySQL</span>
+            <span class="skill-pill-tag">SQLite</span>
+            <span class="skill-pill-tag">Firebase DB</span>
           </div>
         </div>
 
-        <!-- FIG. 04: Expense Tracker -->
-        <div class="lux-card project-card-lux">
-          <div>
-            <div class="proj-meta-bar">
-              <span class="proj-fig-pill">FIG. 04</span>
-              <span class="proj-cat-text">PERSONAL FINANCE</span>
+        <!-- Skill Group 4: AI & Machine Learning -->
+        <div class="skill-category-card">
+          <div class="card-head-row">
+            <div class="skill-icon-gradient icon-rose">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><circle cx="12" cy="12" r="6"></circle></svg>
             </div>
-            <h3 class="proj-title-text">Expense Tracker</h3>
-            <p class="proj-desc-para">
-              A native Android app to track daily spending and monitor income versus expenses, with category-wise breakdowns and Firebase-backed real-time sync for clear insight into spending habits.
-            </p>
-            <div class="proj-tech-badges-list">
-              <span class="proj-badge-single">Java</span>
-              <span class="proj-badge-single">Android</span>
-              <span class="proj-badge-single">Firebase</span>
+            <div class="card-title-meta">
+              <h3>AI / ML</h3>
+              <span>Computer Vision &amp; Embeddings</span>
             </div>
           </div>
-          <div class="proj-actions-bar">
-            <a class="btn-github-lux" href="https://github.com/samihavahora05/ExpenseTracker" target="_blank" rel="noopener">
-              <span>View Repository on GitHub</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill-tag">YOLOv8</span>
+            <span class="skill-pill-tag">TensorFlow Lite</span>
+            <span class="skill-pill-tag">Scikit-learn</span>
+            <span class="skill-pill-tag">TensorFlow</span>
+            <span class="skill-pill-tag">pgvector Semantic Search</span>
+            <span class="skill-pill-tag">AI Engineering</span>
           </div>
         </div>
+
+        <!-- Skill Group 5: Tools & Platforms -->
+        <div class="skill-category-card">
+          <div class="card-head-row">
+            <div class="skill-icon-gradient icon-cyan">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </div>
+            <div class="card-title-meta">
+              <h3>Tools &amp; Platforms</h3>
+              <span>DevOps &amp; Native Environments</span>
+            </div>
+          </div>
+          <div class="skills-pill-cloud">
+            <span class="skill-pill-tag">Docker</span>
+            <span class="skill-pill-tag">Razorpay API</span>
+            <span class="skill-pill-tag">Jetpack Compose</span>
+            <span class="skill-pill-tag">Android Studio</span>
+            <span class="skill-pill-tag">Git &amp; GitHub</span>
+            <span class="skill-pill-tag">VS Code</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <!-- ==================== EDUCATION & CERTIFICATIONS ==================== -->
-    <section id="education">
-      <div class="sec-head-luxury">
-        <span class="sec-badge-num">04</span>
-        <h2 class="sec-title-luxury">Education &amp; <span>Certifications</span></h2>
-        <div class="sec-rule-luxury"></div>
+    <!-- ==================== EDUCATION & CREDENTIALS ==================== -->
+    <section class="section-container" id="education">
+      <div class="section-header-modern">
+        <div class="section-tag-pill">
+          <span>04</span>
+          <span class="divider">/</span>
+          <span>ACADEMICS</span>
+        </div>
+        <h2 class="section-heading">
+          Education &amp; <span class="gradient-text-flow">Credentials</span>
+        </h2>
+        <p class="section-subtext">Formal engineering qualifications, verified industry badges, and competition honors.</p>
       </div>
 
-      <div class="education-grid-lux">
-        <div class="degree-stack-lux">
-          <div class="lux-card degree-card-lux">
-            <div class="degree-date-span">JAN 2024 — MAY 2027</div>
-            <h4 class="degree-name-h4">B.Tech, Computer Science &amp; Engineering</h4>
-            <p class="degree-inst-p">ITM (SLS) Baroda University, Vadodara</p>
-            <span class="degree-cgpa-badge">CGPA 8.43</span>
+      <div class="academics-grid">
+        
+        <!-- Degrees Column -->
+        <div class="degrees-stack">
+          <div class="academic-card">
+            <div class="academic-badge-date">01/2024 — 05/2027</div>
+            <h3 class="degree-title">B.Tech in Computer Science &amp; Engineering</h3>
+            <p class="degree-institution">ITM (SLS) Baroda University, Vadodara</p>
+            <div class="cgpa-pill">
+              <span class="score">CGPA: 8.43</span>
+              <span class="rank-note">Top Academic Standing</span>
+            </div>
           </div>
 
-          <div class="lux-card degree-card-lux">
-            <div class="degree-date-span">JUN 2021 — MAY 2024</div>
-            <h4 class="degree-name-h4">Diploma, Computer Engineering</h4>
-            <p class="degree-inst-p">MSU Polytechnic, Vadodara</p>
-            <span class="degree-cgpa-badge">CGPA 8.32</span>
+          <div class="academic-card">
+            <div class="academic-badge-date">06/2021 — 05/2024</div>
+            <h3 class="degree-title">Diploma in Computer Engineering</h3>
+            <p class="degree-institution">MSU Polytechnic, Vadodara</p>
+            <div class="cgpa-pill">
+              <span class="score">CGPA: 8.32</span>
+              <span class="rank-note">Distinction</span>
+            </div>
           </div>
         </div>
 
-        <div class="lux-card certs-panel-lux">
-          <h3 class="certs-title-h3">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="8" r="7"></circle>
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-            </svg>
+        <!-- Certifications & Achievements Column -->
+        <div class="credentials-card">
+          <h3 class="credentials-heading">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
             <span>Certifications &amp; Achievements</span>
           </h3>
 
-          <div class="certs-list-lux">
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>Advanced AI/ML &amp; Deep Learning, SAP Analytics Cloud &amp; ABAP on BTP — Code Unnati, SAP &amp; Edunet Foundation (ID: CU26_32276)</span>
+          <div class="credentials-list">
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>Advanced AI/ML &amp; Deep Learning, SAP Analytics Cloud &amp; ABAP on BTP</strong>
+                <p>Code Unnati, SAP &amp; Edunet Foundation (Credential ID: CU26_32276)</p>
+              </div>
             </div>
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>Jetpack Compose &amp; Kotlin for Modern Android Development</span>
+
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>Jetpack Compose &amp; Kotlin for Modern Android Development</strong>
+                <p>Google Official Training</p>
+              </div>
             </div>
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>8× Google Skill Badges (Cloud &amp; App Development)</span>
+
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>8× Google Skill Badges</strong>
+                <p>Cloud Engineering, Architecture &amp; App Development Tracks</p>
+              </div>
             </div>
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>Social Media Manager, GDG On Campus Vadodara</span>
+
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>Social Media Manager — GDG On Campus Vadodara</strong>
+                <p>Community Leadership &amp; Tech Event Outreach</p>
+              </div>
             </div>
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>Certificate of Participation — 'Innovation-2K25' National Project Competition, PES College of Engineering (Oct 2025)</span>
+
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>National Project Finalist — 'Innovation-2K25'</strong>
+                <p>PES College of Engineering National Competition (Oct 2025)</p>
+              </div>
             </div>
-            <div class="cert-item-lux">
-              <span class="cert-star-icon">✦</span>
-              <span>AI Engineering — Udemy self-paced certification (in progress)</span>
+
+            <div class="credential-item">
+              <div class="cred-icon-spark">✦</div>
+              <div class="cred-text">
+                <strong>AI Engineering Mastery</strong>
+                <p>Udemy Specialized Curriculum (In Progress)</p>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
     <!-- ==================== CONTACT SECTION ==================== -->
-    <section id="contact">
-      <div class="sec-head-luxury">
-        <span class="sec-badge-num">05</span>
-        <h2 class="sec-title-luxury">Get In <span>Touch</span></h2>
-        <div class="sec-rule-luxury"></div>
+    <section class="section-container" id="contact">
+      <div class="section-header-modern">
+        <div class="section-tag-pill">
+          <span>05</span>
+          <span class="divider">/</span>
+          <span>GET IN TOUCH</span>
+        </div>
+        <h2 class="section-heading">
+          Let's Build Something <span class="gradient-text-flow">Extraordinary</span>
+        </h2>
+        <p class="section-subtext">Have an opportunity, project collaboration, or question? Feel free to reach out.</p>
       </div>
 
-      <div class="contact-grid-lux">
-        <div class="lux-card contact-left-lux">
-          <div>
-            <h3 class="contact-h2-title">Open to Full Stack &amp; AI/ML roles — <span>let's build something great.</span></h3>
-            <p class="contact-desc-para">
-              I am actively looking for software engineering internships and entry-level positions. Whether you have an opportunity, a project idea, or a question, my inbox is always open!
-            </p>
+      <div class="contact-card-grid">
+        
+        <!-- Left: Direct Channels -->
+        <div class="contact-channels-card">
+          <div class="channels-header">
+            <h3>Contact Information</h3>
+            <p>I am open to full-time engineering roles, internships, and high-impact software projects.</p>
           </div>
 
-          <div class="contact-channels-list">
-            <a class="contact-channel-row" href="mailto:samihavahora71@gmail.com">
-              <div class="channel-left-info">
-                <div class="channel-icon-box">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div class="channel-labels">
-                  <div class="lbl">Email</div>
-                  <div class="val">samihavahora71@gmail.com</div>
-                </div>
+          <div class="channels-list">
+            <!-- Email Item with Copy Trigger -->
+            <div class="channel-interactive-row" id="channel-email-row">
+              <div class="channel-icon-gradient">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
+              <div class="channel-detail">
+                <span class="label">Email Address</span>
+                <a class="val-link" href="mailto:samihavahora71@gmail.com">samihavahora71@gmail.com</a>
+              </div>
+              <button class="channel-copy-btn" id="btn-copy-channel" title="Copy Email Address">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              </button>
+            </div>
+
+            <!-- LinkedIn Item -->
+            <a class="channel-interactive-row" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener">
+              <div class="channel-icon-gradient">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              </div>
+              <div class="channel-detail">
+                <span class="label">LinkedIn Profile</span>
+                <span class="val-link">linkedin.com/in/samiha-vahora-9792a632a</span>
+              </div>
+              <div class="channel-arrow">↗</div>
             </a>
 
-            <a class="contact-channel-row" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener">
-              <div class="channel-left-info">
-                <div class="channel-icon-box">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                    <rect x="2" y="9" width="4" height="12"></rect>
-                    <circle cx="4" cy="4" r="2"></circle>
-                  </svg>
-                </div>
-                <div class="channel-labels">
-                  <div class="lbl">LinkedIn</div>
-                  <div class="val">linkedin.com/in/samiha-vahora-9792a632a</div>
-                </div>
+            <!-- GitHub Item -->
+            <a class="channel-interactive-row" href="https://github.com/samihavahora05" target="_blank" rel="noopener">
+              <div class="channel-icon-gradient">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               </div>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
+              <div class="channel-detail">
+                <span class="label">GitHub Repositories</span>
+                <span class="val-link">github.com/samihavahora05</span>
+              </div>
+              <div class="channel-arrow">↗</div>
             </a>
 
-            <a class="contact-channel-row" href="https://github.com/samihavahora05" target="_blank" rel="noopener">
-              <div class="channel-left-info">
-                <div class="channel-icon-box">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                </div>
-                <div class="channel-labels">
-                  <div class="lbl">GitHub</div>
-                  <div class="val">github.com/samihavahora05</div>
-                </div>
+            <!-- Location -->
+            <div class="channel-interactive-row">
+              <div class="channel-icon-gradient">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="7" y1="17" x2="17" y2="7"></line>
-                <polyline points="7 7 17 7 17 17"></polyline>
-              </svg>
-            </a>
-
-            <div class="contact-channel-row">
-              <div class="channel-left-info">
-                <div class="channel-icon-box">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
-                </div>
-                <div class="channel-labels">
-                  <div class="lbl">Location</div>
-                  <div class="val">Vadodara, Gujarat, India</div>
-                </div>
+              <div class="channel-detail">
+                <span class="label">Location</span>
+                <span class="val-text">Vadodara, Gujarat, India (Open to Remote &amp; Relocation)</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="lux-card contact-form-lux">
-          <h3 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; color: #ffffff; margin-bottom: 20px;">Send a Direct Message</h3>
+        <!-- Right: Interactive Form -->
+        <div class="contact-form-card">
+          <h3 class="form-title">Send a Direct Message</h3>
+          <p class="form-desc">Fill out the quick form below and I'll get back to you promptly.</p>
+
           <form id="contact-form">
-            <div class="form-field-lux">
-              <label class="form-label-lux" for="form-name">Your Name</label>
-              <input class="form-input-lux" type="text" id="form-name" placeholder="Alex Morgan" required />
+            <div class="form-group-modern">
+              <label for="form-name">Your Full Name</label>
+              <input type="text" id="form-name" placeholder="e.g. Alex Morgan" required />
             </div>
 
-            <div class="form-field-lux">
-              <label class="form-label-lux" for="form-email">Email Address</label>
-              <input class="form-input-lux" type="email" id="form-email" placeholder="alex@company.com" required />
+            <div class="form-group-modern">
+              <label for="form-email">Email Address</label>
+              <input type="email" id="form-email" placeholder="e.g. alex@company.com" required />
             </div>
 
-            <div class="form-field-lux">
-              <label class="form-label-lux" for="form-subject">Subject</label>
-              <input class="form-input-lux" type="text" id="form-subject" placeholder="Opportunity / Inquiry" required />
+            <div class="form-group-modern">
+              <label for="form-subject">Subject</label>
+              <input type="text" id="form-subject" placeholder="Project collaboration / Internship Opportunity" required />
             </div>
 
-            <div class="form-field-lux">
-              <label class="form-label-lux" for="form-message">Message</label>
-              <textarea class="form-textarea-lux" id="form-message" placeholder="Hi Samiha, I'd like to connect regarding..." required></textarea>
+            <div class="form-group-modern">
+              <label for="form-message">Message</label>
+              <textarea id="form-message" rows="4" placeholder="Hello Samiha, I would love to connect about..." required></textarea>
             </div>
 
-            <button class="btn-white-pill" type="submit" style="width: 100%; justify-content: center;">
+            <button class="btn-submit-aurora" type="submit" id="btn-submit">
               <span>Send Message</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polyline>
-              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
 
-            <div class="toast-feedback-lux" id="contact-toast"></div>
+            <div class="form-feedback-toast" id="form-toast"></div>
           </form>
         </div>
+
       </div>
 
-      <footer class="ref-footer">
-        <div class="footer-content-lux">
-          <div class="footer-copy-p">
-            © 2026 Samiha Vahora — Built with 3D Quantum Swarm &amp; Pure Craft.
+      <!-- Footer -->
+      <footer class="portfolio-footer">
+        <div class="footer-inner">
+          <div class="footer-left">
+            <div class="footer-avatar">SV</div>
+            <p>© 2026 Samiha Vahora. Crafted with 3D WebGL Aurora, Pure CSS &amp; Modern Craftsmanship.</p>
           </div>
-          <div class="footer-links-row">
+          <div class="footer-right-links">
             <a href="#hero">Back to Top ↑</a>
             <a href="https://github.com/samihavahora05" target="_blank" rel="noopener">GitHub</a>
             <a href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener">LinkedIn</a>
@@ -749,7 +985,13 @@
 
   </main>
 
-  <!-- Interactive 3D Quantum Swarm & Controller -->
+  <!-- Global Floating Toast Notification -->
+  <div class="global-toast-notification" id="global-toast">
+    <div class="toast-sparkle">✨</div>
+    <span class="toast-text" id="global-toast-text">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Main JavaScript Controller -->
   <script src="js/main.js"></script>
 </body>
 </html>
