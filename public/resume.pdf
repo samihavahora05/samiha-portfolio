@@ -1,0 +1,165 @@
+%PDF-1.4
+1 0 obj
+<< /Title (Samiha Vahora - Resume)
+   /Author (Samiha Vahora)
+   /Subject (Full Stack Developer Resume)
+   /Creator (Samiha Vahora Portfolio)
+>>
+endobj
+2 0 obj
+<< /Type /Catalog
+   /Pages 3 0 R
+>>
+endobj
+3 0 obj
+<< /Type /Pages
+   /Kids [4 0 R]
+   /Count 1
+>>
+endobj
+4 0 obj
+<< /Type /Page
+   /Parent 3 0 R
+   /MediaBox [0 0 595.28 841.89]
+   /Resources <<
+     /Font <<
+       /F1 5 0 R
+       /F2 6 0 R
+       /F3 7 0 R
+     >>
+   >>
+   /Annots [<< /Type /Annot /Subtype /Link /Rect [132.00 773.00 247.00 784.00] /Border [0 0 0] /A << /S /URI /URI (mailto:samihavahora71@gmail.com) >> >> << /Type /Annot /Subtype /Link /Rect [259.00 773.00 427.00 784.00] /Border [0 0 0] /A << /S /URI /URI (https://linkedin.com/in/samiha-vahora-9792a632a) >> >> << /Type /Annot /Subtype /Link /Rect [439.00 773.00 554.00 784.00] /Border [0 0 0] /A << /S /URI /URI (https://github.com/samihavahora05) >> >> << /Type /Annot /Subtype /Link /Rect [390.28 480.00 555.28 490.00] /Border [0 0 0] /A << /S /URI /URI (https://github.com/samihavahora05/insurmatch) >> >> << /Type /Annot /Subtype /Link /Rect [375.28 404.50 555.28 414.50] /Border [0 0 0] /A << /S /URI /URI (https://github.com/samihavahora05/ObjectDetection) >> >>]
+   /Contents 8 0 R
+>>
+endobj
+5 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica-Bold
+>>
+endobj
+6 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica
+>>
+endobj
+7 0 obj
+<< /Type /Font
+   /Subtype /Type1
+   /BaseFont /Helvetica-Oblique
+>>
+endobj
+8 0 obj
+<< /Length 9302 >>
+stream
+BT /F1 20.0 Tf 0.08 0.16 0.32 rg 1 0 0 1 205.0 804.00 Tm (SAMIHA VAHORA) Tj ET
+BT /F2 11.0 Tf 0.22 0.35 0.55 rg 1 0 0 1 238.0 789.00 Tm (Full Stack Developer) Tj ET
+BT /F2 8.50 Tf 0.25 0.30 0.38 rg 1 0 0 1 54.00 775.00 Tm (Vadodara, India  |  ) Tj ET
+BT /F2 8.50 Tf 0.12 0.38 0.75 rg 1 0 0 1 132.00 775.00 Tm (samihavahora71@gmail.com) Tj ET
+BT /F2 8.50 Tf 0.25 0.30 0.38 rg 1 0 0 1 247.00 775.00 Tm (  |  ) Tj ET
+BT /F2 8.50 Tf 0.12 0.38 0.75 rg 1 0 0 1 259.00 775.00 Tm (linkedin.com/in/samiha-vahora-9792a632a) Tj ET
+BT /F2 8.50 Tf 0.25 0.30 0.38 rg 1 0 0 1 427.00 775.00 Tm (  |  ) Tj ET
+BT /F2 8.50 Tf 0.12 0.38 0.75 rg 1 0 0 1 439.00 775.00 Tm (github.com/samihavahora05) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 766.00 m 555.28 766.00 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 755.00 Tm (SUMMARY) Tj ET
+BT /F2 8.40 Tf 0.15 0.18 0.22 rg 1 0 0 1 40.00 744.50 Tm (Final-year B.Tech Computer Science student specializing in Full Stack Web Development with expanding expertise in AI/ML) Tj ET
+BT /F2 8.40 Tf 0.15 0.18 0.22 rg 1 0 0 1 40.00 734.00 Tm (Engineering. Hands-on experience building and shipping production software during a full stack internship, including a fully working) Tj ET
+BT /F2 8.40 Tf 0.15 0.18 0.22 rg 1 0 0 1 40.00 723.50 Tm (HR Management System and the company's official website \(frontend and backend\), alongside independent projects such as an) Tj ET
+BT /F2 8.40 Tf 0.15 0.18 0.22 rg 1 0 0 1 40.00 713.00 Tm (AI-powered insurance matchmaking platform with semantic search and an on-device AI inference Android app. Proficient in React.js,) Tj ET
+BT /F2 8.40 Tf 0.15 0.18 0.22 rg 1 0 0 1 40.00 702.50 Tm (Next.js, Node.js, Express.js, PHP, Laravel, MySQL, Python, and Kotlin.) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 689.00 m 555.28 689.00 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 678.00 Tm (SKILLS) Tj ET
+BT /F1 8.40 Tf 0.10 0.15 0.25 rg 1 0 0 1 40.00 667.50 Tm (Frontend:) Tj ET
+BT /F2 8.40 Tf 0.18 0.22 0.28 rg 1 0 0 1 84.00 667.50 Tm (React.js, Next.js, TypeScript, JavaScript \(ES6+\), HTML5, CSS3, Tailwind CSS, Bootstrap, Flutter \(Dart\)) Tj ET
+BT /F1 8.40 Tf 0.10 0.15 0.25 rg 1 0 0 1 40.00 657.00 Tm (Backend:) Tj ET
+BT /F2 8.40 Tf 0.18 0.22 0.28 rg 1 0 0 1 82.00 657.00 Tm (Node.js, Express.js, PHP, Laravel, Supabase \(Auth, Edge Functions\), REST APIs, Axios) Tj ET
+BT /F1 8.40 Tf 0.10 0.15 0.25 rg 1 0 0 1 40.00 646.50 Tm (Database:) Tj ET
+BT /F2 8.40 Tf 0.18 0.22 0.28 rg 1 0 0 1 84.00 646.50 Tm (PostgreSQL \(pgvector\), MySQL, SQLite, Firebase) Tj ET
+BT /F1 8.40 Tf 0.10 0.15 0.25 rg 1 0 0 1 40.00 636.00 Tm (AI / ML:) Tj ET
+BT /F2 8.40 Tf 0.18 0.22 0.28 rg 1 0 0 1 80.00 636.00 Tm (YOLOv8, TensorFlow Lite, Scikit-learn, TensorFlow, pgvector Semantic Search, AI Engineering \(Udemy, in progress\)) Tj ET
+BT /F1 8.40 Tf 0.10 0.15 0.25 rg 1 0 0 1 40.00 625.50 Tm (Tools & Platforms:) Tj ET
+BT /F2 8.40 Tf 0.18 0.22 0.28 rg 1 0 0 1 118.00 625.50 Tm (Razorpay API, Docker, Jetpack Compose, Android Studio, Git, GitHub, VS Code) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 612.00 m 555.28 612.00 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 601.00 Tm (EXPERIENCE) Tj ET
+BT /F1 8.60 Tf 0.08 0.15 0.25 rg 1 0 0 1 40.00 590.50 Tm (Full Stack Web Development Intern) Tj ET
+BT /F3 8.60 Tf 0.25 0.35 0.50 rg 1 0 0 1 200.00 590.50 Tm (-- BLUEBOXX DA Pvt Ltd) Tj ET
+0.20 0.35 0.55 rg 43.00 581.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 579.50 Tm (Built the company's HR Management System \(HRMS\) end-to-end as a fully working production application, covering role-based) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 569.50 Tm (dashboards \(Admin/HR/Manager/Employee\), org metrics, audit trail, leave and task management, and live notifications -- live at hrms.blueboxx.in.) Tj ET
+0.20 0.35 0.55 rg 43.00 560.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 558.50 Tm (Independently built BLUEBOXX DA's official company website end-to-end, both frontend and backend, and continue to own it as an ongoing) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 548.50 Tm (main project.) Tj ET
+0.20 0.35 0.55 rg 43.00 539.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 537.50 Tm (Worked across the frontend of BLUEBOXX DA's IT training platform \(courses, internships, jobs, and expert 1-on-1 sessions\), including UI) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 527.50 Tm (components and design/animation elements.) Tj ET
+0.20 0.35 0.55 rg 43.00 518.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 516.50 Tm (Collaborated with the software development team as it expanded outreach toward the US market for white-label and partnership work.) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 503.50 m 555.28 503.50 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 492.50 Tm (PROJECTS) Tj ET
+BT /F1 8.60 Tf 0.08 0.15 0.25 rg 1 0 0 1 40.00 482.00 Tm (InsurMatch -- AI-Powered Insurance Agent Matchmaking Platform) Tj ET
+BT /F2 8.0 Tf 0.12 0.38 0.75 rg 1 0 0 1 390.28 482.00 Tm (github.com/samihavahora05/insurmatch) Tj ET
+0.20 0.35 0.55 rg 43.00 473.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 471.50 Tm (Built a full-stack platform connecting clients with insurance agents through an AI matchmaker that ranks agent profiles using pgvector) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 461.50 Tm (cosine similarity over query embeddings.) Tj ET
+0.20 0.35 0.55 rg 43.00 452.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 450.50 Tm (Designed a graceful fallback to client-side keyword matching when the embedding service is unavailable, ensuring the matchmaker always) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 440.50 Tm (returns results.) Tj ET
+0.20 0.35 0.55 rg 43.00 431.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 429.50 Tm (Implemented Supabase Auth with Row Level Security, an agent directory, consultation booking, and separate client/agent dashboards;) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 419.50 Tm (containerized the full stack with Docker for one-command local setup.) Tj ET
+BT /F1 8.60 Tf 0.08 0.15 0.25 rg 1 0 0 1 40.00 406.50 Tm (Object Detection Android App) Tj ET
+BT /F2 8.0 Tf 0.12 0.38 0.75 rg 1 0 0 1 375.28 406.50 Tm (github.com/samihavahora05/ObjectDetection) Tj ET
+0.20 0.35 0.55 rg 43.00 398.20 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 396.00 Tm (Trained YOLOv8 Nano on a custom dataset, converted it to TFLite, and integrated it into a Kotlin Android app for real-time on-device) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 386.00 Tm (inference with no internet connection required.) Tj ET
+0.20 0.35 0.55 rg 43.00 377.20 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 375.00 Tm (Built an AI product scanner that identifies packaged food items via live camera and returns ingredient information.) Tj ET
+0.20 0.35 0.55 rg 43.00 366.20 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 364.00 Tm (Optimised the frame-by-frame inference pipeline using Jetpack Compose UI and managed the full ML lifecycle from data preparation) Tj ET
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 354.00 Tm (through quantisation and deployment.) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 341.00 m 555.28 341.00 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 330.00 Tm (EDUCATION) Tj ET
+BT /F1 8.40 Tf 0.08 0.15 0.25 rg 1 0 0 1 40.00 319.50 Tm (B.Tech -- Computer Science & Engineering) Tj ET
+BT /F2 8.20 Tf 0.18 0.22 0.28 rg 1 0 0 1 220.00 319.50 Tm (, ITM \(SLS\) Baroda University, Vadodara) Tj ET
+BT /F2 8.20 Tf 0.30 0.35 0.45 rg 1 0 0 1 430.28 319.50 Tm (| 01/2024 - 05/2027 | CGPA: 8.43) Tj ET
+BT /F1 8.40 Tf 0.08 0.15 0.25 rg 1 0 0 1 40.00 309.00 Tm (Diploma -- Computer Engineering) Tj ET
+BT /F2 8.20 Tf 0.18 0.22 0.28 rg 1 0 0 1 185.00 309.00 Tm (, MSU Polytechnic, Vadodara) Tj ET
+BT /F2 8.20 Tf 0.30 0.35 0.45 rg 1 0 0 1 475.28 309.00 Tm (| 06/2021 - 05/2024) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 296.00 m 555.28 296.00 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 285.00 Tm (CERTIFICATIONS) Tj ET
+0.20 0.35 0.55 rg 43.00 276.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 274.50 Tm (Advanced AI/ML & Deep Learning, SAP Analytics Cloud & ABAP on BTP -- Code Unnati, SAP & Edunet Foundation \(ID: CU26_32276\)) Tj ET
+0.20 0.35 0.55 rg 43.00 266.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 264.50 Tm (Jetpack Compose & Kotlin for Modern Android Development -- Google) Tj ET
+0.20 0.35 0.55 rg 43.00 256.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 254.50 Tm (8x Google Skill Badges \(Cloud & App Development\) -- Google) Tj ET
+0.20 0.35 0.55 rg 43.00 246.70 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 244.50 Tm (AI Engineering -- Udemy) Tj ET
+0.25 0.30 0.40 RG 0.75 w 40.00 232.50 m 555.28 232.50 l S
+BT /F1 9.50 Tf 0.08 0.16 0.32 rg 1 0 0 1 40.00 221.50 Tm (KEY ACHIEVEMENTS) Tj ET
+0.20 0.35 0.55 rg 43.00 213.20 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 211.00 Tm (Social Media Manager, GDG On Campus Vadodara) Tj ET
+0.20 0.35 0.55 rg 43.00 203.20 2.0 2.0 re f
+BT /F2 8.20 Tf 0.15 0.18 0.22 rg 1 0 0 1 52.00 201.00 Tm (Certificate of Participation -- "Innovation-2K25" National Project Competition, PES College of Engineering \(Oct 2025\)) Tj ET
+endstream
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000169 00000 n 
+0000000221 00000 n 
+0000000284 00000 n 
+0000001254 00000 n 
+0000001335 00000 n 
+0000001411 00000 n 
+0000001495 00000 n 
+trailer
+<< /Size 9
+   /Root 2 0 R
+   /Info 1 0 R
+>>
+startxref
+10849
+%%EOF
