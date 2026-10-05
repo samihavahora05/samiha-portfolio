@@ -438,6 +438,7 @@
     let bestVoice = null;
     let hasUserInteracted = false;
     let speechResumeHeartbeat = null;
+    let slideFallbackTimer = null;
 
     // Narrative scripts with natural human pacing
     const narrations = [
@@ -451,15 +452,16 @@
     function selectNaturalVoice() {
       if (!('speechSynthesis' in window)) return;
       const voices = window.speechSynthesis.getVoices();
-      if (!voices.length) return;
+      if (!voices || !voices.length) return;
 
-      const preferredKeywords = [
+      const priorityKeywords = [
         'natural', 'online', 'jenny', 'aria', 'samantha', 'karen',
-        'moira', 'victoria', 'google us english', 'google uk english female', 'zira'
+        'moira', 'victoria', 'google us english', 'google uk english',
+        'zira', 'david', 'mark', 'george', 'en-us', 'en-gb'
       ];
 
-      for (const keyword of preferredKeywords) {
-        const match = voices.find(v => v.name.toLowerCase().includes(keyword) && v.lang.startsWith('en'));
+      for (const keyword of priorityKeywords) {
+        const match = voices.find(v => (v.name + ' ' + v.lang).toLowerCase().includes(keyword));
         if (match) {
           bestVoice = match;
           break;
@@ -476,13 +478,20 @@
       window.speechSynthesis.onvoiceschanged = selectNaturalVoice;
     }
 
-    function speakNarration(text) {
-      if (!isVoiceEnabled || !('speechSynthesis' in window) || isDismissed) return;
+    function speakNarration(index, onComplete) {
+      if (!isVoiceEnabled || !('speechSynthesis' in window) || isDismissed) {
+        if (onComplete) {
+          if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
+          slideFallbackTimer = setTimeout(onComplete, 3600);
+        }
+        return;
+      }
 
       try {
         window.speechSynthesis.cancel(); // Clear previous speech immediately
         window.speechSynthesis.resume(); // Ensure engine is not paused
 
+        const text = narrations[index] || '';
         const utterance = new SpeechSynthesisUtterance(text);
         if (bestVoice) utterance.voice = bestVoice;
         
@@ -500,29 +509,38 @@
                 window.speechSynthesis.pause();
                 window.speechSynthesis.resume();
               }
-            }, 5000);
+            }, 4000);
           }
         };
 
-        utterance.onend = () => {
+        let hasFinished = false;
+        function finishSpeech() {
+          if (hasFinished) return;
+          hasFinished = true;
           if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
           if (speechResumeHeartbeat) {
             clearInterval(speechResumeHeartbeat);
             speechResumeHeartbeat = null;
           }
-        };
-
-        utterance.onerror = () => {
-          if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
-          if (speechResumeHeartbeat) {
-            clearInterval(speechResumeHeartbeat);
-            speechResumeHeartbeat = null;
+          if (onComplete && !isDismissed) {
+            setTimeout(onComplete, 550);
           }
-        };
+        }
+
+        utterance.onend = finishSpeech;
+        utterance.onerror = finishSpeech;
 
         window.speechSynthesis.speak(utterance);
+
+        // Backup timer in case utterance.onend gets dropped
+        if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
+        slideFallbackTimer = setTimeout(() => {
+          if (!hasFinished) finishSpeech();
+        }, 5500);
+
       } catch (err) {
         console.warn('Speech synthesis error:', err);
+        if (onComplete) setTimeout(onComplete, 3600);
       }
     }
 
@@ -535,7 +553,7 @@
       if ('speechSynthesis' in window) {
         window.speechSynthesis.resume();
         if (isVoiceEnabled && !isDismissed) {
-          speakNarration(narrations[currentSlideIndex]);
+          triggerSlideVoice(currentSlideIndex);
         }
       }
     }
@@ -545,6 +563,15 @@
       window.addEventListener(evtType, unlockAudioAndSpeak, { once: true, passive: true });
     });
 
+    function triggerSlideVoice(index) {
+      if (isDismissed) return;
+      speakNarration(index, () => {
+        if (!isDismissed && index < slides.length - 1) {
+          goToSlide(index + 1);
+        }
+      });
+    }
+
     if (voiceToggleBtn) {
       voiceToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -553,7 +580,7 @@
         if (isVoiceEnabled) {
           voiceToggleBtn.classList.add('active');
           if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: ON';
-          speakNarration(narrations[currentSlideIndex]);
+          triggerSlideVoice(currentSlideIndex);
         } else {
           voiceToggleBtn.classList.remove('active', 'speaking');
           if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: OFF';
@@ -561,9 +588,6 @@
         }
       });
     }
-
-    const slideDurations = [2800, 4200, 3800, 4500]; // ms per slide
-    let slideTimer = null;
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
@@ -578,31 +602,25 @@
         }
       });
 
-      // Speak narration for active slide
-      if (isVoiceEnabled && narrations[index]) {
-        speakNarration(narrations[index]);
-      }
-
-      // Schedule next slide transition
-      if (slideTimer) clearTimeout(slideTimer);
-      if (index < slides.length - 1) {
-        slideTimer = setTimeout(() => {
-          goToSlide(index + 1);
-        }, slideDurations[index]);
-      }
+      // Play narration synchronized to slide
+      triggerSlideVoice(index);
     }
 
     function dismissIntro() {
       if (isDismissed) return;
       isDismissed = true;
-      if (slideTimer) clearTimeout(slideTimer);
+      isVoiceEnabled = false; // Disable any further speech calls
+
+      if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
       if (speechResumeHeartbeat) {
         clearInterval(speechResumeHeartbeat);
         speechResumeHeartbeat = null;
       }
-      // Immediately kill all voice and speech so nothing plays once in portfolio
+
+      // Hard cancel all speech so no voice plays in the portfolio
       if ('speechSynthesis' in window) {
         window.speechSynthesis.cancel();
+        window.speechSynthesis.pause();
       }
 
       introOverlay.classList.add('dismissed');
@@ -611,8 +629,19 @@
       }, 850);
     }
 
-    if (skipBtn) skipBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissIntro(); });
-    if (enterBtn) enterBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissIntro(); });
+    if (skipBtn) {
+      skipBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissIntro();
+      });
+    }
+
+    if (enterBtn) {
+      enterBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissIntro();
+      });
+    }
 
     // Click anywhere on overlay to advance or enter
     introOverlay.addEventListener('click', (e) => {
@@ -641,7 +670,7 @@
       }
     });
 
-    // Initial trigger
+    // Initial load
     setTimeout(() => {
       goToSlide(0);
     }, 250);
