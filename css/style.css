@@ -1277,6 +1277,11 @@ ul {
 .project-card-footer {
   padding-top: 14px;
   border-top: 1px solid rgba(226, 232, 240, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .btn-project-link {
