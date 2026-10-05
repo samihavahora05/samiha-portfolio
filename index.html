@@ -11,48 +11,92 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 <body class="light-theme">
 
-  <!-- Fullscreen Animated Intro / Welcome Splash Screen -->
-  <aside class="intro-splash-overlay" id="intro-splash">
-    <div class="splash-ambient-glow" aria-hidden="true"></div>
-    <div class="splash-card">
-      <div class="splash-avatar">
-        <span>SV</span>
-        <div class="splash-pulse-ring"></div>
+  <!-- Cinematic Multi-Stage Animated Intro Overlay -->
+  <aside class="cinematic-intro-overlay" id="cinematic-intro">
+    <!-- Ambient Aurora Aura -->
+    <div class="intro-ambient-aurora" aria-hidden="true"></div>
+
+    <!-- Top Bar with Progress & Skip -->
+    <div class="intro-topbar">
+      <div class="intro-brand">
+        <div class="intro-avatar">SV</div>
+        <span class="intro-tag">SAMIHA VAHORA</span>
       </div>
+
+      <div class="intro-step-indicators">
+        <span class="intro-step-dot active" data-step="0"></span>
+        <span class="intro-step-dot" data-step="1"></span>
+        <span class="intro-step-dot" data-step="2"></span>
+      </div>
+
+      <button class="intro-skip-btn" id="intro-skip-btn" aria-label="Skip to Portfolio">
+        <span>Skip Intro</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <!-- Cinematic Slides Container -->
+    <div class="intro-slides-viewport">
       
-      <div class="splash-terminal-header">
-        <div class="splash-dots">
-          <span class="splash-dot red"></span>
-          <span class="splash-dot yellow"></span>
-          <span class="splash-dot green"></span>
+      <!-- SLIDE 1: Big Cinematic HELLO -->
+      <div class="intro-slide active" id="intro-slide-1">
+        <div class="slide-eyebrow">
+          <span class="pulse-dot"></span>
+          <span>INITIATING CONNECTION</span>
         </div>
-        <span class="splash-term-title">samiha.portfolio.init()</span>
+        <h1 class="slide-big-title">
+          HELLO<span class="wave-emoji">👋</span>
+        </h1>
+        <p class="slide-caption">Welcome to my engineering space.</p>
       </div>
 
-      <div class="splash-content">
-        <h2 class="splash-greeting-line">
-          <span class="splash-wave">👋</span>
-          <span class="splash-typewriter" id="splash-typewriter">Hello, World!</span>
-          <span class="splash-cursor">|</span>
-        </h2>
-        <p class="splash-subline" id="splash-subline">I am Samiha Vahora</p>
-        <p class="splash-meta-line" id="splash-meta-line">Full Stack Developer &amp; AI/ML Engineer &bull; Always Learning &bull; Seeking New SDE Opportunities</p>
+      <!-- SLIDE 2: Identity & Roles -->
+      <div class="intro-slide" id="intro-slide-2">
+        <div class="slide-eyebrow">
+          <span class="sparkle-spark">✦</span>
+          <span>MEET THE DEVELOPER</span>
+        </div>
+        <h1 class="slide-big-title">
+          I'M <span class="gradient-text-flow">SAMIHA</span> VAHORA
+        </h1>
+        <p class="slide-caption">Full Stack Developer &amp; AI/ML Engineer</p>
+        <div class="slide-tech-chips">
+          <span>React.js</span>
+          <span>Next.js</span>
+          <span>Laravel</span>
+          <span>Flutter</span>
+          <span>YOLOv8</span>
+          <span>pgvector</span>
+        </div>
       </div>
 
-      <div class="splash-progress-track">
-        <div class="splash-progress-bar" id="splash-progress-bar"></div>
+      <!-- SLIDE 3: Mission & Opportunities -->
+      <div class="intro-slide" id="intro-slide-3">
+        <div class="slide-eyebrow">
+          <span class="sparkle-spark">🚀</span>
+          <span>VISION &amp; IMPACT</span>
+        </div>
+        <h1 class="slide-big-title">
+          ALWAYS <span class="gradient-text-flow">LEARNING.</span><br>READY TO <span class="gradient-text-accent">BUILD.</span>
+        </h1>
+        <p class="slide-caption">Seeking full-time SDE roles &amp; high-impact opportunities.</p>
+        <div class="slide-enter-action">
+          <button class="btn-enter-portfolio" id="btn-enter-portfolio">
+            <span>Explore Portfolio</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="splash-actions">
-        <button class="btn-skip-splash" id="btn-skip-splash" aria-label="Enter Portfolio">
-          <span>Enter Portfolio</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-      </div>
+    </div>
+
+    <!-- Bottom Continuous Progress Bar -->
+    <div class="intro-progress-bar-track">
+      <div class="intro-progress-bar-fill" id="intro-progress-fill"></div>
     </div>
   </aside>
 
@@ -1119,6 +1163,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="js/main.js?v=5"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 </html>

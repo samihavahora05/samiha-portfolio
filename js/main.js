@@ -330,101 +330,115 @@
   }
 
   /* ----------------------------------------------------
-     9. FULLSCREEN ANIMATED WELCOME SPLASH SCREEN
+     9. CINEMATIC MULTI-STAGE ANIMATED INTRO CONTROLLER
   ---------------------------------------------------- */
-  function initWelcomeSplash() {
-    const splash = document.getElementById('intro-splash');
-    const typewriter = document.getElementById('splash-typewriter');
-    const subline = document.getElementById('splash-subline');
-    const progressBar = document.getElementById('splash-progress-bar');
-    const skipBtn = document.getElementById('btn-skip-splash');
+  function initCinematicIntro() {
+    const introOverlay = document.getElementById('cinematic-intro');
+    if (!introOverlay) return;
 
-    if (!splash) return;
+    const slides = [
+      document.getElementById('intro-slide-1'),
+      document.getElementById('intro-slide-2'),
+      document.getElementById('intro-slide-3')
+    ];
+    const stepDots = document.querySelectorAll('.intro-step-dot');
+    const progressFill = document.getElementById('intro-progress-fill');
+    const skipBtn = document.getElementById('intro-skip-btn');
+    const enterBtn = document.getElementById('btn-enter-portfolio');
 
     let isDismissed = false;
+    let currentSlideIndex = 0;
+    const slideDuration = 1800; // ms per slide
+    const totalDuration = slideDuration * slides.length; // 5400 ms
+    let startTime = performance.now();
+    let animFrameId = null;
 
-    function dismissSplash() {
+    function goToSlide(index) {
+      if (isDismissed || index < 0 || index >= slides.length) return;
+      currentSlideIndex = index;
+
+      slides.forEach((slide, idx) => {
+        if (!slide) return;
+        if (idx === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      stepDots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    function dismissIntro() {
       if (isDismissed) return;
       isDismissed = true;
-      splash.classList.add('dismissed');
+      if (animFrameId) cancelAnimationFrame(animFrameId);
+
+      introOverlay.classList.add('dismissed');
       setTimeout(() => {
-        splash.style.display = 'none';
+        introOverlay.style.display = 'none';
       }, 850);
     }
 
     if (skipBtn) {
-      skipBtn.addEventListener('click', dismissSplash);
+      skipBtn.addEventListener('click', dismissIntro);
     }
+
+    if (enterBtn) {
+      enterBtn.addEventListener('click', dismissIntro);
+    }
+
+    stepDots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const targetStep = parseInt(dot.getAttribute('data-step') || '0', 10);
+        goToSlide(targetStep);
+      });
+    });
 
     // Dismiss on Enter / Space / Escape key
     document.addEventListener('keydown', (e) => {
       if (!isDismissed && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) {
-        dismissSplash();
+        dismissIntro();
       }
     });
 
-    // Animate typed text on the splash screen
-    const splashPhrases = [
-      { text: "Hello, World!", sub: "Initializing developer portfolio..." },
-      { text: "I am Samiha Vahora", sub: "Full Stack Developer & AI/ML Engineer" },
-      { text: "Building Scalable Systems", sub: "Production Experience @ BLUEBOXX DA" },
-      { text: "Welcome to My Portfolio", sub: "Always learning • Seeking new opportunities" }
-    ];
-
-    let currentStep = 0;
-    let progress = 0;
-
-    const progressInterval = setInterval(() => {
-      if (isDismissed) {
-        clearInterval(progressInterval);
-        return;
-      }
-      progress += 2.5;
-      if (progressBar) progressBar.style.width = `${Math.min(progress, 100)}%`;
-      if (progress >= 100) {
-        clearInterval(progressInterval);
-        setTimeout(dismissSplash, 300);
-      }
-    }, 85);
-
-    function typeSplashText(targetText, targetSub, callback) {
+    function progressLoop(timestamp) {
       if (isDismissed) return;
-      if (subline) subline.textContent = targetSub;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / totalDuration, 1);
 
-      let idx = 0;
-      typewriter.textContent = '';
-      const typeInterval = setInterval(() => {
-        if (isDismissed) {
-          clearInterval(typeInterval);
-          return;
-        }
-        typewriter.textContent = targetText.substring(0, idx + 1);
-        idx++;
-        if (idx >= targetText.length) {
-          clearInterval(typeInterval);
-          if (callback) setTimeout(callback, 650);
-        }
-      }, 40);
-    }
+      if (progressFill) {
+        progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
+      }
 
-    function runSplashSequence() {
-      if (currentStep < splashPhrases.length) {
-        const item = splashPhrases[currentStep];
-        typeSplashText(item.text, item.sub, () => {
-          currentStep++;
-          runSplashSequence();
-        });
+      // Step calculation
+      const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
+      if (calculatedStep !== currentSlideIndex) {
+        goToSlide(calculatedStep);
+      }
+
+      if (progress < 1) {
+        animFrameId = requestAnimationFrame(progressLoop);
+      } else {
+        // Auto-dismiss after slight pause at the end
+        setTimeout(dismissIntro, 400);
       }
     }
 
-    setTimeout(runSplashSequence, 200);
+    animFrameId = requestAnimationFrame(progressLoop);
   }
 
   /* ----------------------------------------------------
      INITIALIZATION ON DOM LOAD
   ---------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    initWelcomeSplash();
+    initCinematicIntro();
     initTiltCards();
     initConsoleTabs();
     initProjectFilters();
