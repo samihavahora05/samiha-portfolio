@@ -330,9 +330,101 @@
   }
 
   /* ----------------------------------------------------
+     9. FULLSCREEN ANIMATED WELCOME SPLASH SCREEN
+  ---------------------------------------------------- */
+  function initWelcomeSplash() {
+    const splash = document.getElementById('intro-splash');
+    const typewriter = document.getElementById('splash-typewriter');
+    const subline = document.getElementById('splash-subline');
+    const progressBar = document.getElementById('splash-progress-bar');
+    const skipBtn = document.getElementById('btn-skip-splash');
+
+    if (!splash) return;
+
+    let isDismissed = false;
+
+    function dismissSplash() {
+      if (isDismissed) return;
+      isDismissed = true;
+      splash.classList.add('dismissed');
+      setTimeout(() => {
+        splash.style.display = 'none';
+      }, 850);
+    }
+
+    if (skipBtn) {
+      skipBtn.addEventListener('click', dismissSplash);
+    }
+
+    // Dismiss on Enter / Space / Escape key
+    document.addEventListener('keydown', (e) => {
+      if (!isDismissed && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) {
+        dismissSplash();
+      }
+    });
+
+    // Animate typed text on the splash screen
+    const splashPhrases = [
+      { text: "Hello, World!", sub: "Initializing developer portfolio..." },
+      { text: "I am Samiha Vahora", sub: "Full Stack Developer & AI/ML Engineer" },
+      { text: "Building Scalable Systems", sub: "Production Experience @ BLUEBOXX DA" },
+      { text: "Welcome to My Portfolio", sub: "Always learning • Seeking new opportunities" }
+    ];
+
+    let currentStep = 0;
+    let progress = 0;
+
+    const progressInterval = setInterval(() => {
+      if (isDismissed) {
+        clearInterval(progressInterval);
+        return;
+      }
+      progress += 2.5;
+      if (progressBar) progressBar.style.width = `${Math.min(progress, 100)}%`;
+      if (progress >= 100) {
+        clearInterval(progressInterval);
+        setTimeout(dismissSplash, 300);
+      }
+    }, 85);
+
+    function typeSplashText(targetText, targetSub, callback) {
+      if (isDismissed) return;
+      if (subline) subline.textContent = targetSub;
+
+      let idx = 0;
+      typewriter.textContent = '';
+      const typeInterval = setInterval(() => {
+        if (isDismissed) {
+          clearInterval(typeInterval);
+          return;
+        }
+        typewriter.textContent = targetText.substring(0, idx + 1);
+        idx++;
+        if (idx >= targetText.length) {
+          clearInterval(typeInterval);
+          if (callback) setTimeout(callback, 650);
+        }
+      }, 40);
+    }
+
+    function runSplashSequence() {
+      if (currentStep < splashPhrases.length) {
+        const item = splashPhrases[currentStep];
+        typeSplashText(item.text, item.sub, () => {
+          currentStep++;
+          runSplashSequence();
+        });
+      }
+    }
+
+    setTimeout(runSplashSequence, 200);
+  }
+
+  /* ----------------------------------------------------
      INITIALIZATION ON DOM LOAD
   ---------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
+    initWelcomeSplash();
     initTiltCards();
     initConsoleTabs();
     initProjectFilters();

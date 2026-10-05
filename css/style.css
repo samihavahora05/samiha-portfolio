@@ -102,6 +102,215 @@ ul {
 }
 
 /* ==========================================================================
+   FULLSCREEN ANIMATED WELCOME / INTRO SPLASH SCREEN
+   ========================================================================== */
+
+.intro-splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.intro-splash-overlay.dismissed {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.12), transparent 50%),
+    radial-gradient(circle at 20% 70%, rgba(244, 63, 94, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.splash-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -15px rgba(79, 70, 229, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.1);
+  padding: clamp(28px, 5vw, 44px) clamp(22px, 4vw, 36px);
+  max-width: 540px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: splashCardIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes splashCardIn {
+  0% { transform: scale(0.92) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.splash-avatar {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--grad-aurora);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.4);
+}
+
+.splash-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  animation: pulseRing 2s infinite;
+}
+
+.splash-terminal-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(241, 245, 249, 0.8);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.splash-dots {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.splash-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.splash-dot.red { background: #ef4444; }
+.splash-dot.yellow { background: #f59e0b; }
+.splash-dot.green { background: #10b981; }
+
+.splash-term-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.splash-greeting-line {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 5.5vw, 34px);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.8px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.splash-wave {
+  display: inline-block;
+  animation: waveHand 2.2s infinite;
+  transform-origin: 70% 70%;
+}
+
+.splash-typewriter {
+  background: var(--grad-aurora);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.splash-cursor {
+  color: var(--primary-indigo);
+  font-weight: 700;
+  animation: blinkCursor 0.7s infinite;
+}
+
+.splash-subline {
+  font-size: clamp(15px, 2.5vw, 17px);
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+.splash-meta-line {
+  font-size: clamp(12.5px, 2vw, 13.5px);
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.splash-progress-track {
+  width: 100%;
+  height: 4px;
+  background: rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.splash-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--grad-aurora);
+  border-radius: var(--radius-pill);
+  transition: width 0.05s linear;
+}
+
+.splash-actions {
+  margin-top: 6px;
+}
+
+.btn-skip-splash {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  background: var(--grad-aurora);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition-bounce);
+}
+
+.btn-skip-splash:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.45);
+}
+
+/* ==========================================================================
    Clean Ambient Lighting (Static & Subtle)
    ========================================================================== */
 
