@@ -280,6 +280,56 @@
   }
 
   /* ----------------------------------------------------
+     8. DYNAMIC DEVELOPER TYPEWRITER ANIMATION
+  ---------------------------------------------------- */
+  function initTypewriter() {
+    const textEl = document.getElementById('typewriter-text');
+    if (!textEl) return;
+
+    const phrases = [
+      "I'm Samiha Vahora",
+      "Full Stack Web & Mobile Engineer",
+      "Shipped production systems at BLUEBOXX DA",
+      "AI/ML Developer — YOLOv8 & pgvector",
+      "Passionate learner, always exploring new tech",
+      "Actively seeking full-time SDE roles & opportunities"
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 65;
+
+    function typeLoop() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+        textEl.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+        typingSpeed = 30;
+      } else {
+        textEl.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+        typingSpeed = 65;
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+        // Pause at end of phrase
+        isDeleting = true;
+        typingSpeed = 2200;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        typingSpeed = 450;
+      }
+
+      setTimeout(typeLoop, typingSpeed);
+    }
+
+    typeLoop();
+  }
+
+  /* ----------------------------------------------------
      INITIALIZATION ON DOM LOAD
   ---------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
@@ -290,6 +340,7 @@
     initNavbarScrollSpy();
     initContactForm();
     initMobileMenu();
+    initTypewriter();
   });
 
 })();

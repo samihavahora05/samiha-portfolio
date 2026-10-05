@@ -504,6 +504,71 @@ ul {
   font-size: 13px;
 }
 
+/* Animated Typing Greeting Badge */
+.hero-intro-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 20px -2px rgba(79, 70, 229, 0.12), 0 0 0 1px rgba(255, 255, 255, 0.8);
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: clamp(12.5px, 2.2vw, 14.5px);
+  font-weight: 600;
+  color: var(--text-primary);
+  min-height: 42px;
+  max-width: 100%;
+}
+
+.greeting-wave {
+  display: inline-block;
+  font-size: 17px;
+  animation: waveHand 2.2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hero-typing-prefix {
+  color: var(--primary-indigo);
+  font-weight: 700;
+}
+
+.hero-typing-text {
+  color: var(--text-primary);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--primary-indigo);
+  animation: blinkCursor 0.8s infinite;
+  margin-left: -2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .hero-title {
   font-family: var(--font-display);
   font-size: 52px;
