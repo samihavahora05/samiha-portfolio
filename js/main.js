@@ -426,8 +426,6 @@
       document.getElementById('intro-slide-3'),
       document.getElementById('intro-slide-4')
     ];
-    const stepDots = document.querySelectorAll('.intro-step-dot');
-    const progressFill = document.getElementById('intro-progress-fill');
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
 
@@ -450,14 +448,6 @@
           slide.classList.remove('active');
         }
       });
-
-      stepDots.forEach((dot, idx) => {
-        if (idx === index) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
     }
 
     function dismissIntro() {
@@ -476,7 +466,7 @@
 
     // Click anywhere on overlay to advance or enter
     introOverlay.addEventListener('click', (e) => {
-      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('.intro-step-dot') || e.target.closest('a')) {
+      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('a')) {
         return;
       }
       if (currentSlideIndex === slides.length - 1) {
@@ -486,15 +476,6 @@
         goToSlide(nextIdx);
         startTime = performance.now() - (nextIdx * slideDuration);
       }
-    });
-
-    stepDots.forEach((dot) => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const targetStep = parseInt(dot.getAttribute('data-step') || '0', 10);
-        goToSlide(targetStep);
-        startTime = performance.now() - (targetStep * slideDuration);
-      });
     });
 
     // Keyboard navigation
@@ -519,10 +500,6 @@
 
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / totalDuration, 1);
-
-      if (progressFill) {
-        progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
-      }
 
       const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
       if (calculatedStep !== currentSlideIndex) {
