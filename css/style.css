@@ -151,12 +151,22 @@ ul {
   100% { transform: scale(1.08) rotate(3deg); opacity: 1; }
 }
 
-/* Floating Minimal Skip Button */
-.intro-skip-btn-floating {
+/* Floating Minimal Top Bar (Voice Narrator & Skip) */
+.intro-top-floating-bar {
   position: absolute;
   top: clamp(20px, 4vw, 36px);
+  left: clamp(20px, 4vw, 40px);
   right: clamp(20px, 4vw, 40px);
   z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.intro-voice-btn-floating,
+.intro-skip-btn-floating {
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -175,12 +185,50 @@ ul {
   box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
 }
 
+.intro-voice-btn-floating:hover,
 .intro-skip-btn-floating:hover {
   color: var(--primary-indigo);
   background: #ffffff;
   border-color: var(--primary-indigo);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(79, 70, 229, 0.18);
+}
+
+.intro-voice-btn-floating.active {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.35);
+  color: var(--primary-indigo);
+}
+
+/* Equalizer Soundwave Animation */
+.voice-icon-soundwave {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5px;
+  height: 14px;
+}
+
+.voice-icon-soundwave .bar {
+  width: 2.5px;
+  height: 6px;
+  background: var(--primary-indigo);
+  border-radius: 2px;
+  transition: height 0.2s ease;
+}
+
+.intro-voice-btn-floating.speaking .voice-icon-soundwave .bar {
+  animation: soundwaveJump 0.8s ease-in-out infinite alternate;
+}
+
+.intro-voice-btn-floating.speaking .voice-icon-soundwave .bar-1 { animation-delay: 0.1s; }
+.intro-voice-btn-floating.speaking .voice-icon-soundwave .bar-2 { animation-delay: 0.3s; }
+.intro-voice-btn-floating.speaking .voice-icon-soundwave .bar-3 { animation-delay: 0.2s; }
+.intro-voice-btn-floating.speaking .voice-icon-soundwave .bar-4 { animation-delay: 0.4s; }
+
+@keyframes soundwaveJump {
+  0% { height: 4px; }
+  50% { height: 14px; }
+  100% { height: 6px; }
 }
 
 /* Full-Screen Slides Viewport */

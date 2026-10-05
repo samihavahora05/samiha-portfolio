@@ -414,7 +414,7 @@
   }
 
   /* ----------------------------------------------------
-     10. CINEMATIC MULTI-STAGE ANIMATED INTRO CONTROLLER
+     10. CINEMATIC MULTI-STAGE ANIMATED INTRO & AI VOICE
   ---------------------------------------------------- */
   function initCinematicIntro() {
     const introOverlay = document.getElementById('cinematic-intro');
@@ -428,13 +428,98 @@
     ];
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
+    const voiceToggleBtn = document.getElementById('intro-voice-toggle');
+    const voiceToggleText = document.getElementById('voice-toggle-text');
 
     let isDismissed = false;
     let currentSlideIndex = 0;
-    const slideDuration = 2200; // ms per slide (~8.8s total sequence)
-    const totalDuration = slideDuration * slides.length;
-    let startTime = performance.now();
-    let animFrameId = null;
+    let isVoiceEnabled = true;
+    let bestVoice = null;
+
+    // Narrative scripts with natural human pacing
+    const narrations = [
+      "Hello and welcome! Welcome to my digital engineering space.",
+      "I'm Samiha Vahora. Full Stack Web and Mobile Engineer, and AI Machine Learning Specialist. Building with React, Next.js, Laravel, Flutter, and Computer Vision.",
+      "I worked as a Software Engineer Intern at Blueboxx DA, shipping scalable production systems live on blueboxx.in.",
+      "I'm always learning and actively seeking full-time Software Engineer opportunities. Let's explore the portfolio together!"
+    ];
+
+    // Select the most natural humanized voice
+    function selectNaturalVoice() {
+      if (!('speechSynthesis' in window)) return;
+      const voices = window.speechSynthesis.getVoices();
+      if (!voices.length) return;
+
+      // Priority list of natural humanized voices
+      const preferredKeywords = [
+        'natural', 'online', 'jenny', 'aria', 'samantha', 'karen',
+        'moira', 'victoria', 'google us english', 'google uk english female', 'zira'
+      ];
+
+      for (const keyword of preferredKeywords) {
+        const match = voices.find(v => v.name.toLowerCase().includes(keyword) && v.lang.startsWith('en'));
+        if (match) {
+          bestVoice = match;
+          break;
+        }
+      }
+
+      if (!bestVoice) {
+        bestVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
+      }
+    }
+
+    if ('speechSynthesis' in window) {
+      selectNaturalVoice();
+      window.speechSynthesis.onvoiceschanged = selectNaturalVoice;
+    }
+
+    function speakNarration(text) {
+      if (!isVoiceEnabled || !('speechSynthesis' in window) || isDismissed) return;
+
+      try {
+        window.speechSynthesis.cancel(); // Stop any pending speech
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        if (bestVoice) utterance.voice = bestVoice;
+        
+        utterance.rate = 0.98; // natural conversational rate
+        utterance.pitch = 1.05; // warm, engaging tone
+
+        if (voiceToggleBtn) voiceToggleBtn.classList.add('speaking');
+
+        utterance.onend = () => {
+          if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
+        };
+
+        utterance.onerror = () => {
+          if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
+        };
+
+        window.speechSynthesis.speak(utterance);
+      } catch (err) {
+        console.warn('Speech synthesis error:', err);
+      }
+    }
+
+    if (voiceToggleBtn) {
+      voiceToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isVoiceEnabled = !isVoiceEnabled;
+        if (isVoiceEnabled) {
+          voiceToggleBtn.classList.add('active');
+          if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: ON';
+          speakNarration(narrations[currentSlideIndex]);
+        } else {
+          voiceToggleBtn.classList.remove('active', 'speaking');
+          if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: OFF';
+          if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        }
+      });
+    }
+
+    const slideDurations = [2800, 4200, 3800, 4500]; // ms per slide tuned to voice
+    let slideTimer = null;
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
@@ -448,12 +533,26 @@
           slide.classList.remove('active');
         }
       });
+
+      // Speak narration for active slide
+      if (isVoiceEnabled && narrations[index]) {
+        speakNarration(narrations[index]);
+      }
+
+      // Schedule next slide transition
+      if (slideTimer) clearTimeout(slideTimer);
+      if (index < slides.length - 1) {
+        slideTimer = setTimeout(() => {
+          goToSlide(index + 1);
+        }, slideDurations[index]);
+      }
     }
 
     function dismissIntro() {
       if (isDismissed) return;
       isDismissed = true;
-      if (animFrameId) cancelAnimationFrame(animFrameId);
+      if (slideTimer) clearTimeout(slideTimer);
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
 
       introOverlay.classList.add('dismissed');
       setTimeout(() => {
@@ -466,15 +565,13 @@
 
     // Click anywhere on overlay to advance or enter
     introOverlay.addEventListener('click', (e) => {
-      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('a')) {
+      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('#intro-voice-toggle') || e.target.closest('a')) {
         return;
       }
       if (currentSlideIndex === slides.length - 1) {
         dismissIntro();
       } else {
-        const nextIdx = currentSlideIndex + 1;
-        goToSlide(nextIdx);
-        startTime = performance.now() - (nextIdx * slideDuration);
+        goToSlide(currentSlideIndex + 1);
       }
     });
 
@@ -485,35 +582,16 @@
         dismissIntro();
       } else if (e.key === 'ArrowRight') {
         if (currentSlideIndex === slides.length - 1) dismissIntro();
-        else {
-          goToSlide(currentSlideIndex + 1);
-          startTime = performance.now() - ((currentSlideIndex + 1) * slideDuration);
-        }
+        else goToSlide(currentSlideIndex + 1);
       } else if (e.key === 'ArrowLeft') {
         goToSlide(Math.max(0, currentSlideIndex - 1));
-        startTime = performance.now() - (Math.max(0, currentSlideIndex - 1) * slideDuration);
       }
     });
 
-    function progressLoop(timestamp) {
-      if (isDismissed) return;
-
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / totalDuration, 1);
-
-      const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
-      if (calculatedStep !== currentSlideIndex) {
-        goToSlide(calculatedStep);
-      }
-
-      if (progress < 1) {
-        animFrameId = requestAnimationFrame(progressLoop);
-      } else {
-        setTimeout(dismissIntro, 500);
-      }
-    }
-
-    animFrameId = requestAnimationFrame(progressLoop);
+    // Initial trigger
+    setTimeout(() => {
+      goToSlide(0);
+    }, 300);
   }
 
   /* ----------------------------------------------------
