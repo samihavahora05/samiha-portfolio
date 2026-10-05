@@ -414,7 +414,7 @@
   }
 
   /* ----------------------------------------------------
-     10. CINEMATIC MULTI-STAGE ANIMATED INTRO & AI VOICE ENGINE
+     10. CINEMATIC MULTI-STAGE ANIMATED INTRO
   ---------------------------------------------------- */
   function initCinematicIntro() {
     const introOverlay = document.getElementById('cinematic-intro');
@@ -428,170 +428,22 @@
     ];
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
-    const voiceToggleBtn = document.getElementById('intro-voice-toggle');
-    const voiceToggleText = document.getElementById('voice-toggle-text');
-    const audioHint = document.getElementById('intro-audio-hint');
 
     let isDismissed = false;
     let currentSlideIndex = 0;
-    let isVoiceEnabled = true;
-    let bestVoice = null;
-    let hasUserInteracted = false;
-    let speechResumeHeartbeat = null;
-    let slideFallbackTimer = null;
+    let slideTimer = null;
 
-    // Narrative scripts with natural human pacing
-    const narrations = [
-      "Hello and welcome! Welcome to my digital engineering space.",
-      "I'm Samiha Vahora. Full Stack Web and Mobile Engineer, and AI Machine Learning Specialist. Building with React, Next.js, Laravel, Flutter, and Computer Vision.",
-      "I worked as a Software Engineer Intern at Blueboxx DA, shipping scalable production systems live on blueboxx.in.",
-      "I'm always learning and actively seeking full-time Software Engineer opportunities. Let's explore the portfolio together!"
-    ];
-
-    // Select the most natural humanized voice available
-    function selectNaturalVoice() {
-      if (!('speechSynthesis' in window)) return;
-      const voices = window.speechSynthesis.getVoices();
-      if (!voices || !voices.length) return;
-
-      const priorityKeywords = [
-        'natural', 'online', 'jenny', 'aria', 'samantha', 'karen',
-        'moira', 'victoria', 'google us english', 'google uk english',
-        'zira', 'david', 'mark', 'george', 'en-us', 'en-gb'
-      ];
-
-      for (const keyword of priorityKeywords) {
-        const match = voices.find(v => (v.name + ' ' + v.lang).toLowerCase().includes(keyword));
-        if (match) {
-          bestVoice = match;
-          break;
-        }
-      }
-
-      if (!bestVoice) {
-        bestVoice = voices.find(v => v.lang.startsWith('en')) || voices[0];
-      }
-    }
-
-    if ('speechSynthesis' in window) {
-      selectNaturalVoice();
-      window.speechSynthesis.onvoiceschanged = selectNaturalVoice;
-    }
-
-    function speakNarration(index, onComplete) {
-      if (!isVoiceEnabled || !('speechSynthesis' in window) || isDismissed) {
-        if (onComplete) {
-          if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
-          slideFallbackTimer = setTimeout(onComplete, 3600);
-        }
-        return;
-      }
-
-      try {
-        window.speechSynthesis.cancel(); // Clear previous speech immediately
-        window.speechSynthesis.resume(); // Ensure engine is not paused
-
-        const text = narrations[index] || '';
-        const utterance = new SpeechSynthesisUtterance(text);
-        if (bestVoice) utterance.voice = bestVoice;
-        
-        utterance.rate = 0.98; // natural conversational rate
-        utterance.pitch = 1.05; // warm, engaging tone
-
-        utterance.onstart = () => {
-          if (voiceToggleBtn) voiceToggleBtn.classList.add('speaking');
-          if (audioHint) audioHint.classList.add('hidden');
-
-          // Chrome engine keep-alive heartbeat
-          if (!speechResumeHeartbeat) {
-            speechResumeHeartbeat = setInterval(() => {
-              if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
-                window.speechSynthesis.pause();
-                window.speechSynthesis.resume();
-              }
-            }, 4000);
-          }
-        };
-
-        let hasFinished = false;
-        function finishSpeech() {
-          if (hasFinished) return;
-          hasFinished = true;
-          if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
-          if (speechResumeHeartbeat) {
-            clearInterval(speechResumeHeartbeat);
-            speechResumeHeartbeat = null;
-          }
-          if (onComplete && !isDismissed) {
-            setTimeout(onComplete, 550);
-          }
-        }
-
-        utterance.onend = finishSpeech;
-        utterance.onerror = finishSpeech;
-
-        window.speechSynthesis.speak(utterance);
-
-        // Backup timer in case utterance.onend gets dropped
-        if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
-        slideFallbackTimer = setTimeout(() => {
-          if (!hasFinished) finishSpeech();
-        }, 5500);
-
-      } catch (err) {
-        console.warn('Speech synthesis error:', err);
-        if (onComplete) setTimeout(onComplete, 3600);
-      }
-    }
-
-    // Audio Autoplay Gesture Unlocker
-    function unlockAudioAndSpeak() {
-      if (hasUserInteracted) return;
-      hasUserInteracted = true;
-      if (audioHint) audioHint.classList.add('hidden');
-
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.resume();
-        if (isVoiceEnabled && !isDismissed) {
-          triggerSlideVoice(currentSlideIndex);
-        }
-      }
-    }
-
-    // Attach unlock listeners to first interaction anywhere on page
-    ['click', 'pointerdown', 'touchstart', 'keydown'].forEach((evtType) => {
-      window.addEventListener(evtType, unlockAudioAndSpeak, { once: true, passive: true });
-    });
-
-    function triggerSlideVoice(index) {
-      if (isDismissed) return;
-      speakNarration(index, () => {
-        if (!isDismissed && index < slides.length - 1) {
-          goToSlide(index + 1);
-        }
-      });
-    }
-
-    if (voiceToggleBtn) {
-      voiceToggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        unlockAudioAndSpeak();
-        isVoiceEnabled = !isVoiceEnabled;
-        if (isVoiceEnabled) {
-          voiceToggleBtn.classList.add('active');
-          if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: ON';
-          triggerSlideVoice(currentSlideIndex);
-        } else {
-          voiceToggleBtn.classList.remove('active', 'speaking');
-          if (voiceToggleText) voiceToggleText.textContent = 'AI Voice: OFF';
-          if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-        }
-      });
-    }
+    // Slide display duration in milliseconds (fast, kinetic & engaging)
+    const slideDurations = [2400, 2700, 2700, 0]; // Last slide stays until user clicks or explores
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
       currentSlideIndex = index;
+
+      if (slideTimer) {
+        clearTimeout(slideTimer);
+        slideTimer = null;
+      }
 
       slides.forEach((slide, idx) => {
         if (!slide) return;
@@ -602,25 +454,24 @@
         }
       });
 
-      // Play narration synchronized to slide
-      triggerSlideVoice(index);
+      // Auto advance to next slide if not the final slide
+      const duration = slideDurations[index];
+      if (duration > 0 && index < slides.length - 1) {
+        slideTimer = setTimeout(() => {
+          if (!isDismissed) {
+            goToSlide(index + 1);
+          }
+        }, duration);
+      }
     }
 
     function dismissIntro() {
       if (isDismissed) return;
       isDismissed = true;
-      isVoiceEnabled = false; // Disable any further speech calls
 
-      if (slideFallbackTimer) clearTimeout(slideFallbackTimer);
-      if (speechResumeHeartbeat) {
-        clearInterval(speechResumeHeartbeat);
-        speechResumeHeartbeat = null;
-      }
-
-      // Hard cancel all speech so no voice plays in the portfolio
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.pause();
+      if (slideTimer) {
+        clearTimeout(slideTimer);
+        slideTimer = null;
       }
 
       introOverlay.classList.add('dismissed');
@@ -643,12 +494,11 @@
       });
     }
 
-    // Click anywhere on overlay to advance or enter
+    // Click anywhere on overlay to manually advance or enter
     introOverlay.addEventListener('click', (e) => {
-      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('#intro-voice-toggle') || e.target.closest('a')) {
+      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('a')) {
         return;
       }
-      unlockAudioAndSpeak();
       if (currentSlideIndex === slides.length - 1) {
         dismissIntro();
       } else {
@@ -659,7 +509,6 @@
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (isDismissed) return;
-      unlockAudioAndSpeak();
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
         dismissIntro();
       } else if (e.key === 'ArrowRight') {
@@ -670,10 +519,10 @@
       }
     });
 
-    // Initial load
+    // Initial start
     setTimeout(() => {
       goToSlide(0);
-    }, 250);
+    }, 200);
   }
 
   /* ----------------------------------------------------

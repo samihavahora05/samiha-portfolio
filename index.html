@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=12" />
+  <link rel="stylesheet" href="css/style.css?v=13" />
 </head>
 <body class="light-theme">
 
@@ -23,23 +23,11 @@
     <!-- Ambient Aurora Aura Glow -->
     <div class="intro-ambient-aurora" aria-hidden="true"></div>
 
-    <!-- Floating Minimal Top Voice Narrator & Skip Controls -->
-    <div class="intro-top-floating-bar">
-      <button class="intro-voice-btn-floating active" id="intro-voice-toggle" aria-label="Toggle AI Voice Narrator">
-        <span class="voice-icon-soundwave" aria-hidden="true">
-          <span class="bar bar-1"></span>
-          <span class="bar bar-2"></span>
-          <span class="bar bar-3"></span>
-          <span class="bar bar-4"></span>
-        </span>
-        <span id="voice-toggle-text">AI Voice: ON</span>
-      </button>
-
-      <button class="intro-skip-btn-floating" id="intro-skip-btn" aria-label="Skip to Portfolio">
-        <span>Skip Intro</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-      </button>
-    </div>
+    <!-- Floating Minimal Top Right Skip Button -->
+    <button class="intro-skip-btn-floating" id="intro-skip-btn" aria-label="Skip to Portfolio">
+      <span>Skip Intro</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
 
     <!-- Cinematic Slides Container (Direct Full-Screen Typography) -->
     <div class="intro-slides-viewport">
@@ -129,12 +117,6 @@
         </div>
       </div>
 
-    </div>
-
-    <!-- Audio Autoplay Unlock Helper Hint -->
-    <div class="intro-audio-gesture-hint" id="intro-audio-hint">
-      <span class="audio-hint-icon">🔊</span>
-      <span>Click anywhere to start AI narration</span>
     </div>
   </aside>
 
@@ -1201,6 +1183,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="js/main.js?v=12"></script>
+  <script src="js/main.js?v=13"></script>
 </body>
 </html>
