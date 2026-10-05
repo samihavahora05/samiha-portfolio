@@ -423,34 +423,24 @@
     const slides = [
       document.getElementById('intro-slide-1'),
       document.getElementById('intro-slide-2'),
-      document.getElementById('intro-slide-3')
+      document.getElementById('intro-slide-3'),
+      document.getElementById('intro-slide-4')
     ];
     const stepDots = document.querySelectorAll('.intro-step-dot');
     const progressFill = document.getElementById('intro-progress-fill');
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
-    const prevBtn = document.getElementById('intro-prev-btn');
-    const nextBtn = document.getElementById('intro-next-btn');
-    const counterEl = document.getElementById('intro-slide-counter');
 
     let isDismissed = false;
     let currentSlideIndex = 0;
-    const slideDuration = 2400; // ms per slide (7.2s total)
+    const slideDuration = 2200; // ms per slide (~8.8s total sequence)
     const totalDuration = slideDuration * slides.length;
     let startTime = performance.now();
     let animFrameId = null;
-    let isPaused = false;
-
-    function updateCounter(idx) {
-      if (counterEl) {
-        counterEl.textContent = `0${idx + 1} / 0${slides.length}`;
-      }
-    }
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
       currentSlideIndex = index;
-      updateCounter(index);
 
       slides.forEach((slide, idx) => {
         if (!slide) return;
@@ -481,42 +471,30 @@
       }, 850);
     }
 
-    if (skipBtn) skipBtn.addEventListener('click', dismissIntro);
-    if (enterBtn) enterBtn.addEventListener('click', dismissIntro);
+    if (skipBtn) skipBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissIntro(); });
+    if (enterBtn) enterBtn.addEventListener('click', (e) => { e.stopPropagation(); dismissIntro(); });
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        const nextIdx = (currentSlideIndex - 1 + slides.length) % slides.length;
+    // Click anywhere on overlay to advance or enter
+    introOverlay.addEventListener('click', (e) => {
+      if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('.intro-step-dot') || e.target.closest('a')) {
+        return;
+      }
+      if (currentSlideIndex === slides.length - 1) {
+        dismissIntro();
+      } else {
+        const nextIdx = currentSlideIndex + 1;
         goToSlide(nextIdx);
         startTime = performance.now() - (nextIdx * slideDuration);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        if (currentSlideIndex === slides.length - 1) {
-          dismissIntro();
-        } else {
-          const nextIdx = currentSlideIndex + 1;
-          goToSlide(nextIdx);
-          startTime = performance.now() - (nextIdx * slideDuration);
-        }
-      });
-    }
+      }
+    });
 
     stepDots.forEach((dot) => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
         const targetStep = parseInt(dot.getAttribute('data-step') || '0', 10);
         goToSlide(targetStep);
         startTime = performance.now() - (targetStep * slideDuration);
       });
-    });
-
-    // Pause progression on mouse enter over cards so user can inspect details
-    const hologramCards = document.querySelectorAll('.intro-hologram-card');
-    hologramCards.forEach((card) => {
-      card.addEventListener('mouseenter', () => { isPaused = true; });
-      card.addEventListener('mouseleave', () => { isPaused = false; });
     });
 
     // Keyboard navigation
@@ -528,38 +506,33 @@
         if (currentSlideIndex === slides.length - 1) dismissIntro();
         else {
           goToSlide(currentSlideIndex + 1);
-          startTime = performance.now() - (currentSlideIndex * slideDuration);
+          startTime = performance.now() - ((currentSlideIndex + 1) * slideDuration);
         }
       } else if (e.key === 'ArrowLeft') {
         goToSlide(Math.max(0, currentSlideIndex - 1));
-        startTime = performance.now() - (currentSlideIndex * slideDuration);
+        startTime = performance.now() - (Math.max(0, currentSlideIndex - 1) * slideDuration);
       }
     });
 
     function progressLoop(timestamp) {
       if (isDismissed) return;
 
-      if (!isPaused) {
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / totalDuration, 1);
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / totalDuration, 1);
 
-        if (progressFill) {
-          progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
-        }
+      if (progressFill) {
+        progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
+      }
 
-        const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
-        if (calculatedStep !== currentSlideIndex) {
-          goToSlide(calculatedStep);
-        }
+      const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
+      if (calculatedStep !== currentSlideIndex) {
+        goToSlide(calculatedStep);
+      }
 
-        if (progress < 1) {
-          animFrameId = requestAnimationFrame(progressLoop);
-        } else {
-          setTimeout(dismissIntro, 500);
-        }
-      } else {
-        startTime += 16; // Shift start time while paused to maintain sync
+      if (progress < 1) {
         animFrameId = requestAnimationFrame(progressLoop);
+      } else {
+        setTimeout(dismissIntro, 500);
       }
     }
 
