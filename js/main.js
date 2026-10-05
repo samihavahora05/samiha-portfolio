@@ -330,7 +330,91 @@
   }
 
   /* ----------------------------------------------------
-     9. CINEMATIC MULTI-STAGE ANIMATED INTRO CONTROLLER
+     9. INTRO BACKGROUND CONSTELLATION PARTICLES CANVAS
+  ---------------------------------------------------- */
+  function initIntroParticles() {
+    const canvas = document.getElementById('intro-particles-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const count = window.innerWidth < 768 ? 25 : 55;
+
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        radius: Math.random() * 2 + 1,
+        color: ['rgba(79, 70, 229, 0.45)', 'rgba(6, 182, 212, 0.45)', 'rgba(244, 63, 94, 0.35)'][Math.floor(Math.random() * 3)]
+      });
+    }
+
+    let mouseX = width / 2;
+    let mouseY = height / 2;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function drawParticles() {
+      const overlay = document.getElementById('cinematic-intro');
+      if (overlay && overlay.classList.contains('dismissed')) return;
+
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.15 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw & update nodes
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+
+        p.x += p.vx;
+        p.y += p.vy;
+
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+      }
+
+      requestAnimationFrame(drawParticles);
+    }
+
+    requestAnimationFrame(drawParticles);
+  }
+
+  /* ----------------------------------------------------
+     10. CINEMATIC MULTI-STAGE ANIMATED INTRO CONTROLLER
   ---------------------------------------------------- */
   function initCinematicIntro() {
     const introOverlay = document.getElementById('cinematic-intro');
@@ -345,17 +429,28 @@
     const progressFill = document.getElementById('intro-progress-fill');
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
+    const prevBtn = document.getElementById('intro-prev-btn');
+    const nextBtn = document.getElementById('intro-next-btn');
+    const counterEl = document.getElementById('intro-slide-counter');
 
     let isDismissed = false;
     let currentSlideIndex = 0;
-    const slideDuration = 1800; // ms per slide
-    const totalDuration = slideDuration * slides.length; // 5400 ms
+    const slideDuration = 2400; // ms per slide (7.2s total)
+    const totalDuration = slideDuration * slides.length;
     let startTime = performance.now();
     let animFrameId = null;
+    let isPaused = false;
+
+    function updateCounter(idx) {
+      if (counterEl) {
+        counterEl.textContent = `0${idx + 1} / 0${slides.length}`;
+      }
+    }
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
       currentSlideIndex = index;
+      updateCounter(index);
 
       slides.forEach((slide, idx) => {
         if (!slide) return;
@@ -386,48 +481,85 @@
       }, 850);
     }
 
-    if (skipBtn) {
-      skipBtn.addEventListener('click', dismissIntro);
+    if (skipBtn) skipBtn.addEventListener('click', dismissIntro);
+    if (enterBtn) enterBtn.addEventListener('click', dismissIntro);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const nextIdx = (currentSlideIndex - 1 + slides.length) % slides.length;
+        goToSlide(nextIdx);
+        startTime = performance.now() - (nextIdx * slideDuration);
+      });
     }
 
-    if (enterBtn) {
-      enterBtn.addEventListener('click', dismissIntro);
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (currentSlideIndex === slides.length - 1) {
+          dismissIntro();
+        } else {
+          const nextIdx = currentSlideIndex + 1;
+          goToSlide(nextIdx);
+          startTime = performance.now() - (nextIdx * slideDuration);
+        }
+      });
     }
 
     stepDots.forEach((dot) => {
       dot.addEventListener('click', () => {
         const targetStep = parseInt(dot.getAttribute('data-step') || '0', 10);
         goToSlide(targetStep);
+        startTime = performance.now() - (targetStep * slideDuration);
       });
     });
 
-    // Dismiss on Enter / Space / Escape key
+    // Pause progression on mouse enter over cards so user can inspect details
+    const hologramCards = document.querySelectorAll('.intro-hologram-card');
+    hologramCards.forEach((card) => {
+      card.addEventListener('mouseenter', () => { isPaused = true; });
+      card.addEventListener('mouseleave', () => { isPaused = false; });
+    });
+
+    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (!isDismissed && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) {
+      if (isDismissed) return;
+      if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
         dismissIntro();
+      } else if (e.key === 'ArrowRight') {
+        if (currentSlideIndex === slides.length - 1) dismissIntro();
+        else {
+          goToSlide(currentSlideIndex + 1);
+          startTime = performance.now() - (currentSlideIndex * slideDuration);
+        }
+      } else if (e.key === 'ArrowLeft') {
+        goToSlide(Math.max(0, currentSlideIndex - 1));
+        startTime = performance.now() - (currentSlideIndex * slideDuration);
       }
     });
 
     function progressLoop(timestamp) {
       if (isDismissed) return;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / totalDuration, 1);
 
-      if (progressFill) {
-        progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
-      }
+      if (!isPaused) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / totalDuration, 1);
 
-      // Step calculation
-      const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
-      if (calculatedStep !== currentSlideIndex) {
-        goToSlide(calculatedStep);
-      }
+        if (progressFill) {
+          progressFill.style.width = `${(progress * 100).toFixed(2)}%`;
+        }
 
-      if (progress < 1) {
-        animFrameId = requestAnimationFrame(progressLoop);
+        const calculatedStep = Math.min(Math.floor(elapsed / slideDuration), slides.length - 1);
+        if (calculatedStep !== currentSlideIndex) {
+          goToSlide(calculatedStep);
+        }
+
+        if (progress < 1) {
+          animFrameId = requestAnimationFrame(progressLoop);
+        } else {
+          setTimeout(dismissIntro, 500);
+        }
       } else {
-        // Auto-dismiss after slight pause at the end
-        setTimeout(dismissIntro, 400);
+        startTime += 16; // Shift start time while paused to maintain sync
+        animFrameId = requestAnimationFrame(progressLoop);
       }
     }
 
@@ -438,6 +570,7 @@
      INITIALIZATION ON DOM LOAD
   ---------------------------------------------------- */
   document.addEventListener('DOMContentLoaded', () => {
+    initIntroParticles();
     initCinematicIntro();
     initTiltCards();
     initConsoleTabs();

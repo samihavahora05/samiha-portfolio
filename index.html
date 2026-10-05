@@ -11,26 +11,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=6" />
+  <link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 <body class="light-theme">
 
   <!-- Cinematic Multi-Stage Animated Intro Overlay -->
   <aside class="cinematic-intro-overlay" id="cinematic-intro">
+    <!-- Interactive Background Particle Constellation Canvas -->
+    <canvas id="intro-particles-canvas" class="intro-particles-canvas" aria-hidden="true"></canvas>
+
     <!-- Ambient Aurora Aura -->
     <div class="intro-ambient-aurora" aria-hidden="true"></div>
 
-    <!-- Top Bar with Progress & Skip -->
+    <!-- Top Bar with Brand, Step Indicators & Skip -->
     <div class="intro-topbar">
       <div class="intro-brand">
-        <div class="intro-avatar">SV</div>
-        <span class="intro-tag">SAMIHA VAHORA</span>
+        <div class="intro-avatar">
+          <span>SV</span>
+          <div class="avatar-ring-orbit"></div>
+        </div>
+        <div class="intro-brand-text">
+          <span class="intro-brand-name">SAMIHA VAHORA</span>
+          <span class="intro-brand-status"><span class="status-dot-pulse"></span>OPEN TO SDE ROLES</span>
+        </div>
       </div>
 
-      <div class="intro-step-indicators">
-        <span class="intro-step-dot active" data-step="0"></span>
-        <span class="intro-step-dot" data-step="1"></span>
-        <span class="intro-step-dot" data-step="2"></span>
+      <div class="intro-step-indicators" role="tablist" aria-label="Intro progress">
+        <button class="intro-step-dot active" data-step="0" aria-label="Slide 1: Greeting">
+          <span class="step-num">01</span>
+          <span class="step-label">Greeting</span>
+        </button>
+        <button class="intro-step-dot" data-step="1" aria-label="Slide 2: Profile">
+          <span class="step-num">02</span>
+          <span class="step-label">Profile</span>
+        </button>
+        <button class="intro-step-dot" data-step="2" aria-label="Slide 3: Vision">
+          <span class="step-num">03</span>
+          <span class="step-label">Vision</span>
+        </button>
       </div>
 
       <button class="intro-skip-btn" id="intro-skip-btn" aria-label="Skip to Portfolio">
@@ -39,64 +57,171 @@
       </button>
     </div>
 
-    <!-- Cinematic Slides Container -->
+    <!-- Cinematic Slides Container with Glass Card Stage -->
     <div class="intro-slides-viewport">
       
-      <!-- SLIDE 1: Big Cinematic HELLO -->
+      <!-- SLIDE 1: Big Cinematic HELLO & Engineering Terminal -->
       <div class="intro-slide active" id="intro-slide-1">
-        <div class="slide-eyebrow">
-          <span class="pulse-dot"></span>
-          <span>INITIATING CONNECTION</span>
+        <div class="intro-hologram-card">
+          <div class="hologram-card-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">~/samiha/welcome.sh</span>
+            <div class="terminal-status-chip">
+              <span class="live-pulse-emerald"></span>
+              <span>LIVE SYSTEM</span>
+            </div>
+          </div>
+
+          <div class="hologram-card-body">
+            <div class="slide-eyebrow">
+              <span class="sparkle-icon">✨</span>
+              <span>WELCOME TO MY DIGITAL WORKSPACE</span>
+            </div>
+            <h1 class="slide-big-title">
+              HELLO <span class="wave-emoji">👋</span>
+            </h1>
+            <div class="slide-code-snippet">
+              <span class="code-comment">// Full-Stack Web, Mobile &amp; AI/ML Developer</span>
+              <p class="slide-typed-welcome">
+                <span class="code-prompt">&gt;</span> <span class="code-keyword">const</span> <span class="code-var">developer</span> = { status: <span class="code-str">"Active &amp; Ready to Innovate"</span>, location: <span class="code-str">"India"</span> };
+              </p>
+            </div>
+            <div class="slide-feature-pills">
+              <span class="feature-pill"><span class="pill-dot blue"></span>Full-Stack Engineering</span>
+              <span class="feature-pill"><span class="pill-dot purple"></span>AI &amp; Computer Vision</span>
+              <span class="feature-pill"><span class="pill-dot green"></span>Production Tested</span>
+            </div>
+          </div>
         </div>
-        <h1 class="slide-big-title">
-          HELLO<span class="wave-emoji">👋</span>
-        </h1>
-        <p class="slide-caption">Welcome to my engineering space.</p>
       </div>
 
-      <!-- SLIDE 2: Identity & Roles -->
+      <!-- SLIDE 2: Identity, Blueprint & Tech Stack -->
       <div class="intro-slide" id="intro-slide-2">
-        <div class="slide-eyebrow">
-          <span class="sparkle-spark">✦</span>
-          <span>MEET THE DEVELOPER</span>
-        </div>
-        <h1 class="slide-big-title">
-          I'M <span class="gradient-text-flow">SAMIHA</span> VAHORA
-        </h1>
-        <p class="slide-caption">Full Stack Developer &amp; AI/ML Engineer</p>
-        <div class="slide-tech-chips">
-          <span>React.js</span>
-          <span>Next.js</span>
-          <span>Laravel</span>
-          <span>Flutter</span>
-          <span>YOLOv8</span>
-          <span>pgvector</span>
+        <div class="intro-hologram-card">
+          <div class="hologram-card-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">~/samiha/profile.ts</span>
+            <div class="terminal-status-chip">
+              <span class="live-pulse-indigo"></span>
+              <span>ENGINEER PROFILE</span>
+            </div>
+          </div>
+
+          <div class="hologram-card-body">
+            <div class="slide-developer-badge-row">
+              <div class="hologram-avatar-glow">
+                <div class="avatar-core">SV</div>
+              </div>
+              <div class="hologram-name-wrap">
+                <span class="slide-eyebrow-accent">MEET THE ENGINEER</span>
+                <h2 class="slide-big-title-h2">
+                  I'M <span class="gradient-text-flow">SAMIHA</span> VAHORA
+                </h2>
+                <p class="slide-role-subtext">Full Stack Developer &amp; AI/ML Specialist</p>
+              </div>
+            </div>
+
+            <!-- Interactive Tech Matrix -->
+            <div class="slide-tech-matrix">
+              <div class="tech-chip"><span class="chip-icon">⚛️</span> React.js</div>
+              <div class="tech-chip"><span class="chip-icon">⚡</span> Next.js</div>
+              <div class="tech-chip"><span class="chip-icon">🔷</span> TypeScript</div>
+              <div class="tech-chip"><span class="chip-icon">🐘</span> Laravel</div>
+              <div class="tech-chip"><span class="chip-icon">📱</span> Flutter</div>
+              <div class="tech-chip"><span class="chip-icon">👁️</span> YOLOv8</div>
+              <div class="tech-chip"><span class="chip-icon">🔍</span> pgvector</div>
+            </div>
+
+            <!-- Internship Highlight Pill -->
+            <div class="slide-internship-pill">
+              <span class="pill-badge">EXPERIENCE</span>
+              <span class="pill-text">Software Engineer Intern at <strong>BLUEBOXX DA</strong> &bull; Production deployed on <strong>blueboxx.in</strong></span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- SLIDE 3: Mission & Opportunities -->
+      <!-- SLIDE 3: Vision, Impact & Direct Portfolio Entry -->
       <div class="intro-slide" id="intro-slide-3">
-        <div class="slide-eyebrow">
-          <span class="sparkle-spark">🚀</span>
-          <span>VISION &amp; IMPACT</span>
-        </div>
-        <h1 class="slide-big-title">
-          ALWAYS <span class="gradient-text-flow">LEARNING.</span><br>READY TO <span class="gradient-text-accent">BUILD.</span>
-        </h1>
-        <p class="slide-caption">Seeking full-time SDE roles &amp; high-impact opportunities.</p>
-        <div class="slide-enter-action">
-          <button class="btn-enter-portfolio" id="btn-enter-portfolio">
-            <span>Explore Portfolio</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </button>
+        <div class="intro-hologram-card">
+          <div class="hologram-card-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="terminal-title">~/samiha/vision.md</span>
+            <div class="terminal-status-chip">
+              <span class="live-pulse-rose"></span>
+              <span>READY TO SHIP</span>
+            </div>
+          </div>
+
+          <div class="hologram-card-body">
+            <div class="slide-eyebrow">
+              <span class="sparkle-icon">🚀</span>
+              <span>VISION &amp; IMPACT</span>
+            </div>
+            <h2 class="slide-big-title-h2">
+              ALWAYS <span class="gradient-text-flow">LEARNING.</span><br>READY TO <span class="gradient-text-accent">BUILD &amp; SHIP.</span>
+            </h2>
+            <p class="slide-caption">Seeking high-impact full-time Software Engineer &amp; AI/ML developer roles.</p>
+            
+            <!-- Key Metric Counters -->
+            <div class="slide-stats-ribbon">
+              <div class="stat-bubble">
+                <span class="stat-num">7+</span>
+                <span class="stat-lbl">Projects Built</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-num">1</span>
+                <span class="stat-lbl">Industry Internship</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-num">100%</span>
+                <span class="stat-lbl">Fast Learner</span>
+              </div>
+            </div>
+
+            <div class="slide-enter-action">
+              <button class="btn-enter-portfolio" id="btn-enter-portfolio">
+                <span>Explore Full Portfolio</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Continuous Progress Bar -->
-    <div class="intro-progress-bar-track">
-      <div class="intro-progress-bar-fill" id="intro-progress-fill"></div>
+    <!-- Bottom Navigation Bar & Progress -->
+    <div class="intro-bottom-controls">
+      <div class="intro-nav-buttons">
+        <button class="intro-nav-arrow" id="intro-prev-btn" aria-label="Previous Slide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <span class="intro-slide-counter" id="intro-slide-counter">01 / 03</span>
+        <button class="intro-nav-arrow" id="intro-next-btn" aria-label="Next Slide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+
+      <div class="intro-progress-bar-track">
+        <div class="intro-progress-bar-fill" id="intro-progress-fill"></div>
+      </div>
+
+      <div class="intro-hint-text">
+        <span>Press <kbd>Space</kbd> or <kbd>Enter</kbd> to enter</span>
+      </div>
     </div>
   </aside>
 
@@ -1163,6 +1288,6 @@
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="js/main.js?v=6"></script>
+  <script src="js/main.js?v=7"></script>
 </body>
 </html>
