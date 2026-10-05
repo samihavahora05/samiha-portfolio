@@ -414,7 +414,7 @@
   }
 
   /* ----------------------------------------------------
-     10. CINEMATIC MULTI-STAGE ANIMATED INTRO & AI VOICE
+     10. CINEMATIC MULTI-STAGE ANIMATED INTRO & AI VOICE ENGINE
   ---------------------------------------------------- */
   function initCinematicIntro() {
     const introOverlay = document.getElementById('cinematic-intro');
@@ -430,11 +430,14 @@
     const enterBtn = document.getElementById('btn-enter-portfolio');
     const voiceToggleBtn = document.getElementById('intro-voice-toggle');
     const voiceToggleText = document.getElementById('voice-toggle-text');
+    const audioHint = document.getElementById('intro-audio-hint');
 
     let isDismissed = false;
     let currentSlideIndex = 0;
     let isVoiceEnabled = true;
     let bestVoice = null;
+    let hasUserInteracted = false;
+    let speechResumeHeartbeat = null;
 
     // Narrative scripts with natural human pacing
     const narrations = [
@@ -444,13 +447,12 @@
       "I'm always learning and actively seeking full-time Software Engineer opportunities. Let's explore the portfolio together!"
     ];
 
-    // Select the most natural humanized voice
+    // Select the most natural humanized voice available
     function selectNaturalVoice() {
       if (!('speechSynthesis' in window)) return;
       const voices = window.speechSynthesis.getVoices();
       if (!voices.length) return;
 
-      // Priority list of natural humanized voices
       const preferredKeywords = [
         'natural', 'online', 'jenny', 'aria', 'samantha', 'karen',
         'moira', 'victoria', 'google us english', 'google uk english female', 'zira'
@@ -478,7 +480,8 @@
       if (!isVoiceEnabled || !('speechSynthesis' in window) || isDismissed) return;
 
       try {
-        window.speechSynthesis.cancel(); // Stop any pending speech
+        window.speechSynthesis.cancel(); // Clear previous speech immediately
+        window.speechSynthesis.resume(); // Ensure engine is not paused
 
         const utterance = new SpeechSynthesisUtterance(text);
         if (bestVoice) utterance.voice = bestVoice;
@@ -486,14 +489,35 @@
         utterance.rate = 0.98; // natural conversational rate
         utterance.pitch = 1.05; // warm, engaging tone
 
-        if (voiceToggleBtn) voiceToggleBtn.classList.add('speaking');
+        utterance.onstart = () => {
+          if (voiceToggleBtn) voiceToggleBtn.classList.add('speaking');
+          if (audioHint) audioHint.classList.add('hidden');
+
+          // Chrome engine keep-alive heartbeat
+          if (!speechResumeHeartbeat) {
+            speechResumeHeartbeat = setInterval(() => {
+              if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+                window.speechSynthesis.pause();
+                window.speechSynthesis.resume();
+              }
+            }, 5000);
+          }
+        };
 
         utterance.onend = () => {
           if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
+          if (speechResumeHeartbeat) {
+            clearInterval(speechResumeHeartbeat);
+            speechResumeHeartbeat = null;
+          }
         };
 
         utterance.onerror = () => {
           if (voiceToggleBtn) voiceToggleBtn.classList.remove('speaking');
+          if (speechResumeHeartbeat) {
+            clearInterval(speechResumeHeartbeat);
+            speechResumeHeartbeat = null;
+          }
         };
 
         window.speechSynthesis.speak(utterance);
@@ -502,9 +526,29 @@
       }
     }
 
+    // Audio Autoplay Gesture Unlocker
+    function unlockAudioAndSpeak() {
+      if (hasUserInteracted) return;
+      hasUserInteracted = true;
+      if (audioHint) audioHint.classList.add('hidden');
+
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.resume();
+        if (isVoiceEnabled && !isDismissed) {
+          speakNarration(narrations[currentSlideIndex]);
+        }
+      }
+    }
+
+    // Attach unlock listeners to first interaction anywhere on page
+    ['click', 'pointerdown', 'touchstart', 'keydown'].forEach((evtType) => {
+      window.addEventListener(evtType, unlockAudioAndSpeak, { once: true, passive: true });
+    });
+
     if (voiceToggleBtn) {
       voiceToggleBtn.addEventListener('click', (e) => {
         e.stopPropagation();
+        unlockAudioAndSpeak();
         isVoiceEnabled = !isVoiceEnabled;
         if (isVoiceEnabled) {
           voiceToggleBtn.classList.add('active');
@@ -518,7 +562,7 @@
       });
     }
 
-    const slideDurations = [2800, 4200, 3800, 4500]; // ms per slide tuned to voice
+    const slideDurations = [2800, 4200, 3800, 4500]; // ms per slide
     let slideTimer = null;
 
     function goToSlide(index) {
@@ -552,7 +596,14 @@
       if (isDismissed) return;
       isDismissed = true;
       if (slideTimer) clearTimeout(slideTimer);
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+      if (speechResumeHeartbeat) {
+        clearInterval(speechResumeHeartbeat);
+        speechResumeHeartbeat = null;
+      }
+      // Immediately kill all voice and speech so nothing plays once in portfolio
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
 
       introOverlay.classList.add('dismissed');
       setTimeout(() => {
@@ -568,6 +619,7 @@
       if (e.target.closest('#intro-skip-btn') || e.target.closest('#btn-enter-portfolio') || e.target.closest('#intro-voice-toggle') || e.target.closest('a')) {
         return;
       }
+      unlockAudioAndSpeak();
       if (currentSlideIndex === slides.length - 1) {
         dismissIntro();
       } else {
@@ -578,6 +630,7 @@
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
       if (isDismissed) return;
+      unlockAudioAndSpeak();
       if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
         dismissIntro();
       } else if (e.key === 'ArrowRight') {
@@ -591,7 +644,7 @@
     // Initial trigger
     setTimeout(() => {
       goToSlide(0);
-    }, 300);
+    }, 250);
   }
 
   /* ----------------------------------------------------
