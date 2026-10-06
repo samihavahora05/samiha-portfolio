@@ -423,8 +423,7 @@
     const slides = [
       document.getElementById('intro-slide-1'),
       document.getElementById('intro-slide-2'),
-      document.getElementById('intro-slide-3'),
-      document.getElementById('intro-slide-4')
+      document.getElementById('intro-slide-3')
     ];
     const skipBtn = document.getElementById('intro-skip-btn');
     const enterBtn = document.getElementById('btn-enter-portfolio');
@@ -434,7 +433,7 @@
     let slideTimer = null;
 
     // Slide display duration in milliseconds (fast, kinetic & engaging)
-    const slideDurations = [2400, 2700, 2700, 0]; // Last slide stays until user clicks or explores
+    const slideDurations = [2400, 2700, 0]; // Last slide stays until user clicks or explores
 
     function goToSlide(index) {
       if (isDismissed || index < 0 || index >= slides.length) return;
