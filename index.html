@@ -3,106 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Samiha Vahora — Full Stack &amp; AI/ML Engineer</title>
-  <meta name="description" content="Portfolio of Samiha Vahora — Full Stack Developer & AI/ML Engineer specializing in React, Next.js, Node.js, Laravel, Flutter, and edge computer vision." />
+  <title>Samiha Vahora — Full-Stack &amp; Mobile Engineer | Edge AI</title>
+  <meta name="description" content="Portfolio of Samiha Vahora — Software Engineer specializing in Next.js, Laravel, Flutter, Kotlin, and On-Device Edge AI. Production experience at BLUEBOXX DA." />
 
   <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css?v=13" />
+  <link rel="stylesheet" href="css/style.css?v=20" />
 </head>
 <body class="light-theme">
-
-  <!-- Cinematic Full-Screen Animated Intro Overlay (Card-less & Pure Kinetic Typography) -->
-  <aside class="cinematic-intro-overlay" id="cinematic-intro">
-    <!-- Interactive Background Particle Constellation Canvas -->
-    <canvas id="intro-particles-canvas" class="intro-particles-canvas" aria-hidden="true"></canvas>
-
-    <!-- Ambient Aurora Aura Glow -->
-    <div class="intro-ambient-aurora" aria-hidden="true"></div>
-
-    <!-- Floating Minimal Top Right Skip Button -->
-    <button class="intro-skip-btn-floating" id="intro-skip-btn" aria-label="Skip to Portfolio">
-      <span>Skip Intro</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-
-    <!-- Cinematic Slides Container (Direct Full-Screen Typography) -->
-    <div class="intro-slides-viewport">
-      
-      <!-- SLIDE 1: Big Fluid HELLO & Welcome Message -->
-      <div class="intro-slide active" id="intro-slide-1">
-        <div class="slide-content-center">
-          <div class="slide-glow-eyebrow">
-            <span class="live-dot-pulse"></span>
-            <span>INITIATING CONNECTION</span>
-          </div>
-          <h1 class="kinetic-hero-title">
-            HELLO <span class="wave-emoji">👋</span>
-          </h1>
-          <p class="kinetic-hero-subtitle">
-            Welcome to my digital engineering space.
-          </p>
-          <div class="kinetic-code-line">
-            <span class="code-prompt">&gt;</span> <span class="code-keyword">const</span> <span class="code-var">developer</span> = { passion: <span class="code-str">"Building High-Impact Systems"</span> };
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 2: Identity, Stack & Passion -->
-      <div class="intro-slide" id="intro-slide-2">
-        <div class="slide-content-center">
-          <div class="slide-glow-eyebrow">
-            <span class="sparkle-star">✦</span>
-            <span>MEET THE DEVELOPER</span>
-          </div>
-          <h2 class="kinetic-hero-title">
-            I'M <span class="gradient-text-flow">SAMIHA</span> VAHORA
-          </h2>
-          <p class="kinetic-hero-subtitle">
-            Full Stack Web &amp; Mobile Engineer &bull; AI / ML Specialist
-          </p>
-          <div class="kinetic-tech-pills">
-            <span class="kinetic-pill">React.js</span>
-            <span class="kinetic-pill">Next.js</span>
-            <span class="kinetic-pill">TypeScript</span>
-            <span class="kinetic-pill">Laravel</span>
-            <span class="kinetic-pill">Flutter</span>
-            <span class="kinetic-pill">YOLOv8</span>
-            <span class="kinetic-pill">pgvector</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- SLIDE 3: Vision, Learning & Direct Launch -->
-      <div class="intro-slide" id="intro-slide-3">
-        <div class="slide-content-center">
-          <div class="slide-glow-eyebrow">
-            <span class="sparkle-star">🚀</span>
-            <span>READY FOR NEW OPPORTUNITIES</span>
-          </div>
-          <h2 class="kinetic-hero-title">
-            ALWAYS <span class="gradient-text-flow">LEARNING.</span><br>READY TO <span class="gradient-text-accent">BUILD &amp; SHIP.</span>
-          </h2>
-          <p class="kinetic-hero-subtitle">
-            Seeking full-time Software Engineer &amp; AI/ML roles to solve ambitious problems.
-          </p>
-          <div class="kinetic-cta-action">
-            <button class="btn-enter-portfolio" id="btn-enter-portfolio">
-              <span>Explore Portfolio</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </aside>
-
-  <!-- Clean Subtle Ambient Lighting -->
-  <div class="aurora-ambient-bg" aria-hidden="true"></div>
 
   <!-- Floating Crystalline Glass Navbar -->
   <header class="glass-navbar" id="navbar">
@@ -110,58 +21,28 @@
       <a class="nav-brand-group" href="#hero" aria-label="Samiha Vahora Home">
         <div class="brand-avatar-badge">
           <span>SV</span>
-          <div class="avatar-pulse-ring"></div>
+          <div class="avatar-pulse-ring" aria-hidden="true"></div>
         </div>
         <div class="brand-meta">
           <span class="brand-title">Samiha Vahora</span>
-          <span class="brand-subtitle"><span class="live-dot"></span>Full-Stack &amp; AI</span>
+          <span class="brand-subtitle"><span class="live-dot" aria-hidden="true"></span>Software Engineer</span>
         </div>
       </a>
 
       <nav class="nav-menu-wrapper" aria-label="Main Navigation">
         <ul class="nav-pill-list" id="nav-pill-list">
-          <li>
-            <a class="nav-link active" href="#hero">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              <span>Home</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#experience">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-              <span>Experience</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#projects">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-              <span>Projects</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#skills">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-              <span>Skills</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#education">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-              <span>Education</span>
-            </a>
-          </li>
-          <li>
-            <a class="nav-link" href="#contact">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-              <span>Contact</span>
-            </a>
-          </li>
+          <li><a class="nav-link active" href="#hero"><span>Home</span></a></li>
+          <li><a class="nav-link" href="#experience"><span>Experience</span></a></li>
+          <li><a class="nav-link" href="#projects"><span>Projects</span></a></li>
+          <li><a class="nav-link" href="#skills"><span>Skills</span></a></li>
+          <li><a class="nav-link" href="#education"><span>Education</span></a></li>
+          <li><a class="nav-link" href="#contact"><span>Contact</span></a></li>
         </ul>
       </nav>
 
       <div class="nav-actions-group">
-        <a class="btn-resume-glow" href="resume.pdf" download="Samiha-Vahora-Resume.pdf" title="Download Resume PDF">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a class="btn-nav-resume" href="resume.pdf" download="Samiha-Vahora-Resume.pdf" title="Download Resume PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -177,6 +58,9 @@
     </div>
   </header>
 
+  <!-- Ambient Backdrop Glow -->
+  <div class="aurora-ambient-bg" aria-hidden="true"></div>
+
   <!-- Main Content Layout -->
   <main class="page-container">
 
@@ -184,40 +68,34 @@
     <section class="hero-section" id="hero">
       <div class="hero-grid">
         
-        <!-- Left: Hero Headline & CTA -->
+        <!-- Left: Hero Headline & Narrative -->
         <div class="hero-copy-column">
           <div class="badge-status-pill">
-            <span class="status-indicator-dot"></span>
-            <span>Seeking New SDE Roles &amp; Full-Time Opportunities</span>
-            <span class="sparkle-icon">✦</span>
-          </div>
-
-          <div class="hero-intro-badge">
-            <span class="greeting-wave">👋</span>
-            <span class="hero-typing-prefix">Hello!</span>
-            <span class="hero-typing-text" id="typewriter-text">I'm Samiha Vahora</span>
-            <span class="typewriter-cursor">|</span>
+            <span class="status-indicator-dot" aria-hidden="true"></span>
+            <span>Available for Software Engineering Roles</span>
+            <span class="status-divider">•</span>
+            <span class="status-loc">Vadodara, India</span>
           </div>
 
           <h1 class="hero-title">
-            Crafting Scalable <span class="gradient-text-flow">Full-Stack</span> Systems &amp; <span class="gradient-text-accent">AI</span> Products.
+            Engineering scalable <span class="gradient-text-flow">full-stack</span> platforms, mobile apps &amp; <span class="gradient-text-accent">edge AI</span> systems.
           </h1>
 
           <p class="hero-subtitle">
-            Hi, I'm <strong class="name-bold">Samiha Vahora</strong> — a Final-Year Computer Science Engineer passionate about shipping production web &amp; mobile applications, real-time edge AI platforms, and continuous learning. Experienced at <strong class="text-highlight">BLUEBOXX DA</strong> and actively seeking exciting engineering opportunities.
+            I'm <strong class="text-dark">Samiha Vahora</strong> — a software engineer with production experience at <strong class="text-highlight">BLUEBOXX DA</strong> architecting enterprise web systems, building real-time on-device computer vision applications, and designing semantic AI search pipelines.
           </p>
 
           <div class="hero-cta-group">
             <a class="btn-primary-aurora" href="#projects">
-              <span>Explore Projects</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <span>View Selected Work</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <polyline points="19 12 12 19 5 12"></polyline>
               </svg>
             </a>
 
             <a class="btn-secondary-glass" href="resume.pdf" download="Samiha-Vahora-Resume.pdf">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
                 <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -226,137 +104,83 @@
             </a>
           </div>
 
-          <!-- Social Links & Quick Contact -->
+          <!-- Social Links & Quick Actions -->
           <div class="hero-social-row">
-            <a class="social-icon-btn" href="https://github.com/samihavahora05" target="_blank" rel="noopener" aria-label="GitHub Profile">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a class="social-chip-link" href="https://github.com/samihavahora05" target="_blank" rel="noopener" aria-label="GitHub Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
               </svg>
+              <span>GitHub</span>
             </a>
-            <a class="social-icon-btn" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a class="social-chip-link" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                 <rect x="2" y="9" width="4" height="12"></rect>
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
+              <span>LinkedIn</span>
             </a>
-            <button class="social-icon-btn copy-email-btn" id="copy-email-btn" aria-label="Copy Email" data-email="samihavahora71@gmail.com">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <button class="social-chip-link copy-email-btn" id="copy-email-btn" aria-label="Copy Email Address" data-email="samihavahora71@gmail.com">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
               </svg>
-              <span class="copy-tooltip">Click to Copy</span>
+              <span id="copy-email-label">samihavahora71@gmail.com</span>
             </button>
-            <div class="location-badge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>Vadodara, India</span>
-            </div>
-          </div>
-
-          <!-- Live Metrics Strip -->
-          <div class="hero-stats-deck">
-            <div class="hero-stat-card">
-              <div class="stat-number">7+</div>
-              <div class="stat-label">Production &amp; AI Builds</div>
-            </div>
-            <div class="hero-stat-card">
-              <div class="stat-number">8.43</div>
-              <div class="stat-label">B.Tech CGPA</div>
-            </div>
-            <div class="hero-stat-card">
-              <div class="stat-number">8×</div>
-              <div class="stat-label">Google Skill Badges</div>
-            </div>
           </div>
         </div>
 
-        <!-- Right: Interactive 3D Holographic Code Card -->
+        <!-- Right: Engineering Snapshot Card -->
         <div class="hero-visual-column">
-          <div class="tilt-card-wrapper" id="hero-code-card">
-            <div class="code-console-card">
-              <div class="console-top-bar">
-                <div class="traffic-lights">
-                  <span class="light red"></span>
-                  <span class="light yellow"></span>
-                  <span class="light green"></span>
+          <div class="engineering-snapshot-card">
+            <div class="snapshot-header">
+              <span class="snapshot-tag">ENGINEERING PROFILE</span>
+              <span class="snapshot-badge">Active</span>
+            </div>
+
+            <div class="snapshot-body">
+              <div class="snapshot-item">
+                <div class="snapshot-num">01</div>
+                <div class="snapshot-detail">
+                  <h4>Production Systems</h4>
+                  <p>Architected &amp; deployed enterprise HRMS (<a href="https://hrms.blueboxx.in" target="_blank" rel="noopener">hrms.blueboxx.in</a>) and web engine at BLUEBOXX DA.</p>
                 </div>
-                <!-- Interactive Tab Switcher -->
-                <div class="console-tabs-nav">
-                  <button class="console-tab active" data-tab="insurmatch">InsurMatch.ts</button>
-                  <button class="console-tab" data-tab="ai-scanner">YOLOv8Scanner.kt</button>
-                  <button class="console-tab" data-tab="hrms">HRMS_Service.php</button>
+              </div>
+
+              <div class="snapshot-item">
+                <div class="snapshot-num">02</div>
+                <div class="snapshot-detail">
+                  <h4>Core Engineering Stack</h4>
+                  <p>Next.js 15 (App Router), TypeScript, Laravel 11, PostgreSQL (pgvector), Kotlin &amp; Flutter.</p>
                 </div>
-                <div class="console-badge-lang">TypeScript</div>
               </div>
 
-              <!-- Tab 1: InsurMatch.ts -->
-              <div class="console-body active" id="tab-insurmatch">
-                <pre class="code-block"><code><span class="c-comment">// InsurMatch — AI Matchmaking with pgvector</span>
-<span class="c-keyword">import</span> { <span class="c-def">createClient</span> } <span class="c-keyword">from</span> <span class="c-str">'@supabase/supabase-js'</span>;
-<span class="c-keyword">import</span> { <span class="c-def">generateEmbedding</span> } <span class="c-keyword">from</span> <span class="c-str">'@/lib/ai'</span>;
-
-<span class="c-keyword">export async function</span> <span class="c-func">matchInsuranceAgents</span>(<span class="c-var">userQuery</span>: <span class="c-type">string</span>) {
-  <span class="c-keyword">const</span> <span class="c-var">queryVector</span> = <span class="c-keyword">await</span> <span class="c-func">generateEmbedding</span>(<span class="c-var">userQuery</span>);
-  
-  <span class="c-keyword">const</span> { <span class="c-var">data</span>: <span class="c-var">agents</span>, <span class="c-var">error</span> } = <span class="c-keyword">await</span> <span class="c-var">supabase</span>
-    .<span class="c-func">rpc</span>(<span class="c-str">'match_agent_profiles'</span>, {
-      <span class="c-prop">query_embedding</span>: <span class="c-var">queryVector</span>,
-      <span class="c-prop">similarity_threshold</span>: <span class="c-num">0.78</span>,
-      <span class="c-prop">match_count</span>: <span class="c-num">5</span>
-    });
-
-  <span class="c-keyword">return</span> <span class="c-var">agents</span> ?? <span class="c-func">fallbackKeywordMatch</span>(<span class="c-var">userQuery</span>);
-}</code></pre>
-              </div>
-
-              <!-- Tab 2: YOLOv8Scanner.kt -->
-              <div class="console-body" id="tab-ai-scanner">
-                <pre class="code-block"><code><span class="c-comment">// On-Device AI Product Scanner (Kotlin + TFLite)</span>
-<span class="c-keyword">class</span> <span class="c-def">YOLOv8Detector</span>(<span class="c-keyword">private val</span> <span class="c-var">context</span>: Context) {
-  <span class="c-keyword">private var</span> <span class="c-var">interpreter</span>: Interpreter? = <span class="c-keyword">null</span>
-
-  <span class="c-keyword">fun</span> <span class="c-func">detectFrame</span>(<span class="c-var">bitmap</span>: Bitmap): List&lt;Detection&gt; {
-    <span class="c-keyword">val</span> <span class="c-var">inputTensor</span> = ImageProcessor.process(<span class="c-var">bitmap</span>)
-    <span class="c-keyword">val</span> <span class="c-var">outputLocations</span> = Array(1) { Array(84) { FloatArray(8400) } }
-    
-    <span class="c-var">interpreter</span>?.<span class="c-func">run</span>(<span class="c-var">inputTensor</span>.buffer, <span class="c-var">outputLocations</span>)
-    <span class="c-keyword">return</span> <span class="c-func">nonMaxSuppression</span>(<span class="c-var">outputLocations</span>, threshold = <span class="c-num">0.65f</span>)
-  }
-}</code></pre>
-              </div>
-
-              <!-- Tab 3: HRMS_Service.php -->
-              <div class="console-body" id="tab-hrms">
-                <pre class="code-block"><code><span class="c-comment">// Production HR Management System (BLUEBOXX DA)</span>
-<span class="c-keyword">class</span> <span class="c-def">HRMSService</span> {
-  <span class="c-keyword">public function</span> <span class="c-func">dispatchOrgMetrics</span>(<span class="c-var">$adminId</span>) {
-    <span class="c-var">$metrics</span> = Cache::<span class="c-func">remember</span>(<span class="c-str">'org_kpi'</span>, <span class="c-num">3600</span>, <span class="c-keyword">function</span>() {
-      <span class="c-keyword">return</span> Department::<span class="c-func">with</span>([<span class="c-str">'employees'</span>, <span class="c-str">'tasks'</span>])
-        -&gt;<span class="c-func">where</span>(<span class="c-str">'status'</span>, <span class="c-str">'active'</span>)
-        -&gt;<span class="c-func">get</span>();
-    });
-    <span class="c-keyword">return</span> <span class="c-func">response</span>()-&gt;<span class="c-func">json</span>([<span class="c-str">'status'</span> =&gt; <span class="c-str">'ok'</span>, <span class="c-str">'data'</span> =&gt; <span class="c-var">$metrics</span>]);
-  }
-}</code></pre>
-              </div>
-
-              <div class="console-footer-status">
-                <div class="status-left">
-                  <span class="dot-green"></span>
-                  <span>Compiled &amp; Ready</span>
+              <div class="snapshot-item">
+                <div class="snapshot-num">03</div>
+                <div class="snapshot-detail">
+                  <h4>Edge AI &amp; Computer Vision</h4>
+                  <p>Sub-50ms on-device YOLOv8 &amp; TFLite inference with zero cloud latency.</p>
                 </div>
-                <div class="status-right">UTF-8</div>
+              </div>
+
+              <div class="snapshot-item">
+                <div class="snapshot-num">04</div>
+                <div class="snapshot-detail">
+                  <h4>Academic Standing</h4>
+                  <p>B.Tech CSE (8.43 CGPA) &amp; Diploma CE (8.32 CGPA, Distinction).</p>
+                </div>
               </div>
             </div>
 
-            <!-- Floating Micro Accent Badges -->
-            <div class="floating-accent-badge top-left-float">
-              <span class="badge-icon">⚡</span>
-              <span>pgvector Cosine Search</span>
-            </div>
-            <div class="floating-accent-badge bottom-right-float">
-              <span class="badge-icon">🤖</span>
-              <span>YOLOv8 Edge AI</span>
+            <div class="snapshot-footer">
+              <div class="tech-ticker-row">
+                <span class="ticker-pill">Next.js 15</span>
+                <span class="ticker-pill">Laravel 11</span>
+                <span class="ticker-pill">YOLOv8</span>
+                <span class="ticker-pill">pgvector</span>
+                <span class="ticker-pill">Kotlin</span>
+                <span class="ticker-pill">Flutter</span>
+              </div>
             </div>
           </div>
         </div>
@@ -364,7 +188,7 @@
       </div>
     </section>
 
-    <!-- ==================== EXPERIENCE SECTION (SPOTLIGHT) ==================== -->
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
     <section class="section-container" id="experience">
       <div class="section-header-modern">
         <div class="section-tag-pill">
@@ -373,9 +197,9 @@
           <span>WORK EXPERIENCE</span>
         </div>
         <h2 class="section-heading">
-          Industry <span class="gradient-text-flow">Experience</span> &amp; Impact
+          Production <span class="gradient-text-flow">Experience</span> &amp; Impact
         </h2>
-        <p class="section-subtext">Building, scaling, and maintaining production applications for enterprise users.</p>
+        <p class="section-subtext">Building, maintaining, and scaling production applications for enterprise operations.</p>
       </div>
 
       <div class="experience-card-featured">
@@ -385,18 +209,18 @@
               <span>BX</span>
             </div>
             <div class="company-text-meta">
-              <h3 class="exp-role-title">Full Stack Web Development Intern</h3>
+              <h3 class="exp-role-title">Software Engineer Intern</h3>
               <div class="company-name-location">
                 <span class="c-name">BLUEBOXX DA Pvt Ltd</span>
                 <span class="c-dot">•</span>
-                <span class="c-type">Internship</span>
+                <span class="c-type">Full Stack Development</span>
                 <span class="c-dot">•</span>
-                <span class="c-live-badge"><span class="pulse-emerald"></span>Production Active</span>
+                <span class="c-live-badge"><span class="pulse-emerald" aria-hidden="true"></span>Production Systems Active</span>
               </div>
             </div>
           </div>
           <div class="exp-period-pill">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
             <span>Current / Ongoing</span>
           </div>
         </div>
@@ -404,40 +228,41 @@
         <div class="exp-deliverables-grid">
           <div class="deliverable-item">
             <div class="item-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
             </div>
             <div class="item-content">
               <div class="item-title-row">
-                <h4>HR Management System (HRMS)</h4>
+                <h4>Enterprise HR Management System (HRMS)</h4>
                 <a class="badge-link" href="https://hrms.blueboxx.in" target="_blank" rel="noopener">hrms.blueboxx.in ↗</a>
               </div>
-              <p>Built the company's HRMS end-to-end as a fully working production app with 4 role-based dashboards (Admin, HR, Manager, Employee), org metrics, audit trail, leave/task workflows, and live push notifications.</p>
+              <p>Architected and deployed an enterprise HRMS powering internal operations with 4 distinct role-based portals (Admin, HR, Manager, Employee), automated attendance logging, multi-stage leave approvals, ATS candidate tracking, and real-time push notifications.</p>
             </div>
           </div>
 
           <div class="deliverable-item">
             <div class="item-icon-box">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
             </div>
             <div class="item-content">
               <div class="item-title-row">
-                <h4>Official Company Website</h4>
+                <h4>Official Company Web &amp; EdTech Platform</h4>
                 <a class="badge-link" href="https://blueboxx.in" target="_blank" rel="noopener">blueboxx.in ↗</a>
               </div>
-              <p>Independently developed BLUEBOXX DA's official web presence (<a href="https://blueboxx.in" target="_blank" rel="noopener" style="color:var(--primary-indigo); font-weight:600; text-decoration:underline;">blueboxx.in</a>) from scratch (both frontend UI &amp; backend services), continuously driving updates and performance optimizations as the primary maintainer.</p>
+              <p>Independently developed and maintain BLUEBOXX DA's primary web presence and course engine (<a href="https://blueboxx.in" target="_blank" rel="noopener" class="text-inline-link">blueboxx.in</a>). Built interactive course listings, 1:1 mentor booking workflows, and Razorpay payment webhook integration.</p>
             </div>
           </div>
         </div>
 
         <div class="exp-tech-stack-row">
-          <span class="label">Technologies Used:</span>
+          <span class="label">Technologies &amp; Architecture:</span>
           <div class="tech-pill-list">
-            <span class="tech-pill">React.js</span>
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">Express.js</span>
-            <span class="tech-pill">PHP / Laravel</span>
+            <span class="tech-pill">Next.js 15 (App Router)</span>
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">Laravel 11</span>
+            <span class="tech-pill">PHP 8.2</span>
             <span class="tech-pill">MySQL</span>
-            <span class="tech-pill">REST APIs</span>
+            <span class="tech-pill">RESTful APIs</span>
+            <span class="tech-pill">RBAC</span>
             <span class="tech-pill">Tailwind CSS</span>
           </div>
         </div>
@@ -450,470 +275,401 @@
         <div class="section-tag-pill">
           <span>02</span>
           <span class="divider">/</span>
-          <span>PORTFOLIO</span>
+          <span>SELECTED WORK</span>
         </div>
         <h2 class="section-heading">
-          Featured <span class="gradient-text-flow">Projects</span>
+          Featured <span class="gradient-text-flow">Engineering</span> Projects
         </h2>
-        <p class="section-subtext">Selected engineering projects spanning web systems, edge AI inference, and cross-platform apps.</p>
+        <p class="section-subtext">Verified production software, on-device AI computer vision pipelines, and full-stack platforms.</p>
       </div>
 
       <!-- Filter Controls -->
-      <div class="projects-filter-bar">
-        <button class="filter-tab-btn active" data-filter="all">All Projects (7)</button>
-        <button class="filter-tab-btn" data-filter="ai">AI / ML &amp; Computer Vision</button>
-        <button class="filter-tab-btn" data-filter="web">Full-Stack Web</button>
-        <button class="filter-tab-btn" data-filter="mobile">Mobile Apps</button>
+      <div class="projects-filter-bar" role="tablist" aria-label="Project Category Filters">
+        <button class="filter-tab-btn active" data-filter="all" role="tab" aria-selected="true">All Projects (7)</button>
+        <button class="filter-tab-btn" data-filter="web" role="tab" aria-selected="false">Full-Stack Web (4)</button>
+        <button class="filter-tab-btn" data-filter="ai" role="tab" aria-selected="false">Edge AI / ML (2)</button>
+        <button class="filter-tab-btn" data-filter="mobile" role="tab" aria-selected="false">Mobile Apps (3)</button>
       </div>
 
-      <div class="projects-grid" id="projects-container">
+      <div class="projects-showcase-layout" id="projects-container">
 
-        <!-- PROJECT 1: InsurMatch -->
-        <article class="project-glass-card" data-category="ai web">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-ai">
-                <span class="tag-spark">✦</span>
-                <span>AI MATCHMAKING</span>
+        <!-- FLAGSHIP SHOWCASE 1: Enterprise HRMS -->
+        <article class="project-showcase-card flagship-card" data-category="web">
+          <div class="card-grid-split">
+            <div class="showcase-info-pane">
+              <div class="card-meta-bar">
+                <span class="category-tag-pill tag-web">ENTERPRISE SYSTEM</span>
+                <span class="live-indicator-pill">Live in Production</span>
               </div>
-            </div>
 
-            <h3 class="project-title">InsurMatch — AI Insurance Agent Matchmaker</h3>
-            <p class="project-desc">
-              A modern full-stack platform matching clients with insurance advisors using <strong class="text-dark">pgvector cosine similarity</strong> over query embeddings. Features graceful fallback to client-side keyword matching, Supabase Auth with RLS, and Docker containerization.
-            </p>
+              <h3 class="showcase-title">Enterprise HR Management System (HRMS)</h3>
+              <p class="showcase-desc">
+                An enterprise-grade, role-aware HRMS built with <strong class="text-dark">Next.js 15 (App Router)</strong> and <strong class="text-dark">Laravel 11</strong> during my internship at BLUEBOXX DA. Manages full employee lifecycles across 4 distinct role dashboards with automated attendance, leave approval pipelines, and live notifications.
+              </p>
 
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Semantic vector search over multi-attribute agent profiles</span>
+              <div class="showcase-highlights">
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>4 distinct role dashboards (Admin, HR, Manager, Employee) with strict RBAC</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>Automated attendance tracking, leave pipelines &amp; real-time audit logs</span>
+                </div>
               </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Dual client/agent portals with consultation scheduling</span>
+
+              <div class="showcase-tech-tags">
+                <span class="tech-tag">Next.js 15</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Laravel 11</span>
+                <span class="tech-tag">PHP 8.2</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Tailwind CSS</span>
+                <span class="tech-tag">REST APIs</span>
               </div>
-            </div>
 
-            <div class="project-tech-badges">
-              <span class="badge-item">Next.js</span>
-              <span class="badge-item">TypeScript</span>
-              <span class="badge-item">PostgreSQL (pgvector)</span>
-              <span class="badge-item">Supabase Auth</span>
-              <span class="badge-item">Docker</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://github.com/samihavahora05/insurmatch" target="_blank" rel="noopener">
-                <span>View on GitHub</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 2: Object Detection Android App -->
-        <article class="project-glass-card" data-category="ai mobile">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-mobile">
-                <span class="tag-spark">⚡</span>
-                <span>ON-DEVICE AI</span>
-              </div>
-            </div>
-
-            <h3 class="project-title">Object Detection &amp; Food Scanner</h3>
-            <p class="project-desc">
-              Native Android app running <strong class="text-dark">YOLOv8 Nano</strong> on-device via TensorFlow Lite for instant computer vision inference without requiring an internet connection. Includes an AI product scanner reading packaged items and ingredient details.
-            </p>
-
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Sub-50ms live camera bounding box inference</span>
-              </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Jetpack Compose UI with model quantization pipeline</span>
-              </div>
-            </div>
-
-            <div class="project-tech-badges">
-              <span class="badge-item">Kotlin</span>
-              <span class="badge-item">YOLOv8 Nano</span>
-              <span class="badge-item">TensorFlow Lite</span>
-              <span class="badge-item">Jetpack Compose</span>
-              <span class="badge-item">CameraX</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://github.com/samihavahora05/ObjectDetection" target="_blank" rel="noopener">
-                <span>View on GitHub</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 3: MedTrip -->
-        <article class="project-glass-card" data-category="web">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-web">
-                <span class="tag-spark">🛒</span>
-                <span>E-COMMERCE</span>
-              </div>
-            </div>
-
-            <h3 class="project-title">MedTrip — Online Medicine Store</h3>
-            <p class="project-desc">
-              Full-featured online pharmacy platform with user authentication, prescription uploads, searchable medicine catalog, shopping cart, and Razorpay payment gateway integration for secure transaction processing.
-            </p>
-
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Automated inventory tracking and order status dashboard</span>
-              </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Razorpay webhooks &amp; invoice generation</span>
-              </div>
-            </div>
-
-            <div class="project-tech-badges">
-              <span class="badge-item">Laravel</span>
-              <span class="badge-item">PHP</span>
-              <span class="badge-item">MySQL</span>
-              <span class="badge-item">Razorpay API</span>
-              <span class="badge-item">Bootstrap</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://github.com/samihavahora05/medtrip" target="_blank" rel="noopener">
-                <span>View on GitHub</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 4: Aura Weather -->
-        <article class="project-glass-card" data-category="mobile">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-mobile">
-                <span class="tag-spark">🌤️</span>
-                <span>CROSS-PLATFORM</span>
-              </div>
-            </div>
-
-            <h3 class="project-title">Aura Weather Application</h3>
-            <p class="project-desc">
-              Cross-platform Flutter application providing real-time meteorological forecasts via Open-Meteo API, dynamic radar weather maps with Google Maps integration, and intelligent geocoding for cities worldwide.
-            </p>
-
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>GPS geolocation with 7-day hourly precipitation models</span>
-              </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Smooth animated weather condition illustrations &amp; dark mode</span>
-              </div>
-            </div>
-
-            <div class="project-tech-badges">
-              <span class="badge-item">Flutter</span>
-              <span class="badge-item">Dart</span>
-              <span class="badge-item">Google Maps API</span>
-              <span class="badge-item">Open-Meteo API</span>
-              <span class="badge-item">Bloc/Provider</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://github.com/samihavahora05/aura-weather" target="_blank" rel="noopener">
-                <span>View on GitHub</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 5: Expense Tracker -->
-        <article class="project-glass-card" data-category="mobile">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-web">
-                <span class="tag-spark">📊</span>
-                <span>PERSONAL FINANCE</span>
-              </div>
-            </div>
-
-            <h3 class="project-title">Smart Expense Tracker</h3>
-            <p class="project-desc">
-              Native Android application for tracking personal income and expenditure, offering rich visual analytics, categorical budgeting, and cloud sync backed by Firebase Realtime Database.
-            </p>
-
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Interactive monthly financial breakdown charts</span>
-              </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Offline caching with seamless Firebase synchronization</span>
-              </div>
-            </div>
-
-            <div class="project-tech-badges">
-              <span class="badge-item">Java</span>
-              <span class="badge-item">Android SDK</span>
-              <span class="badge-item">Firebase Realtime DB</span>
-              <span class="badge-item">MPAndroidChart</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://github.com/samihavahora05/ExpenseTracker" target="_blank" rel="noopener">
-                <span>View on GitHub</span>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 6: HR Management System -->
-        <article class="project-glass-card" data-category="web">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-web">
-                <span class="tag-spark">🏢</span>
-                <span>INTERNSHIP EXPERIENCE · BLUEBOXX DA</span>
-              </div>
-            </div>
-
-            <h3 class="project-title">Enterprise HR Management System (HRMS)</h3>
-            <p class="project-desc">
-              Developed and deployed during my Full Stack Web Development Internship at <strong class="text-highlight">BLUEBOXX DA Pvt Ltd</strong>. An enterprise-grade, role-aware HRMS built with <strong class="text-dark">Next.js 15 (App Router)</strong> and <strong class="text-dark">Laravel 11</strong>. Currently powering internal company operations with 4 distinct role dashboards (Admin, HR, Manager, Employee), real-time attendance, leave workflows, ATS pipeline, and live push notifications.
-            </p>
-
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Live production deployment at <a href="https://hrms.blueboxx.in" target="_blank" rel="noopener" style="color:var(--primary-indigo); font-weight:700; text-decoration:underline;">hrms.blueboxx.in</a></span>
-              </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Role-based RBAC with real-time audit logs &amp; approval workflows</span>
-              </div>
-            </div>
-
-            <div class="project-tech-badges">
-              <span class="badge-item">Next.js 15</span>
-              <span class="badge-item">TypeScript</span>
-              <span class="badge-item">Laravel 11</span>
-              <span class="badge-item">PHP 8.2</span>
-              <span class="badge-item">MySQL</span>
-              <span class="badge-item">Tailwind CSS</span>
-              <span class="badge-item">REST APIs</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://hrms.blueboxx.in" target="_blank" rel="noopener" style="font-weight: 800;">
-                <span>Live System (hrms.blueboxx.in) ↗</span>
-              </a>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <a class="btn-project-link" href="https://github.com/samihavahora05/Hr-Management-System" target="_blank" rel="noopener">
-                  <span>GitHub Repo</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+              <div class="showcase-actions">
+                <a class="btn-action-primary" href="https://hrms.blueboxx.in" target="_blank" rel="noopener">
+                  <span>Live System (hrms.blueboxx.in)</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
-                <a class="btn-project-link" href="https://github.com/samihavahora05/Hr-Management-System-Frontend" target="_blank" rel="noopener" style="font-size: 12px; opacity: 0.85;">
-                  <span>Frontend ↗</span>
-                </a>
-                <a class="btn-project-link" href="https://github.com/samihavahora05/Hr-Management-System-Backend" target="_blank" rel="noopener" style="font-size: 12px; opacity: 0.85;">
-                  <span>Backend ↗</span>
+                <a class="btn-action-secondary" href="https://github.com/samihavahora05/Hr-Management-System" target="_blank" rel="noopener">
+                  <span>GitHub Repository</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
         </article>
 
-        <!-- PROJECT 7: BLUEBOXX DA EdTech & Mentorship Platform -->
-        <article class="project-glass-card" data-category="web">
-          <div class="card-inner-flex">
-            <div class="card-top-meta">
-              <div class="category-tag-pill tag-web">
-                <span class="tag-spark">🚀</span>
-                <span>INTERNSHIP EXPERIENCE · BLUEBOXX DA</span>
+        <!-- FLAGSHIP SHOWCASE 2: InsurMatch -->
+        <article class="project-showcase-card flagship-card" data-category="ai web">
+          <div class="card-grid-split">
+            <div class="showcase-info-pane">
+              <div class="card-meta-bar">
+                <span class="category-tag-pill tag-ai">AI SEMANTIC MATCHING</span>
+                <span class="meta-note">Vector Embeddings</span>
               </div>
-            </div>
 
-            <h3 class="project-title">BLUEBOXX DA — Official EdTech &amp; Mentorship Platform</h3>
-            <p class="project-desc">
-              Engineered as the primary maintainer during my Full Stack Internship at <strong class="text-highlight">BLUEBOXX DA Pvt Ltd</strong> and deployed live at <strong class="text-dark">blueboxx.in</strong>. A state-of-the-art platform &amp; management engine built with <strong class="text-dark">Next.js, React, TypeScript, and Laravel 11</strong>. Powers interactive courses, 1:1 expert mentorship bookings, live virtual classes, internship tracking, and end-to-end Razorpay checkout.
-            </p>
+              <h3 class="showcase-title">InsurMatch — AI Insurance Agent Matchmaker</h3>
+              <p class="showcase-desc">
+                A full-stack advisory platform matching clients with insurance specialists using <strong class="text-dark">PostgreSQL pgvector cosine similarity</strong> over query embeddings. Features graceful fallback to keyword matching, Supabase Auth with Row Level Security (RLS), and containerized Docker services.
+              </p>
 
-            <div class="project-highlights">
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>Live production platform actively serving users at <a href="https://blueboxx.in" target="_blank" rel="noopener" style="color:var(--primary-indigo); font-weight:700; text-decoration:underline;">blueboxx.in</a></span>
+              <div class="showcase-highlights">
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>High-dimensional semantic vector search over multi-attribute agent profiles</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>Dual client/agent portals with consultation scheduling &amp; Supabase RLS</span>
+                </div>
               </div>
-              <div class="highlight-bullet">
-                <span class="bullet-dot"></span>
-                <span>1:1 Expert mentorship booking system &amp; Razorpay payment verification</span>
+
+              <div class="showcase-tech-tags">
+                <span class="tech-tag">Next.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">PostgreSQL (pgvector)</span>
+                <span class="tech-tag">Supabase Auth</span>
+                <span class="tech-tag">Docker</span>
               </div>
-            </div>
 
-            <div class="project-tech-badges">
-              <span class="badge-item">Next.js</span>
-              <span class="badge-item">React</span>
-              <span class="badge-item">TypeScript</span>
-              <span class="badge-item">Laravel 11</span>
-              <span class="badge-item">Tailwind CSS</span>
-              <span class="badge-item">Razorpay API</span>
-              <span class="badge-item">MySQL</span>
-              <span class="badge-item">REST APIs</span>
-            </div>
-
-            <div class="project-card-footer">
-              <a class="btn-project-link" href="https://blueboxx.in" target="_blank" rel="noopener" style="font-weight: 800;">
-                <span>Live Website (blueboxx.in) ↗</span>
-              </a>
-              <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <a class="btn-project-link" href="https://github.com/samihavahora05/Frontend_BB" target="_blank" rel="noopener">
-                  <span>Frontend Repo</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
-                <a class="btn-project-link" href="https://github.com/samihavahora05/Backend_BB" target="_blank" rel="noopener" style="font-size: 12px; opacity: 0.85;">
-                  <span>Backend Engine ↗</span>
+              <div class="showcase-actions">
+                <a class="btn-action-primary" href="https://github.com/samihavahora05/insurmatch" target="_blank" rel="noopener">
+                  <span>View on GitHub</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
                 </a>
               </div>
             </div>
           </div>
         </article>
+
+        <!-- FLAGSHIP SHOWCASE 3: Object Detection Android App -->
+        <article class="project-showcase-card flagship-card" data-category="ai mobile">
+          <div class="card-grid-split">
+            <div class="showcase-info-pane">
+              <div class="card-meta-bar">
+                <span class="category-tag-pill tag-mobile">ON-DEVICE EDGE AI</span>
+                <span class="meta-note">Zero-Latency Inference</span>
+              </div>
+
+              <h3 class="showcase-title">Object Detection &amp; Food Scanner</h3>
+              <p class="showcase-desc">
+                Native Android application running <strong class="text-dark">YOLOv8 Nano</strong> on-device via TensorFlow Lite for instant computer vision inference without requiring an internet connection. Includes an AI product scanner reading packaged items and ingredient details.
+              </p>
+
+              <div class="showcase-highlights">
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>Sub-50ms live camera bounding box inference running on-device</span>
+                </div>
+                <div class="highlight-item">
+                  <span class="h-bullet" aria-hidden="true">✦</span>
+                  <span>Modern Jetpack Compose UI with model quantization pipeline</span>
+                </div>
+              </div>
+
+              <div class="showcase-tech-tags">
+                <span class="tech-tag">Kotlin</span>
+                <span class="tech-tag">YOLOv8 Nano</span>
+                <span class="tech-tag">TensorFlow Lite</span>
+                <span class="tech-tag">Jetpack Compose</span>
+                <span class="tech-tag">CameraX</span>
+              </div>
+
+              <div class="showcase-actions">
+                <a class="btn-action-primary" href="https://github.com/samihavahora05/ObjectDetection" target="_blank" rel="noopener">
+                  <span>View on GitHub</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- SECONDARY PROJECTS GRID -->
+        <div class="secondary-projects-grid">
+
+          <!-- PROJECT 4: BLUEBOXX DA EdTech -->
+          <article class="project-compact-card" data-category="web">
+            <div class="card-inner-flex">
+              <div class="card-top-meta">
+                <span class="category-tag-pill tag-web">EDTECH &amp; PLATFORM</span>
+                <span class="live-indicator-dot" title="Live Website"></span>
+              </div>
+
+              <h3 class="project-title">BLUEBOXX DA — EdTech &amp; Mentorship Platform</h3>
+              <p class="project-desc">
+                Official company platform &amp; mentorship management engine deployed at <strong class="text-dark">blueboxx.in</strong>. Powers interactive courses, 1:1 expert mentorship bookings, live virtual classes, and Razorpay checkout.
+              </p>
+
+              <div class="project-tech-badges">
+                <span class="badge-item">Next.js</span>
+                <span class="badge-item">React</span>
+                <span class="badge-item">TypeScript</span>
+                <span class="badge-item">Laravel 11</span>
+                <span class="badge-item">Razorpay API</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a class="btn-project-link" href="https://blueboxx.in" target="_blank" rel="noopener">
+                  <span>Live Website (blueboxx.in) ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5: MedTrip -->
+          <article class="project-compact-card" data-category="web">
+            <div class="card-inner-flex">
+              <div class="card-top-meta">
+                <span class="category-tag-pill tag-web">E-COMMERCE</span>
+              </div>
+
+              <h3 class="project-title">MedTrip — Online Medicine Store</h3>
+              <p class="project-desc">
+                Full-featured online pharmacy platform with user authentication, prescription uploads, searchable medicine catalog, shopping cart, and Razorpay payment gateway integration.
+              </p>
+
+              <div class="project-tech-badges">
+                <span class="badge-item">Laravel</span>
+                <span class="badge-item">PHP</span>
+                <span class="badge-item">MySQL</span>
+                <span class="badge-item">Razorpay API</span>
+                <span class="badge-item">Bootstrap</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a class="btn-project-link" href="https://github.com/samihavahora05/medtrip" target="_blank" rel="noopener">
+                  <span>View on GitHub ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6: Aura Weather -->
+          <article class="project-compact-card" data-category="mobile">
+            <div class="card-inner-flex">
+              <div class="card-top-meta">
+                <span class="category-tag-pill tag-mobile">CROSS-PLATFORM</span>
+              </div>
+
+              <h3 class="project-title">Aura Weather Application</h3>
+              <p class="project-desc">
+                Cross-platform Flutter application providing real-time meteorological forecasts via Open-Meteo API, dynamic radar weather maps with Google Maps, and intelligent geocoding for cities worldwide.
+              </p>
+
+              <div class="project-tech-badges">
+                <span class="badge-item">Flutter</span>
+                <span class="badge-item">Dart</span>
+                <span class="badge-item">Google Maps API</span>
+                <span class="badge-item">Open-Meteo API</span>
+                <span class="badge-item">Bloc/Provider</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a class="btn-project-link" href="https://github.com/samihavahora05/aura-weather" target="_blank" rel="noopener">
+                  <span>View on GitHub ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 7: Expense Tracker -->
+          <article class="project-compact-card" data-category="mobile">
+            <div class="card-inner-flex">
+              <div class="card-top-meta">
+                <span class="category-tag-pill tag-mobile">ANDROID UTILITY</span>
+              </div>
+
+              <h3 class="project-title">Smart Expense Tracker</h3>
+              <p class="project-desc">
+                Native Android application for tracking personal income and expenditure, offering rich visual analytics, categorical budgeting, and cloud sync backed by Firebase Realtime Database.
+              </p>
+
+              <div class="project-tech-badges">
+                <span class="badge-item">Java</span>
+                <span class="badge-item">Android SDK</span>
+                <span class="badge-item">Firebase DB</span>
+                <span class="badge-item">MPAndroidChart</span>
+              </div>
+
+              <div class="project-card-footer">
+                <a class="btn-project-link" href="https://github.com/samihavahora05/ExpenseTracker" target="_blank" rel="noopener">
+                  <span>View on GitHub ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
 
       </div>
     </section>
 
-    <!-- ==================== SKILLS & TECHNOLOGY MATRIX ==================== -->
+    <!-- ==================== SKILLS SECTION ==================== -->
     <section class="section-container" id="skills">
       <div class="section-header-modern">
         <div class="section-tag-pill">
           <span>03</span>
           <span class="divider">/</span>
-          <span>CAPABILITIES</span>
+          <span>TOOLKIT</span>
         </div>
         <h2 class="section-heading">
-          Technical <span class="gradient-text-flow">Skillset</span> &amp; Tools
+          Technical <span class="gradient-text-flow">Capabilities</span> &amp; Stack
         </h2>
-        <p class="section-subtext">Proficiencies across modern web frameworks, backend microservices, mobile development, and machine learning.</p>
+        <p class="section-subtext">Demonstrated proficiency across production web development, native mobile engineering, and AI/ML.</p>
       </div>
 
-      <div class="skills-matrix-grid">
+      <div class="skills-editorial-grid">
         
-        <!-- Skill Group 1: Frontend Development -->
-        <div class="skill-category-card">
-          <div class="card-head-row">
-            <div class="skill-icon-gradient icon-blue">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <!-- Category 1: Frontend -->
+        <div class="skill-category-panel">
+          <div class="panel-header">
+            <div class="panel-icon-wrap icon-indigo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
             </div>
-            <div class="card-title-meta">
-              <h3>Frontend</h3>
-              <span>UI / UX &amp; Architecture</span>
-            </div>
-          </div>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill-tag">React.js</span>
-            <span class="skill-pill-tag">Next.js</span>
-            <span class="skill-pill-tag">TypeScript</span>
-            <span class="skill-pill-tag">JavaScript (ES6+)</span>
-            <span class="skill-pill-tag">HTML5 &amp; CSS3</span>
-            <span class="skill-pill-tag">Tailwind CSS</span>
-            <span class="skill-pill-tag">Bootstrap</span>
-            <span class="skill-pill-tag">Flutter (Dart)</span>
-          </div>
-        </div>
-
-        <!-- Skill Group 2: Backend & APIs -->
-        <div class="skill-category-card">
-          <div class="card-head-row">
-            <div class="skill-icon-gradient icon-violet">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
-            </div>
-            <div class="card-title-meta">
-              <h3>Backend</h3>
-              <span>Server &amp; RESTful APIs</span>
+            <div>
+              <h3 class="panel-title">Frontend Engineering</h3>
+              <span class="panel-subtitle">Modern Reactive Interfaces</span>
             </div>
           </div>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill-tag">Node.js</span>
-            <span class="skill-pill-tag">Express.js</span>
-            <span class="skill-pill-tag">PHP</span>
-            <span class="skill-pill-tag">Laravel</span>
-            <span class="skill-pill-tag">Supabase (Auth &amp; Edge)</span>
-            <span class="skill-pill-tag">REST APIs</span>
-            <span class="skill-pill-tag">Axios</span>
+          <div class="panel-tags-cloud">
+            <span class="skill-chip">React.js</span>
+            <span class="skill-chip">Next.js 15 (App Router)</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">JavaScript (ES6+)</span>
+            <span class="skill-chip">HTML5 &amp; CSS3</span>
+            <span class="skill-chip">Tailwind CSS</span>
+            <span class="skill-chip">Responsive Design</span>
           </div>
         </div>
 
-        <!-- Skill Group 3: Database & Storage -->
-        <div class="skill-category-card">
-          <div class="card-head-row">
-            <div class="skill-icon-gradient icon-emerald">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+        <!-- Category 2: Backend -->
+        <div class="skill-category-panel">
+          <div class="panel-header">
+            <div class="panel-icon-wrap icon-violet">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
             </div>
-            <div class="card-title-meta">
-              <h3>Database</h3>
-              <span>Relational &amp; Vector Stores</span>
-            </div>
-          </div>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill-tag">PostgreSQL (pgvector)</span>
-            <span class="skill-pill-tag">MySQL</span>
-            <span class="skill-pill-tag">SQLite</span>
-            <span class="skill-pill-tag">Firebase DB</span>
-          </div>
-        </div>
-
-        <!-- Skill Group 4: AI & Machine Learning -->
-        <div class="skill-category-card">
-          <div class="card-head-row">
-            <div class="skill-icon-gradient icon-rose">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><circle cx="12" cy="12" r="6"></circle></svg>
-            </div>
-            <div class="card-title-meta">
-              <h3>AI / ML</h3>
-              <span>Computer Vision &amp; Embeddings</span>
+            <div>
+              <h3 class="panel-title">Backend &amp; APIs</h3>
+              <span class="panel-subtitle">Enterprise Services &amp; Architecture</span>
             </div>
           </div>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill-tag">YOLOv8</span>
-            <span class="skill-pill-tag">TensorFlow Lite</span>
-            <span class="skill-pill-tag">Scikit-learn</span>
-            <span class="skill-pill-tag">TensorFlow</span>
-            <span class="skill-pill-tag">pgvector Semantic Search</span>
-            <span class="skill-pill-tag">AI Engineering</span>
+          <div class="panel-tags-cloud">
+            <span class="skill-chip">Laravel 11</span>
+            <span class="skill-chip">PHP 8.2</span>
+            <span class="skill-chip">RESTful APIs</span>
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Express.js</span>
+            <span class="skill-chip">Supabase (Auth &amp; RLS)</span>
+            <span class="skill-chip">RBAC Security</span>
           </div>
         </div>
 
-        <!-- Skill Group 5: Tools & Platforms -->
-        <div class="skill-category-card">
-          <div class="card-head-row">
-            <div class="skill-icon-gradient icon-cyan">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+        <!-- Category 3: Mobile -->
+        <div class="skill-category-panel">
+          <div class="panel-header">
+            <div class="panel-icon-wrap icon-emerald">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
             </div>
-            <div class="card-title-meta">
-              <h3>Tools &amp; Platforms</h3>
-              <span>DevOps &amp; Native Environments</span>
+            <div>
+              <h3 class="panel-title">Mobile Development</h3>
+              <span class="panel-subtitle">Native &amp; Cross-Platform</span>
             </div>
           </div>
-          <div class="skills-pill-cloud">
-            <span class="skill-pill-tag">Docker</span>
-            <span class="skill-pill-tag">Razorpay API</span>
-            <span class="skill-pill-tag">Jetpack Compose</span>
-            <span class="skill-pill-tag">Android Studio</span>
-            <span class="skill-pill-tag">Git &amp; GitHub</span>
-            <span class="skill-pill-tag">VS Code</span>
+          <div class="panel-tags-cloud">
+            <span class="skill-chip">Android SDK</span>
+            <span class="skill-chip">Kotlin</span>
+            <span class="skill-chip">Java</span>
+            <span class="skill-chip">Jetpack Compose</span>
+            <span class="skill-chip">Flutter</span>
+            <span class="skill-chip">Dart</span>
+            <span class="skill-chip">CameraX</span>
+          </div>
+        </div>
+
+        <!-- Category 4: AI & ML -->
+        <div class="skill-category-panel">
+          <div class="panel-header">
+            <div class="panel-icon-wrap icon-rose">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><circle cx="12" cy="12" r="6"></circle></svg>
+            </div>
+            <div>
+              <h3 class="panel-title">AI &amp; Computer Vision</h3>
+              <span class="panel-subtitle">Edge Inference &amp; Embeddings</span>
+            </div>
+          </div>
+          <div class="panel-tags-cloud">
+            <span class="skill-chip">YOLOv8 Nano</span>
+            <span class="skill-chip">TensorFlow Lite</span>
+            <span class="skill-chip">pgvector (Vector Embeddings)</span>
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Scikit-learn</span>
+            <span class="skill-chip">Edge Vision Pipelines</span>
+          </div>
+        </div>
+
+        <!-- Category 5: Databases & Tools -->
+        <div class="skill-category-panel">
+          <div class="panel-header">
+            <div class="panel-icon-wrap icon-cyan">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+            </div>
+            <div>
+              <h3 class="panel-title">Databases &amp; Tooling</h3>
+              <span class="panel-subtitle">Data Stores &amp; Infrastructure</span>
+            </div>
+          </div>
+          <div class="panel-tags-cloud">
+            <span class="skill-chip">PostgreSQL</span>
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">Firebase Realtime DB</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">Razorpay API</span>
+            <span class="skill-chip">Git &amp; GitHub</span>
+            <span class="skill-chip">Postman</span>
           </div>
         </div>
 
@@ -929,9 +685,9 @@
           <span>ACADEMICS</span>
         </div>
         <h2 class="section-heading">
-          Education &amp; <span class="gradient-text-flow">Credentials</span>
+          Education &amp; <span class="gradient-text-flow">Qualifications</span>
         </h2>
-        <p class="section-subtext">Formal engineering qualifications, verified industry badges, and competition honors.</p>
+        <p class="section-subtext">Formal engineering background, industry training, and technical honors.</p>
       </div>
 
       <div class="academics-grid">
@@ -954,21 +710,21 @@
             <p class="degree-institution">MSU Polytechnic, Vadodara</p>
             <div class="cgpa-pill">
               <span class="score">CGPA: 8.32</span>
-              <span class="rank-note">Distinction</span>
+              <span class="rank-note">Graduated with Distinction</span>
             </div>
           </div>
         </div>
 
-        <!-- Certifications & Achievements Column -->
+        <!-- Certifications & Honors Column -->
         <div class="credentials-card">
           <h3 class="credentials-heading">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
             <span>Certifications &amp; Achievements</span>
           </h3>
 
           <div class="credentials-list">
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
                 <strong>Advanced AI/ML &amp; Deep Learning, SAP Analytics Cloud &amp; ABAP on BTP</strong>
                 <p>Code Unnati, SAP &amp; Edunet Foundation (Credential ID: CU26_32276)</p>
@@ -976,7 +732,7 @@
             </div>
 
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
                 <strong>Jetpack Compose &amp; Kotlin for Modern Android Development</strong>
                 <p>Google Official Training</p>
@@ -984,15 +740,15 @@
             </div>
 
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
-                <strong>8× Google Skill Badges</strong>
+                <strong>8× Google Cloud Skill Badges</strong>
                 <p>Cloud Engineering, Architecture &amp; App Development Tracks</p>
               </div>
             </div>
 
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
                 <strong>Social Media Manager — GDG On Campus Vadodara</strong>
                 <p>Community Leadership &amp; Tech Event Outreach</p>
@@ -1000,18 +756,18 @@
             </div>
 
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
-                <strong>National Project — 'Innovation-2K25'</strong>
-                <p>PES College of Engineering National Competition (Oct 2025)</p>
+                <strong>National Project Competition — 'Innovation-2K25'</strong>
+                <p>PES College of Engineering National Competition</p>
               </div>
             </div>
 
             <div class="credential-item">
-              <div class="cred-icon-spark">✦</div>
+              <div class="cred-bullet">✦</div>
               <div class="cred-text">
                 <strong>AI Engineering Mastery</strong>
-                <p>Udemy Specialized Curriculum (In Progress)</p>
+                <p>Specialized Applied AI Curriculum (In Progress)</p>
               </div>
             </div>
           </div>
@@ -1029,9 +785,9 @@
           <span>GET IN TOUCH</span>
         </div>
         <h2 class="section-heading">
-          Let's Build Something <span class="gradient-text-flow">Extraordinary</span>
+          Let's Build Something <span class="gradient-text-flow">High-Impact</span>
         </h2>
-        <p class="section-subtext">Have an opportunity, project collaboration, or question? Feel free to reach out.</p>
+        <p class="section-subtext">Have an opportunity, project collaboration, or question? Send a note directly to my inbox.</p>
       </div>
 
       <div class="contact-card-grid">
@@ -1040,65 +796,65 @@
         <div class="contact-channels-card">
           <div class="channels-header">
             <h3>Contact Information</h3>
-            <p>I am open to full-time engineering roles, internships, and high-impact software projects.</p>
+            <p>I am actively exploring full-time Software Engineer, Full-Stack, and AI/ML roles.</p>
           </div>
 
           <div class="channels-list">
-            <!-- Email Item with Copy Trigger -->
+            <!-- Email -->
             <div class="channel-interactive-row" id="channel-email-row">
               <div class="channel-icon-gradient">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
               <div class="channel-detail">
                 <span class="label">Email Address</span>
                 <a class="val-link" href="mailto:samihavahora71@gmail.com">samihavahora71@gmail.com</a>
               </div>
               <button class="channel-copy-btn" id="btn-copy-channel" title="Copy Email Address">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
               </button>
             </div>
 
-            <!-- LinkedIn Item -->
+            <!-- LinkedIn -->
             <a class="channel-interactive-row" href="https://linkedin.com/in/samiha-vahora-9792a632a" target="_blank" rel="noopener">
               <div class="channel-icon-gradient">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </div>
               <div class="channel-detail">
-                <span class="label">LinkedIn Profile</span>
+                <span class="label">LinkedIn</span>
                 <span class="val-link">linkedin.com/in/samiha-vahora-9792a632a</span>
               </div>
-              <div class="channel-arrow">↗</div>
+              <div class="channel-arrow" aria-hidden="true">↗</div>
             </a>
 
-            <!-- GitHub Item -->
+            <!-- GitHub -->
             <a class="channel-interactive-row" href="https://github.com/samihavahora05" target="_blank" rel="noopener">
               <div class="channel-icon-gradient">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
               </div>
               <div class="channel-detail">
-                <span class="label">GitHub Repositories</span>
+                <span class="label">GitHub</span>
                 <span class="val-link">github.com/samihavahora05</span>
               </div>
-              <div class="channel-arrow">↗</div>
+              <div class="channel-arrow" aria-hidden="true">↗</div>
             </a>
 
             <!-- Location -->
             <div class="channel-interactive-row">
               <div class="channel-icon-gradient">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
               </div>
               <div class="channel-detail">
                 <span class="label">Location</span>
-                <span class="val-text">Vadodara, Gujarat, India (Open to Remote &amp; Relocation)</span>
+                <span class="val-text">Vadodara, Gujarat, India (Open to Relocation &amp; Remote)</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Right: Interactive Form -->
+        <!-- Right: Direct Message Form -->
         <div class="contact-form-card">
           <h3 class="form-title">Send a Direct Message</h3>
-          <p class="form-desc">Fill out the quick form below and I'll get back to you promptly.</p>
+          <p class="form-desc">Fill out the form below to deliver a message straight to my Gmail inbox.</p>
 
           <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" id="form-access-key" value="fd94e2ae-6c1c-4bf0-988d-1cc5e7ead11b" />
@@ -1107,30 +863,30 @@
 
             <div class="form-group-modern">
               <label for="form-name">Your Full Name</label>
-              <input type="text" id="form-name" name="name" placeholder="e.g. Alex Morgan" required />
+              <input type="text" id="form-name" name="name" placeholder="e.g. Sarah Jenkins" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-email">Email Address</label>
-              <input type="email" id="form-email" name="email" placeholder="e.g. alex@company.com" required />
+              <input type="email" id="form-email" name="email" placeholder="e.g. sarah@company.com" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-subject">Subject</label>
-              <input type="text" id="form-subject" name="subject" placeholder="Project collaboration / Internship Opportunity" required />
+              <input type="text" id="form-subject" name="subject" placeholder="e.g. Software Engineer Opportunity / Project Collaboration" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-message">Message</label>
-              <textarea id="form-message" name="message" rows="4" placeholder="Hello Samiha, I would love to connect about..." required></textarea>
+              <textarea id="form-message" name="message" rows="4" placeholder="Hello Samiha, I'd like to discuss..." required></textarea>
             </div>
 
             <button class="btn-submit-aurora" type="submit" id="btn-submit">
               <span>Send Message</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
             </button>
 
-            <div class="form-feedback-toast" id="form-toast"></div>
+            <div class="form-feedback-toast" id="form-toast" role="alert"></div>
           </form>
         </div>
 
@@ -1141,7 +897,7 @@
         <div class="footer-inner">
           <div class="footer-left">
             <div class="footer-avatar">SV</div>
-            <p>© 2026 Samiha Vahora. Crafted with Pure CSS &amp; Modern Craftsmanship.</p>
+            <p>© 2026 Samiha Vahora • Full-Stack &amp; AI Engineer</p>
           </div>
           <div class="footer-right-links">
             <a href="#hero">Back to Top ↑</a>
@@ -1155,12 +911,12 @@
   </main>
 
   <!-- Global Floating Toast Notification -->
-  <div class="global-toast-notification" id="global-toast">
-    <div class="toast-sparkle">✨</div>
-    <span class="toast-text" id="global-toast-text">Email copied to clipboard!</span>
+  <div class="global-toast-notification" id="global-toast" role="status">
+    <span class="toast-sparkle" aria-hidden="true">✓</span>
+    <span class="toast-text" id="global-toast-text">Copied to clipboard</span>
   </div>
 
   <!-- Main JavaScript Controller -->
-  <script src="js/main.js?v=13"></script>
+  <script src="js/main.js?v=20"></script>
 </body>
 </html>
