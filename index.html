@@ -1100,25 +1100,29 @@
           <h3 class="form-title">Send a Direct Message</h3>
           <p class="form-desc">Fill out the quick form below and I'll get back to you promptly.</p>
 
-          <form id="contact-form">
+          <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" id="form-access-key" value="YOUR_ACCESS_KEY_HERE" />
+            <input type="hidden" name="from_name" value="Portfolio Contact Form" />
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
             <div class="form-group-modern">
               <label for="form-name">Your Full Name</label>
-              <input type="text" id="form-name" placeholder="e.g. Alex Morgan" required />
+              <input type="text" id="form-name" name="name" placeholder="e.g. Alex Morgan" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-email">Email Address</label>
-              <input type="email" id="form-email" placeholder="e.g. alex@company.com" required />
+              <input type="email" id="form-email" name="email" placeholder="e.g. alex@company.com" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-subject">Subject</label>
-              <input type="text" id="form-subject" placeholder="Project collaboration / Internship Opportunity" required />
+              <input type="text" id="form-subject" name="subject" placeholder="Project collaboration / Internship Opportunity" required />
             </div>
 
             <div class="form-group-modern">
               <label for="form-message">Message</label>
-              <textarea id="form-message" rows="4" placeholder="Hello Samiha, I would love to connect about..." required></textarea>
+              <textarea id="form-message" name="message" rows="4" placeholder="Hello Samiha, I would love to connect about..." required></textarea>
             </div>
 
             <button class="btn-submit-aurora" type="submit" id="btn-submit">

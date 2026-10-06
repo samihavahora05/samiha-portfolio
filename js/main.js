@@ -172,7 +172,7 @@
   }
 
   /* ----------------------------------------------------
-     6. CONTACT FORM EMAIL DISPATCHER
+     6. CONTACT FORM ASYNC INBOX DISPATCHER
   ---------------------------------------------------- */
   function initContactForm() {
     const form = document.getElementById('contact-form');
@@ -181,52 +181,84 @@
 
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       
       const name = document.getElementById('form-name')?.value || '';
       const email = document.getElementById('form-email')?.value || '';
       const subject = document.getElementById('form-subject')?.value || 'Portfolio Contact';
       const message = document.getElementById('form-message')?.value || '';
+      const accessKey = document.getElementById('form-access-key')?.value || '';
 
-      const originalText = submitBtn.innerHTML;
+      const originalBtnHTML = submitBtn.innerHTML;
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span>Preparing Email...</span>';
+      submitBtn.innerHTML = '<span>Sending Message...</span>';
 
-      // Build complete formatted email body with all visitor info
-      const fullSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject}`);
-      const fullBody = encodeURIComponent(
-        `Hello Samiha,\n\n` +
-        `You received a new message from your portfolio website:\n\n` +
-        `----------------------------------------\n` +
-        `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Subject: ${subject}\n` +
-        `----------------------------------------\n\n` +
-        `Message:\n${message}\n\n` +
-        `----------------------------------------`
-      );
-
-      // Trigger direct mailto delivery to samihavahora71@gmail.com
-      const mailtoUrl = `mailto:samihavahora71@gmail.com?subject=${fullSubject}&body=${fullBody}`;
-      
-      setTimeout(() => {
-        window.location.href = mailtoUrl;
-
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
-        form.reset();
-
+      // Fallback helper for mailto
+      const triggerMailtoFallback = (noticeText) => {
+        const fullSubject = encodeURIComponent(`[Portfolio Inquiry] ${subject}`);
+        const fullBody = encodeURIComponent(
+          `Hello Samiha,\n\n` +
+          `Name: ${name}\n` +
+          `Email: ${email}\n` +
+          `Subject: ${subject}\n\n` +
+          `Message:\n${message}\n`
+        );
+        window.location.href = `mailto:samihavahora71@gmail.com?subject=${fullSubject}&body=${fullBody}`;
         if (formToast) {
-          formToast.textContent = `Opening your email client to send your message to samihavahora71@gmail.com!`;
+          formToast.textContent = noticeText || `Opening your email client to send your message to samihavahora71@gmail.com!`;
           formToast.className = 'form-feedback-toast success';
           formToast.style.display = 'block';
-
-          setTimeout(() => {
-            formToast.style.display = 'none';
-          }, 8000);
         }
-      }, 500);
+      };
+
+      // If access key is placeholder, trigger direct mailto fallback
+      if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+        setTimeout(() => {
+          triggerMailtoFallback(`Opening your email client to send your message to samihavahora71@gmail.com!`);
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+          form.reset();
+        }, 400);
+        return;
+      }
+
+      try {
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: json
+        });
+
+        const result = await response.json();
+
+        if (response.status === 200 && result.success) {
+          form.reset();
+          if (formToast) {
+            formToast.textContent = `✓ Thank you, ${name}! Your message has been sent directly to Samiha's inbox.`;
+            formToast.className = 'form-feedback-toast success';
+            formToast.style.display = 'block';
+            setTimeout(() => {
+              formToast.style.display = 'none';
+            }, 7000);
+          }
+        } else {
+          // If service returns an error, fallback to mailto
+          triggerMailtoFallback(`Notice: ${result.message || 'Connecting to email app...'}`);
+        }
+      } catch (err) {
+        triggerMailtoFallback(`Notice: Opening email client to send message...`);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHTML;
+      }
     });
   }
 
