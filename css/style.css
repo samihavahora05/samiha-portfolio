@@ -205,12 +205,14 @@ img, svg {
 .gradient-text-flow {
   background: var(--grad-aurora);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient-text-accent {
   background: var(--grad-rose-violet);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
