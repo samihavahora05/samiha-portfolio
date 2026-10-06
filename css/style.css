@@ -118,6 +118,13 @@ img, svg {
   outline-offset: 3px;
 }
 
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
 /* ==========================================================================
    Ambient Background Glow
    ========================================================================== */
@@ -1862,25 +1869,31 @@ img, svg {
     font-size: clamp(26px, 7vw, 36px);
   }
 
-  /* Justified text styling for clean mobile alignment */
+  /* Justified text styling across EVERY section in mobile view */
+  p,
   .hero-subtitle,
   .section-subtext,
-  .showcase-summary,
-  .showcase-bullets li,
-  .exp-intro-text,
+  .snapshot-detail p,
   .deliverable-item p,
+  .showcase-desc,
+  .showcase-summary,
+  .showcase-highlights .highlight-item span:not(.h-bullet),
+  .project-desc,
   .secondary-card-desc,
-  .secondary-bullets li,
   .academic-card p,
+  .academic-meta-line,
   .cert-item p,
-  .form-subtext,
+  .cert-detail p,
   .channel-desc,
+  .form-subtext,
+  .contact-intro,
+  .experience-card-featured p,
   .project-showcase-card p,
-  .experience-card-featured p {
-    text-align: justify;
-    text-justify: inter-word;
-    -webkit-hyphens: auto;
-    hyphens: auto;
+  .project-compact-card p {
+    text-align: justify !important;
+    text-justify: inter-word !important;
+    -webkit-hyphens: auto !important;
+    hyphens: auto !important;
   }
 
   .hero-cta-group {
