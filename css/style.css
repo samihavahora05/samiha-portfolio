@@ -2262,14 +2262,14 @@ ul {
 }
 
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES (FULL CROSS-DEVICE SUPPORT)
+   RESPONSIVE MEDIA QUERIES (ULTRA MOBILE-FRIENDLY DESIGN)
    ========================================================================== */
 
-/* Laptop & Medium Screens (<= 1100px) */
+/* Laptops & Tablets (<= 1100px) */
 @media (max-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   .hero-visual-column {
@@ -2288,39 +2288,43 @@ ul {
   }
 }
 
-/* Tablets & Small Laptops (<= 880px) */
+/* Tablets & Mobile Navigation (<= 880px) */
 @media (max-width: 880px) {
   .glass-navbar {
-    top: 12px;
-    padding: 0 14px;
+    top: 10px;
+    padding: 0 12px;
   }
 
   .nav-inner-container {
-    padding: 6px 14px;
+    padding: 6px 12px;
   }
 
   .mobile-nav-toggle {
     display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
   }
 
-  /* Responsive Mobile Navigation Drawer */
+  /* Full-width Touch-Friendly Mobile Drawer */
   .nav-pill-list {
     position: fixed;
-    top: 68px;
-    left: 14px;
-    right: 14px;
-    background: rgba(255, 255, 255, 0.96);
+    top: 66px;
+    left: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(226, 232, 240, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.95);
     border-radius: var(--radius-md);
-    box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(99, 102, 241, 0.08);
+    box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(99, 102, 241, 0.1);
     flex-direction: column;
     padding: 10px;
-    gap: 4px;
+    gap: 6px;
     opacity: 0;
     pointer-events: none;
-    transform: translateY(-10px) scale(0.98);
+    transform: translateY(-8px) scale(0.98);
     transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 999;
   }
@@ -2338,68 +2342,184 @@ ul {
   .nav-pill-list .nav-link {
     width: 100%;
     padding: 12px 16px;
-    font-size: 14px;
-    border-radius: 8px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   .nav-pill-list .nav-link svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+    color: var(--primary-indigo);
   }
 }
 
 /* Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
+  /* Intro Overlay on Mobile */
+  .intro-slides-viewport {
+    min-height: 440px;
+    padding: 20px 16px;
+  }
+
+  .slide-glow-eyebrow {
+    font-size: 11px;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+  }
+
+  .kinetic-hero-title {
+    font-size: clamp(32px, 8vw, 52px);
+    letter-spacing: -1.2px;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+
+  .kinetic-hero-subtitle {
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    padding: 0 8px;
+  }
+
+  .kinetic-tech-pills {
+    gap: 8px;
+  }
+
+  .kinetic-pill {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .kinetic-code-line {
+    font-size: 12px;
+    padding: 10px 16px;
+    max-width: 100%;
+    word-break: break-word;
+    border-radius: var(--radius-sm);
+  }
+
+  .intro-skip-btn-floating {
+    top: 14px;
+    right: 14px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  /* Page Spacing */
   .page-container {
-    padding-top: 85px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-top: 82px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 
   .section-container {
-    padding-top: 70px;
-    margin-bottom: 20px;
+    padding-top: 56px;
+    margin-bottom: 16px;
+  }
+
+  .section-header-modern {
+    margin-bottom: 28px;
   }
 
   .section-heading {
-    font-size: clamp(24px, 5vw, 34px);
+    font-size: clamp(24px, 5.5vw, 32px);
     letter-spacing: -0.5px;
   }
 
+  .section-subtext {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 16px 0 32px;
+  }
+
+  .badge-status-pill {
+    font-size: 11.5px;
+    padding: 6px 12px;
+    gap: 6px;
+    max-width: 100%;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .hero-intro-badge {
+    font-size: 13px;
+    padding: 6px 14px;
+    gap: 6px;
+  }
+
   .hero-title {
-    font-size: clamp(28px, 6.5vw, 42px);
+    font-size: clamp(28px, 7.5vw, 38px);
     letter-spacing: -0.8px;
-    line-height: 1.15;
+    line-height: 1.18;
+    margin-bottom: 14px;
   }
 
   .hero-subtitle {
-    font-size: clamp(14.5px, 2.2vw, 16px);
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .btn-primary-aurora,
+  .btn-secondary-glass {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .hero-social-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .location-badge {
+    width: 100%;
+    margin-top: 4px;
+    justify-content: center;
   }
 
   .hero-stats-deck {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
+    margin-top: 24px;
   }
 
   .hero-stat-card {
-    padding: 14px 10px;
+    padding: 12px 8px;
+    text-align: center;
   }
 
   .stat-number {
-    font-size: clamp(20px, 4vw, 26px);
+    font-size: clamp(18px, 4vw, 24px);
   }
 
   .stat-label {
-    font-size: 11px;
-    line-height: 1.3;
+    font-size: 10.5px;
+    line-height: 1.25;
   }
 
-  /* Keep holographic code card tabs interactive & fully visible on mobile */
+  /* Console & Code Window */
+  .code-console-card {
+    border-radius: var(--radius-md);
+  }
+
   .console-top-bar {
-    padding: 10px 14px;
+    padding: 10px 12px;
     gap: 8px;
   }
 
@@ -2409,7 +2529,7 @@ ul {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    max-width: calc(100vw - 150px);
+    max-width: calc(100vw - 120px);
   }
 
   .console-tabs-nav::-webkit-scrollbar {
@@ -2417,20 +2537,20 @@ ul {
   }
 
   .console-tab {
-    padding: 4px 10px;
+    padding: 5px 10px;
     font-size: 11px;
     white-space: nowrap;
     flex-shrink: 0;
   }
 
   .console-badge-lang {
-    font-size: 10px;
-    padding: 3px 8px;
     display: none;
   }
 
   pre.code-block {
-    font-size: 12px;
+    font-size: 11.5px;
+    padding: 14px 12px;
+    line-height: 1.5;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
@@ -2440,32 +2560,46 @@ ul {
     display: none;
   }
 
+  /* Experience Card */
+  .experience-card-featured {
+    padding: clamp(18px, 4vw, 24px);
+    border-radius: var(--radius-md);
+  }
+
   .exp-card-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .exp-deliverables-grid,
-  .projects-grid,
-  .skills-matrix-grid {
+  .company-branding-row {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .exp-period-badge {
+    align-self: flex-start;
+  }
+
+  .exp-deliverables-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
-  .experience-card-featured,
-  .project-glass-card,
-  .contact-channels-card,
-  .contact-form-card {
-    padding: clamp(18px, 4vw, 26px);
+  .deliverable-item {
+    padding: 14px;
   }
 
+  /* Projects Filter Bar — Smooth Horizontal Touch Swipe */
   .projects-filter-bar {
+    display: flex;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding-bottom: 6px;
+    padding: 4px 2px 10px;
+    gap: 8px;
   }
 
   .projects-filter-bar::-webkit-scrollbar {
@@ -2478,109 +2612,136 @@ ul {
     font-size: 12.5px;
     padding: 8px 16px;
   }
-}
 
-/* Small Smartphone Screens (<= 520px) */
-@media (max-width: 520px) {
-  .glass-navbar {
-    top: 8px;
-    padding: 0 8px;
+  /* Projects Grid */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .nav-inner-container {
-    padding: 5px 10px;
+  .project-glass-card {
+    padding: clamp(18px, 4vw, 24px);
+    border-radius: var(--radius-md);
   }
 
-  .brand-subtitle {
-    display: none;
+  .project-title {
+    font-size: 18px;
+    line-height: 1.3;
+    margin-bottom: 10px;
   }
 
-  .brand-title {
+  .project-desc {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .project-highlights {
+    gap: 8px;
+    margin: 12px 0 16px;
+  }
+
+  .highlight-bullet {
+    font-size: 12.5px;
+  }
+
+  .project-tech-badges {
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .badge-item {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .project-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .project-card-footer .btn-project-link,
+  .btn-project-link {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
     font-size: 13px;
   }
 
-  .btn-resume-glow {
-    padding: 6px 12px;
+  /* Skills Grid */
+  .skills-matrix-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skills-category-card {
+    padding: 18px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .skill-pill-refined {
     font-size: 12px;
-  }
-
-  .hero-title {
-    font-size: clamp(26px, 7.5vw, 34px);
-  }
-
-  .badge-status-pill {
-    font-size: 11.5px;
     padding: 5px 12px;
   }
 
-  .hero-social-row {
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .location-badge {
-    width: 100%;
-    margin-top: 4px;
-  }
-
-  .hero-cta-group {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn-primary-aurora,
-  .btn-secondary-glass {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .hero-stats-deck {
+  /* Academics & Credentials */
+  .academics-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 16px;
   }
 
-  .hero-stat-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 18px;
-    text-align: left;
+  .academic-degree-card,
+  .credentials-card-featured {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
   }
 
-  .stat-label {
-    text-align: right;
-  }
-
-  .company-logo-avatar {
-    width: 38px;
-    height: 38px;
-    font-size: 13px;
-  }
-
-  .exp-role-title {
-    font-size: 17px;
-  }
-
-  .deliverable-item {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .channel-interactive-row {
+  .academic-card-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-    padding: 14px 12px;
+  }
+
+  .credential-item {
+    gap: 12px;
+    padding: 10px 0;
+  }
+
+  /* Contact Section */
+  .contact-card-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-channels-card,
+  .contact-form-card {
+    padding: 20px 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .channel-interactive-row {
+    padding: 12px;
+    gap: 10px;
   }
 
   .channel-arrow {
     display: none;
   }
 
-  .channel-copy-btn {
-    align-self: flex-end;
+  /* Touch-friendly Form Inputs (Prevent iOS Auto-Zoom on Focus) */
+  .form-group-modern input,
+  .form-group-modern textarea {
+    font-size: 16px;
+    padding: 12px 14px;
   }
 
+  .btn-submit-aurora {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+
+  /* Footer */
   .footer-inner {
     flex-direction: column;
     text-align: center;
@@ -2597,6 +2758,82 @@ ul {
   .footer-right-links {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
+  }
+}
+
+/* Small Smartphone Screens (<= 480px) */
+@media (max-width: 480px) {
+  .glass-navbar {
+    top: 6px;
+    padding: 0 8px;
+  }
+
+  .nav-inner-container {
+    padding: 5px 10px;
+  }
+
+  .brand-subtitle {
+    display: none;
+  }
+
+  .brand-title {
+    font-size: 13.5px;
+  }
+
+  .btn-resume-glow {
+    padding: 5px 10px;
+    font-size: 11.5px;
+  }
+
+  .hero-title {
+    font-size: clamp(25px, 7.5vw, 32px);
+  }
+
+  .badge-status-pill {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .hero-stats-deck {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-stat-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    text-align: left;
+  }
+
+  .stat-label {
+    text-align: right;
+  }
+
+  .company-logo-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 12.5px;
+  }
+
+  .exp-role-title {
+    font-size: 16px;
+  }
+
+  .deliverable-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .channel-interactive-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .channel-copy-btn {
+    align-self: flex-end;
   }
 }
