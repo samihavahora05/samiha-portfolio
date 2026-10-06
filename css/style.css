@@ -1862,6 +1862,27 @@ img, svg {
     font-size: clamp(26px, 7vw, 36px);
   }
 
+  /* Justified text styling for clean mobile alignment */
+  .hero-subtitle,
+  .section-subtext,
+  .showcase-summary,
+  .showcase-bullets li,
+  .exp-intro-text,
+  .deliverable-item p,
+  .secondary-card-desc,
+  .secondary-bullets li,
+  .academic-card p,
+  .cert-item p,
+  .form-subtext,
+  .channel-desc,
+  .project-showcase-card p,
+  .experience-card-featured p {
+    text-align: justify;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
