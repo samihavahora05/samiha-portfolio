@@ -118,7 +118,29 @@ img, svg {
   outline-offset: 3px;
 }
 
-p {
+/* ==========================================================================
+   Universal Editorial Text Justification (Desktop, Tablet & Mobile)
+   ========================================================================== */
+p,
+.hero-subtitle,
+.section-subtext,
+.snapshot-detail p,
+.showcase-desc,
+.showcase-highlights .highlight-item span:not(.h-bullet),
+.project-desc,
+.deliverable-item p,
+.exp-role-desc,
+.academic-card p,
+.academic-meta-line,
+.cert-item p,
+.cert-detail p,
+.channel-desc,
+.form-subtext,
+.contact-intro,
+.contact-channels-card p,
+.project-showcase-card p,
+.project-compact-card p,
+.experience-card-featured p {
   text-align: justify;
   text-justify: inter-word;
   -webkit-hyphens: auto;
